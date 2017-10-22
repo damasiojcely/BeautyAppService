@@ -51,20 +51,20 @@ public class HoursEntity extends BaseEntity {
     public boolean create(Hours hours) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(id_hou, start_hou, end_hou, id_sty, id_serv, d_sal) VALUES('%s', '%s', '%s', '%s', '%s')",
-                getTableName(), hours.getId(), hours.getStart(), hours.getEnd(), hours.getStylist().getId(), hours.getService().getId(), hours.getSalon().getId()));
+                getTableName(), hours.getId(), hours.getStart(), hours.getEnd(), hours.getSylist().getId(), hours.getService().getId(), hours.getSalon().getId()));
     }
 
-    public boolean create(String id, String start, String end, Stylist stylist, Service service, Salon salon) {
-        return create(new Hours(id, start, end, stylist, service, salon));
+    public boolean create(String id, String start, String end, Sylist sylist, Service service, Salon salon) {
+        return create(new Hours(id, start, end, sylist, service, salon));
     }
 
-    public boolean update(String id, String start, String end, Stylist stylist, Service service, Salon salon) {
+    public boolean update(String id, String start, String end, Sylist sylist, Service service, Salon salon) {
         return executeUpdate(String.format(
                 "UPDATE %s SET start_hou = '%s', end_hou = '%s', id_sty = '%s', id_serv = '%s', id_sal = '%s' WHERE id_hou = '%s'", getTableName(), start, end, id, stylistEntity, servicesEntity, salonsEntity));
     }
 
     public boolean update(Hours hours) {
-        return update(hours.getId(), hours.getStart(), hours.getEnd(), hours.getStylist(), hours.getService(), hours.getSalon());
+        return update(hours.getId(), hours.getStart(), hours.getEnd(), hours.getSylist(), hours.getService(), hours.getSalon());
     }
 
     public boolean erase(String id) {
@@ -74,6 +74,6 @@ public class HoursEntity extends BaseEntity {
 
     public boolean erase(Hours hours) {
         return executeUpdate(String.format("DELETE FROM %s WHERE id_hou = '%s'",
-                getTableName(), hours.getId(), hours.getStylist(), hours.getService(), hours.getSalon()));
+                getTableName(), hours.getId(), hours.getSylist(), hours.getService(), hours.getSalon()));
     }
 }

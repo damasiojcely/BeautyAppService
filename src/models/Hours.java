@@ -7,18 +7,18 @@ public class Hours {
     String id;
     String start;
     String end;
-    Stylist stylist;
+    Sylist sylist;
     Service service;
     Salon salon;
 
     public Hours() {
     }
 
-    public Hours(String id, String start, String end, Stylist stylist, Service service, Salon salon) {
+    public Hours(String id, String start, String end, Sylist sylist, Service service, Salon salon) {
         this.id = id;
         this.start = start;
         this.end = end;
-        this.stylist = stylist;
+        this.sylist = sylist;
         this.service = service;
         this.salon = salon;
     }
@@ -50,12 +50,12 @@ public class Hours {
         return this;
     }
 
-    public Stylist getStylist() {
-        return stylist;
+    public Sylist getSylist() {
+        return sylist;
     }
 
-    public Hours setStylist(Stylist stylist) {
-        this.stylist = stylist;
+    public Hours setSylist(Sylist sylist) {
+        this.sylist = sylist;
         return this;
     }
 
@@ -77,13 +77,13 @@ public class Hours {
         return this;
     }
 
-    public static Hours from(ResultSet rs, Stylist stylist, Service service, Salon salon) {
+    public static Hours from(ResultSet rs, Sylist sylist, Service service, Salon salon) {
         Hours hours = new Hours();
         try {
             return hours.setId(rs.getString("id_hou"))
                     .setStart(rs.getString("start_hou"))
                     .setEnd(rs.getString("end_hou"))
-                    .setStylist(stylistEntity.findById(rs.getString("id_sty"))
+                    .setSylist(stylistEntity.findById(rs.getString("id_sty"))
                             .setService(servicesEntity.findById(rs.getString("id_serv")))
                             .setSalon(salonsEntity.findById(rs.getString("id_sal"))));
 
