@@ -1,6 +1,7 @@
 package models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 public class Owner {
     private String id;
     private String dni;
@@ -80,7 +81,7 @@ public class Owner {
         this.username = username;
     }
 
-    public static Owner from(ResultSet rs,LoginsEntity loginsEntity) {
+    public static Owner from(ResultSet rs, LoginsEntity loginsEntity) {
         Owner owner = new Owner();
         try {
             return owner.setId(rs.getString("id_own"))
