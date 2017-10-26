@@ -14,12 +14,12 @@ public class OwnersEntity extends BaseEntity {
     public OwnersEntity(Connection connection, String tableName) {
         super(connection, tableName);
     }
-    public Owner findById(String id, LoginsEntity loginsEntity) {
+    public Owner findById(String id, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE id_own= '%d'", id),loginsEntity).get(0);
+                String.format("WHERE id_own= '%d'", id), usersEntity).get(0);
     }
 
-    public List<Owner> findByCriteria(String criteria, LoginsEntity loginsEntity) {
+    public List<Owner> findByCriteria(String criteria, UsersEntity usersEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
@@ -28,7 +28,7 @@ public class OwnersEntity extends BaseEntity {
                                     .concat(criteria));
             List<Owner> owners= new ArrayList<>();
             while(rs.next())
-                owners.add(Owner.from(rs,loginsEntity));
+                owners.add(Owner.from(rs, usersEntity));
 
             return owners;
         } catch (SQLException e) {
@@ -37,30 +37,30 @@ public class OwnersEntity extends BaseEntity {
         return null;
 
     }
-    public Owner findByDni(String dni, LoginsEntity loginsEntity) {
+    public Owner findByDni(String dni, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE dni_own= '%s'", dni),loginsEntity).get(0);
+                String.format("WHERE dni_own= '%s'", dni), usersEntity).get(0);
     }
 
-    public Owner findByName(String name, LoginsEntity loginsEntity) {
+    public Owner findByName(String name, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE firstname_own= '%s'", name),loginsEntity).get(0);
+                String.format("WHERE firstname_own= '%s'", name), usersEntity).get(0);
     }
-    public Owner findByLast(String last, LoginsEntity loginsEntity) {
+    public Owner findByLast(String last, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE lastname_own= '%s'", last),loginsEntity).get(0);
+                String.format("WHERE lastname_own= '%s'", last), usersEntity).get(0);
     }
-    public Owner findByEmanil(String email, LoginsEntity loginsEntity) {
+    public Owner findByEmanil(String email, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE email_own= '%s'", email),loginsEntity).get(0);
+                String.format("WHERE email_own= '%s'", email), usersEntity).get(0);
     }
-    public Owner findByPhone(String phone, LoginsEntity loginsEntity) {
+    public Owner findByPhone(String phone, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE dni_own= '%s'", phone),loginsEntity).get(0);
+                String.format("WHERE dni_own= '%s'", phone), usersEntity).get(0);
     }
 
-    public List<Owner> findAll(LoginsEntity loginsEntity) {
-        return findByCriteria("", loginsEntity);
+    public List<Owner> findAll(UsersEntity usersEntity) {
+        return findByCriteria("", usersEntity);
     }
 
     public boolean create(Owner owner) {
@@ -68,14 +68,14 @@ public class OwnersEntity extends BaseEntity {
                 "INSERT INTO %s(id_own, dni_own,firstname_own,lastname_own, email_own, phone_own, username) VALUES( '%d', '%s', '%a', '%b', '%c','%d','%e')",
                 getTableName(),owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUsername()));
     }
-    public boolean create(String id, String dni,String name, String last,String email,String phone, Login login) {
-        return create(new Owner(id,dni,name,last,email,phone,login));
+    public boolean create(String id, String dni,String name, String last,String email,String phone, User user) {
+        return create(new Owner(id,dni,name,last,email,phone, user));
     }
 
-    public boolean update(String id, String dni,String name, String last,String email,String phone, Login login) {
+    public boolean update(String id, String dni,String name, String last,String email,String phone, User user) {
         return executeUpdate(String.format(
                 "UPDATE %s SET dni_own = '%s', firstname_own = '%d', lastname_own ='%a', email_own = '%b', phone_own= '%c', username= '%d' WHERE id_own = '%e'",
-                getTableName(),dni,name,last,email,phone,login,id));
+                getTableName(),dni,name,last,email,phone, user,id));
     }
 
     public boolean update(Owner owner) {

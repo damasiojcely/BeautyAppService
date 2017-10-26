@@ -6,68 +6,68 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginsEntity extends BaseEntity {
-    public LoginsEntity() {
+public class UsersEntity extends BaseEntity {
+    public UsersEntity() {
         super();
         setTableName("login");
     }
 
-    public LoginsEntity(Connection connection, String tableName) {
+    public UsersEntity(Connection connection, String tableName) {
         super(connection, tableName);
     }
 
-    public Login findById(String id) {
+    public User findById(String id) {
         return findByCriteria(
                 String.format("WHERE username = '%s'", id)).get(0);
     }
 
-    public List<Login> findByCriteria(String criteria) {
+    public List<User> findByCriteria(String criteria) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
                     .executeQuery(
                             getBaseStatement()
                             .concat(criteria));
-            List<Login> logins = new ArrayList<>();
+            List<User> users = new ArrayList<>();
             while (rs.next())
-                logins.add(Login.from(rs));
-            return logins;
+                users.add(User.from(rs));
+            return users;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public Login findByPassword(String password) {
+    public User findByPassword(String password) {
         return findByCriteria(
                 String.format("WHERE password = '%s'", password)).get(0);
     }
 
-    public List<Login> findAll() {return findByCriteria("");}
+    public List<User> findAll() {return findByCriteria("");}
 
-    public Login create(Login login) {
+    public User create(User user) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(username, password) VALUES('%s','%s')",
-                getTableName(), login.getUsername(), login.getPassword())) ?
-                login : null;
+                getTableName(), user.getUsername(), user.getPassword())) ?
+                user : null;
     }
 
-    public Login create(String username, String password) {return create(new Login(username, password));}
+    public User create(String username, String password) {return create(new User(username, password));}
 
     public boolean update(String username, String password) {
         return executeUpdate(String.format(
                 "UPDATE %s SET password = '%s' WHERE username = '%s'", getTableName(), username, password));
     }
 
-    public boolean update(Login login) { return update(login.getUsername(), login.getPassword());}
+    public boolean update(User user) { return update(user.getUsername(), user.getPassword());}
 
     public boolean erase(String username) {
         return executeUpdate(String.format("DELETE FROM %s WHERE username = '%s'",
                 getTableName(), username));
     }
 
-    public boolean erase(Login login) {
+    public boolean erase(User user) {
         return executeUpdate(String.format("DELETE FROM %s WHERE username = '%s'",
-                getTableName(), login.getUsername()));
+                getTableName(), user.getUsername()));
     }
 }
