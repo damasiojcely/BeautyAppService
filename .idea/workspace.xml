@@ -84,11 +84,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Salon.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Salon.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Salon.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SalonsEntity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/SalonsEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,6 +156,7 @@
         <option value="$PROJECT_DIR$/src/models/OwnersEntity.java" />
         <option value="$PROJECT_DIR$/src/models/Client.java" />
         <option value="$PROJECT_DIR$/src/models/Salon.java" />
+        <option value="$PROJECT_DIR$/src/models/SalonsEntity.java" />
       </list>
     </option>
   </component>
@@ -162,7 +173,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="511" />
     <option name="y" value="77" />
     <option name="width" value="1004" />
@@ -409,15 +420,15 @@
       <workItem from="1508636759757" duration="845000" />
       <workItem from="1508981818518" duration="810000" />
       <workItem from="1508984703225" duration="337000" />
-      <workItem from="1508985307612" duration="335000" />
+      <workItem from="1508985307612" duration="372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25525000" />
+    <option name="totallyTimeSpent" value="25562000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -463,14 +474,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/SylistsEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="67" column="1" lean-forward="false" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Owner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -894,6 +897,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/SalonsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
