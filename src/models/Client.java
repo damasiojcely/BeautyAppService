@@ -83,7 +83,7 @@ public class Client {
         return  this;
     }
 
-    public static  Client build(ResultSet resultSet){
+public static  Client build(ResultSet resultSet){
         try{
             return (new Client())
                     .setId(resultSet.getString("id_cli"))
@@ -96,9 +96,9 @@ public class Client {
 
 
         }catch (SQLException e) {
-            e .printStackTrace();
-        }
-        return  null;
+           e .printStackTrace();
     }
+        return  null;
+}
 
 }
