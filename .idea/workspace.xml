@@ -94,11 +94,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SalonsEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SalonsEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/SalonsEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sylist.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/Sylist.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -146,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/models/ReservationsEntity.java" />
         <option value="$PROJECT_DIR$/src/models/ClientEntity.java" />
         <option value="$PROJECT_DIR$/src/models/Stylist.java" />
-        <option value="$PROJECT_DIR$/src/models/Sylist.java" />
         <option value="$PROJECT_DIR$/src/models/SylistsEntity.java" />
         <option value="$PROJECT_DIR$/src/models/Owner.java" />
         <option value="$PROJECT_DIR$/src/models/LocationsEntity.java" />
@@ -157,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/models/Client.java" />
         <option value="$PROJECT_DIR$/src/models/Salon.java" />
         <option value="$PROJECT_DIR$/src/models/SalonsEntity.java" />
+        <option value="$PROJECT_DIR$/src/models/Sylist.java" />
       </list>
     </option>
   </component>
@@ -420,12 +430,12 @@
       <workItem from="1508636759757" duration="845000" />
       <workItem from="1508981818518" duration="810000" />
       <workItem from="1508984703225" duration="337000" />
-      <workItem from="1508985307612" duration="372000" />
+      <workItem from="1508985307612" duration="413000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25562000" />
+    <option name="totallyTimeSpent" value="25603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -830,14 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Sylist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/SylistsEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
@@ -905,6 +907,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Sylist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding />
         </state>
       </provider>
