@@ -13,56 +13,62 @@ public class Service {
     }
 
     public Service(String id, String name, int price, String description, int discount) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.discount = discount;
+        this.setId(id);
+        this.setName(name);
+        this.setPrice(price);
+        this.setDescription(description);
+        this.setDiscount(discount);
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public Service setId(String id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Service setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public Service setPrice(int price) {
         this.price = price;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Service setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public int getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public Service setDiscount(int discount) {
         this.discount = discount;
+        return this;
     }
-    public static Service from(ResultSet rs) {
-        Service service = new Service();
+    public static Service build (ResultSet rs) {
+
         try {
-            return service.setId(rs.getString("id_serv"))
+            return (new Service())
+                    .setId(rs.getString("id_serv"))
                     .setName(rs.getString("name_serv"))
                     .setPrice(rs.getInt("price_serv"))
                     .setDescripcion(rs.getString("description_serv"))

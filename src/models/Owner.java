@@ -9,19 +9,19 @@ public class Owner {
     private String last;
     private String email;
     private String phone;
-    private Login username;
+    private String username;
 
     public Owner() {
     }
 
-    public Owner(String id, String dni, String name, String last, String email, String phone, Login username) {
-        this.id = id;
-        this.dni = dni;
-        this.name = name;
-        this.last = last;
-        this.email = email;
-        this.phone = phone;
-        this.username = username;
+    public Owner(String id, String dni, String name, String last, String email, String phone, String username) {
+        this.setId(id);
+        this.setDni(dni);
+        this.setName(name);
+        this.setLast(last);
+        this.setEmail(email);
+        this.setPhone(phone);
+        this.setUsername(username);
     }
 
 
@@ -29,68 +29,76 @@ public class Owner {
         return id;
     }
 
-    public void setId(String id) {
+    public Owner setId(String id) {
         this.id = id;
+        return this;
     }
 
     public String getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public Owner setDni(String dni) {
         this.dni = dni;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Owner setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getLast() {
         return last;
     }
 
-    public void setLast(String last) {
+    public Owner setLast(String last) {
         this.last = last;
+        return  this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Owner setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public Owner setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
-    public Login getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(Login username) {
+    public Owner setUsername(String username) {
         this.username = username;
+        return this;
     }
 
-    public static Owner from(ResultSet rs, LoginsEntity loginsEntity) {
-        Owner owner = new Owner();
+    public static Owner build (ResultSet rs) {
+
         try {
-            return owner.setId(rs.getString("id_own"))
+            return (new Owner())
+                    .setId(rs.getString("id_own"))
                     .setDni(rs.getString("dni_own"))
                     .setName(rs.getString("firstname_own"))
                     .setLast(rs.getString("lastname_own"))
                     .setEmail(rs.getString("email_own"))
-                    .setPhone(rs.getString("phone_own"));
-                    .setUsername(loginsEntity.findByUsername(rs.getUsername("username")));
+                    .setPhone(rs.getString("phone_own"))
+                    .setUsername(rs.getString("username"));
 
 
         } catch (SQLException e) {

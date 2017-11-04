@@ -13,11 +13,11 @@ public class Location {
     }
 
     public Location(String id, String departament, String province, String district, String address) {
-        this.id = id;
-        this.departament = departament;
-        this.province = province;
-        this.district = district;
-        this.address = address;
+        this.setId(id);
+        this.setDepartament(departament);
+        this.setProvince(province);
+        this.setDistrict(district);
+        this.setAddress(address);
     }
 
 
@@ -25,45 +25,51 @@ public class Location {
         return id;
     }
 
-    public void setId(String id) {
+    public Location setId(String id) {
         this.id = id;
+        return this;
     }
 
     public String getDepartament() {
         return departament;
     }
 
-    public void setDepartament(String depart) {
+    public Location setDepartament(String depart) {
         this.departament = depart;
+        return this;
     }
 
     public String getProvince() {
         return province;
     }
 
-    public void setProvince(String province) {
+    public Location setProvince(String province) {
         this.province = province;
+        return this;
     }
 
     public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
+    public Location setDistrict(String district) {
         this.district = district;
+        return this;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public Location setAddress(String address) {
         this.address = address;
+        return this;
     }
-    public static Location from(ResultSet rs) {
-        Location location = new Location();
+    public static Location build (ResultSet rs) {
+
         try {
-            return location.setId(rs.getString("id_loc"))
+            return (new Location())
+                    .setId(rs.getString("id_loc"))
                     .setDepartament(rs.getString("departament_loc"))
                     .setProvince(rs.getString("province_loc"))
                     .setDistrict(rs.getString("district_loc"))
