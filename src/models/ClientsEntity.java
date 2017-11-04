@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.sql.SQLException;
 
-public class ClientEntity  extends BaseEntity{
+public class ClientsEntity extends BaseEntity{
 
-    public ClientEntity(Connection connection){super (connection,"client"); }
-    public ClientEntity(){super(); }
+    public ClientsEntity(Connection connection){super (connection,"client"); }
+    public ClientsEntity(){super(); }
     List<Client> findAll() {return findByCriteria(""); }
 
-     public Client findById(int id){
+     public Client findById(String id){
         String criteria="id_cli="+
                 String.valueOf(id);
         return findByCriteria (criteria).get(0);

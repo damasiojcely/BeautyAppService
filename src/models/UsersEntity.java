@@ -9,7 +9,7 @@ import java.util.List;
 public class UsersEntity extends BaseEntity {
     public UsersEntity() {
         super();
-        setTableName("login");
+        setTableName("user");
     }
 
     public UsersEntity(Connection connection, String tableName) {
@@ -18,7 +18,7 @@ public class UsersEntity extends BaseEntity {
 
     public User findById(String id) {
         return findByCriteria(
-                String.format("WHERE username = '%s'", id)).get(0);
+                String.format("WHERE id = '%s'", id)).get(0);
     }
 
     public List<User> findByCriteria(String criteria) {
@@ -27,7 +27,7 @@ public class UsersEntity extends BaseEntity {
                     .createStatement()
                     .executeQuery(
                             getBaseStatement()
-                            .concat(criteria));
+                                    .concat(criteria));
             List<User> users = new ArrayList<>();
             while (rs.next())
                 users.add(User.from(rs));
@@ -38,36 +38,37 @@ public class UsersEntity extends BaseEntity {
         return null;
     }
 
-    public User findByPassword(String password) {
+    public User findByUsername(String username) {
         return findByCriteria(
-                String.format("WHERE password = '%s'", password)).get(0);
+                String.format("WHERE username = '%s'", username)).get(0);
     }
 
     public List<User> findAll() {return findByCriteria("");}
 
     public User create(User user) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(username, password) VALUES('%s','%s')",
-                getTableName(), user.getUsername(), user.getPassword())) ?
+                "INSERT INTO %s(id, username, password) VALUES('%s', '%s', '%s')",
+                getTableName(), user.getId(), user.getUsername(), user.getPassword())) ?
                 user : null;
     }
 
-    public User create(String username, String password) {return create(new User(username, password));}
+    public User create(String id, String username, String password) {return create(new User(id, username, password));}
 
-    public boolean update(String username, String password) {
+    public boolean update(String id, String username, String password) {
         return executeUpdate(String.format(
-                "UPDATE %s SET password = '%s' WHERE username = '%s'", getTableName(), username, password));
+                "UPDATE %s SET username = '%s', SET password = '%s' WHERE id = '%s'",
+                getTableName(), username, password, id));
     }
 
-    public boolean update(User user) { return update(user.getUsername(), user.getPassword());}
+    public boolean update(User user) { return update(user.getId(), user.getUsername(), user.getPassword());}
 
-    public boolean erase(String username) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE username = '%s'",
-                getTableName(), username));
+    public boolean erase(String id) {
+        return executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'",
+                getTableName(), id));
     }
 
     public boolean erase(User user) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE username = '%s'",
-                getTableName(), user.getUsername()));
+        return executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'",
+                getTableName(), user.getId()));
     }
 }

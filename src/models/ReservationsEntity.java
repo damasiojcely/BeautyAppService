@@ -16,12 +16,12 @@ public class ReservationsEntity extends BaseEntity {
         super(connection, tableName);
     }
 
-    public Reservation findById(String id, ClientsEntity clientsEntity, HoursEntity hoursEntity) {
+    public Reservation findById(String id, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
         return findByCriteria(
-                String.format("WHERE id_res = '%s'", id), clientsEntity, hoursEntity).get(0);
+                String.format("WHERE id = '%s'", id), clientsEntity, schedulesEntity).get(0);
     }
 
-    public List<Reservation> findByCriteria(String criteria, ClientsEntity clientsEntity, HoursEntity hoursEntity) {
+    public List<Reservation> findByCriteria(String criteria, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
@@ -30,7 +30,7 @@ public class ReservationsEntity extends BaseEntity {
                                     .concat(criteria));
             List<Reservation> reservations = new ArrayList<>();
             while(rs.next())
-                reservations.add(Reservation.from(rs, ClientsEntity clientsEntity, HoursEntity hoursEntity));
+                reservations.add(Reservation.from(rs, clientsEntity, schedulesEntity));
 
             return reservations;
         } catch (SQLException e) {
@@ -40,41 +40,65 @@ public class ReservationsEntity extends BaseEntity {
 
     }
 
-    public Reservation findByStart(String start, StylistEntity stylistEntity, ServicesEntity servicesEntity, SalonsEntity salonsEntity) {
+    public Reservation findByStartAt(String startat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
         return findByCriteria(
-                String.format("WHERE start_hou = '%s'", start), stylistEntity, servicesEntity, salonsEntity).get(0);
+                String.format("WHERE start_at = '%s'", startat), clientsEntity, schedulesEntity).get(0);
     }
 
-    public List<Reservation> findAll(ClientsEntity clientsEntity, HoursEntity hoursEntity) {
-        return findByCriteria("", clientsEntity, hoursEntity);
+    public Reservation findByEndAt(String endat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+        return findByCriteria(
+                String.format("WHERE end_at = '%s'", endat), clientsEntity, schedulesEntity).get(0);
+    }
+
+    public Reservation findReservedAt(String reservedat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+        return findByCriteria(
+                String.format("WHERE reservedat = '%s'", reservedat), clientsEntity, schedulesEntity).get(0);
+    }
+
+    public Reservation findRequestedFor(String requestedfor, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+        return findByCriteria(
+                String.format("WHERE requestedfor = '%s'", requestedfor), clientsEntity, schedulesEntity).get(0);
+    }
+
+    public List<Reservation> findAll(ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+        return findByCriteria("", clientsEntity, schedulesEntity);
     }
 
     public boolean create(Reservation reservation) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(id_res, datereservation, daterequested, price_res, start_res, end_res, id_cli, id_hou) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-                getTableName(), reservation.getId(), reservation.getDatereservation(), reservation.getDaterequested(), reservation.getPrice(), reservation.getStart(), reservation.getEnd(), reservation.getClient().getId(), reservation.getHours().getId()));
+                "INSERT INTO %s(id, reservedat, requestedfor, price, start_at, end_at, clientid, scheduleid) " +
+                        "VALUES('%s', '%s', '%s', %d, '%s', '%s', '%s', '%s')",
+                getTableName(), reservation.getId(), reservation.getReservedat(), reservation.getRequestedfor(),
+                reservation.getPrice(), reservation.getStartat(), reservation.getEndat(),
+                reservation.getClient().getId(), reservation.getSchedule().getId()));
     }
 
-    public boolean create(String id, String datereservation, String daterequested, String price, String start, String end, Client client, Hours hours) {
-        return create(new Hours(id, datereservation, daterequested, start, end, client, hours));
+    public boolean create(String id, String reservedat, String requestedfor, float price, String startat, String endat,
+                          Client client, Schedule schedule) {
+        return create(new Reservation(id, reservedat, requestedfor, price, startat, endat, client, schedule));
     }
 
-    public boolean update(String id, String datereservation, String daterequested, String price, String start, String end, Client client, Hours hours) {
+    public boolean update(String id, String reservedat, String requestedfor, float price, String startat, String endat,
+                          Client client, Schedule schedule) {
         return executeUpdate(String.format(
-                "UPDATE %s SET datereservation = '%s', daterequested = '%s', price_res = '%s', start_res = '%s', end_res = '%s', id_cli = '%s', id_hou = '%s' WHERE id_res = '%s'", getTableName(), datereservation, daterequested, price, start, end, id, client, hours));
+                "UPDATE %s SET reservedat = '%s', requestedfor = '%s', price = '%s', start_at = '%s', end_at = '%s', " +
+                        "clientid = '%s', scheduleid = '%s' WHERE id = '%s'", getTableName(), reservedat, requestedfor,
+                price, startat, endat, client, schedule, id));
     }
 
     public boolean update(Reservation reservation) {
-        return update(reservation.getId(), reservation.getDatereservation(), reservation.getDaterequested(), reservation.getPrice(), reservation.getStart(), reservation.getEnd(), reservation.getClient(), reservation.getHours());
+        return update(reservation.getId(), reservation.getReservedat(), reservation.getRequestedfor(),
+                reservation.getPrice(), reservation.getStartat(), reservation.getEndat(), reservation.getClient(),
+                reservation.getSchedule());
     }
 
     public boolean erase(String id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id_res = '%s'",
+        return executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'",
                 getTableName(), id));
     }
 
     public boolean erase(Reservation reservation) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id_res = '%s'",
-                getTableName(), reservation.getId(), reservation.getDatereservation(), reservation.getDaterequested(), reservation.getPrice(), reservation.getStart(), reservation.getEnd(), reservation.getClient(), reservation.getHours()));
+        return executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'",
+                getTableName(), reservation.getId(), reservation.getClient(), reservation.getSchedule()));
     }
 }

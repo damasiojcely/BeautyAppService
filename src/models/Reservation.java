@@ -1,35 +1,34 @@
 package models;
 
 
-import com.sun.deploy.util.SessionState;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Reservation {
-    String id;
-    String datereservation;
-    String daterequested;
-    String price;
-    String Start;
-    String End;
-    Client client;
-    Hours hours;
+    private String id;
+    private String reservedat;
+    private String requestedfor;
+    private float price;
+    private String startat;
+    private String endat;
+    private Client client;
+    private Schedule schedule;
 
+    public Reservation(String id, String reservedat, String requestedfor,
+                       float price, String startat, String endat, Client client, Schedule schedule) {
+        this.id = id;
+        this.reservedat = reservedat;
+        this.requestedfor = requestedfor;
+        this.price = price;
+        this.startat = startat;
+        this.endat = endat;
+        this.client = client;
+        this.schedule = schedule;
+    }
 
     public Reservation() {
     }
 
-    public Reservation(String id, String datereservation, String daterequested, String price, String start, String end, Client client, Hours hours) {
-        this.id = id;
-        this.datereservation = datereservation;
-        this.daterequested = daterequested;
-        this.price = price;
-        this.Start = start;
-        this.End = end;
-        this.client = client;
-        this.hours = hours;
-    }
 
     public String getId() {
         return id;
@@ -40,48 +39,48 @@ public class Reservation {
         return this;
     }
 
-    public String getDatereservation() {
-        return datereservation;
+    public String getReservedat() {
+        return reservedat;
     }
 
-    public Reservation setDatereservation(String datereservation) {
-        this.datereservation = datereservation;
+    public Reservation setReservedat(String reservedat) {
+        this.reservedat = reservedat;
         return this;
     }
 
-    public String getDaterequested() {
-        return daterequested;
+    public String getRequestedfor() {
+        return requestedfor;
     }
 
-    public Reservation setDaterequested(String daterequested) {
-        this.daterequested = daterequested;
+    public Reservation setRequestedfor(String requestedfor) {
+        this.requestedfor = requestedfor;
         return this;
     }
 
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public Reservation setPrice(String price) {
+    public Reservation setPrice(float price) {
         this.price = price;
         return this;
     }
 
-    public String getStart() {
-        return Start;
+    public String getStartat() {
+        return startat;
     }
 
-    public Reservation setStart(String start) {
-        this.Start = start;
+    public Reservation setStartat(String startat) {
+        this.startat = startat;
         return this;
     }
 
-    public String getEnd() {
-        return End;
+    public String getEndat() {
+        return endat;
     }
 
-    public Reservation setEnd(String end) {
-        this.End = end;
+    public Reservation setEndat(String endat) {
+        this.endat = endat;
         return this;
     }
 
@@ -94,26 +93,26 @@ public class Reservation {
         return this;
     }
 
-    public Hours getHours() {
-        return hours;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public Reservation setHours(Hours hours) {
-        this.hours = hours;
+    public Reservation setSchedule(Schedule schedule) {
+        this.schedule = schedule;
         return this;
     }
 
-    public static Reservation from(ResultSet rs, Client client, Hours hours) {
+    public static Reservation from(ResultSet rs, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
         Reservation reservation = new Reservation();
         try {
-            return reservation.setId(rs.getString("id_res"))
-                    .setDatereservation(rs.getString("datereservation"))
-                    .setDaterequested(rs.getString("daterequested"))
-                    .setPrice(rs.getString("price_res"))
-                    .setStart(rs.getString("start_res"))
-                    .setEnd(rs.getString("end_res"))
-                    .setClient(clientsEntity.findById(rs.getString("id_cli"))
-                    .setHours(hoursEntity.findById(rs.getString("id_hou"))));
+            return reservation.setId(rs.getString("id"))
+                    .setReservedat(rs.getString("reservedat"))
+                    .setRequestedfor(rs.getString("requestedfor"))
+                    .setPrice(rs.getFloat("price"))
+                    .setStartat(rs.getString("start_at"))
+                    .setEndat(rs.getString("end_at"))
+                    .setClient(clientsEntity.findById(rs.getString("clientid")))
+                    .setSchedule(schedulesEntity.findById(rs.getString("scheduleid")));
 
         } catch (SQLException e) {
             e.printStackTrace();

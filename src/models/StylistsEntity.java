@@ -6,51 +6,51 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SylistsEntity extends  BaseEntity {
+public class StylistsEntity extends  BaseEntity {
 
-    public SylistsEntity(Connection connection){
+    public StylistsEntity(Connection connection){
         super(connection,"stylist");
     }
 
-    public SylistsEntity(){super();
+    public StylistsEntity(){super();
     }
-    List<Sylist> findAll() {
+    List<Stylist> findAll() {
         return findByCriteria("");
     }
-    public  Sylist findById(int id ){
+    public Stylist findById(String id ){
         String criteria ="id_sty="+
                 String.valueOf(id);
         return findByCriteria(criteria).get(0);
     }
-    public Sylist findByName(String name){
+    public Stylist findByName(String name){
         String criteria="firstname_sty = '" +
                 name + " '";
         return findByCriteria(criteria).get(0);
     }
-    public List<Sylist> findByName(){
+    public List<Stylist> findByName(){
         String criteria="true ORDER BY firstname_sty";
         return findByCriteria(criteria);
     }
 
-    public List<Sylist>findByCriteria(String criteria){
+    public List<Stylist>findByCriteria(String criteria){
         String sql=
                 //getDefaultQuery() +
                 criteria ==" " ? "" : "WHERE "  + criteria;
 
-        List<Sylist> sylists =new ArrayList<>();
+        List<Stylist> stylists =new ArrayList<>();
         try{
             ResultSet resultSet =getConnection()
                     .createStatement()
                     .executeQuery(sql);
             if(resultSet ==null)return null;
             while(resultSet.next()){
-                sylists.add((new Sylist())
+                stylists.add((new Stylist())
                         .setId(resultSet.getString("id_sty"))
                         .setFirstName(resultSet.getString("firstname_sty"))
                         .setLastName(resultSet.getString("lastname_sty")));
 
             }
-          return sylists;
+          return stylists;
 
 
         }

@@ -31,7 +31,7 @@ public class SalonsEntity extends  BaseEntity {
         return findByCriteria("",ownersEntity,ubigeosEntity);
 
     }
-    public Salon findById(int id,OwnersEntity ownersEntity,UbigeosEntity ubigeosEntity){
+    public Salon findById(String id,OwnersEntity ownersEntity,UbigeosEntity ubigeosEntity){
         try{
             String sql="id="+String.valueOf(id);
             return findByCriteria(sql , ownersEntity,ubigeosEntity).get(0);
