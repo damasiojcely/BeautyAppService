@@ -1,4 +1,4 @@
-package models;
+package pe.com.ctaf.beautyapp.models;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +29,7 @@ public class ServicesEntity extends BaseEntity {
                                     .concat(criteria));
             List<Service> services = new ArrayList<>();
             while(rs.next())
-                services.add(Service.from(rs));
+                services.add(Service.build(rs));
 
             return services;
         } catch (SQLException e) {
@@ -62,21 +62,21 @@ public class ServicesEntity extends BaseEntity {
 
     public boolean create(Service service) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(id_serv, name_serv,price_serv,description_serv,discount_serv) VALUES( '%d', '%s', %a, '%b', %c)",
-                getTableName(),service.getId(), service.getName(),service.getPrice(), service.getDescription(),service.getDiscount()));
+                "INSERT INTO %s(id_serv, name_serv,price_serv,description_serv) VALUES( '%d', '%s', %a, '%b')",
+                getTableName(),service.getId(), service.getName(),service.getPrice(), service.getDescription()));
     }
-    public boolean create(String id, String name,int price, String description,int discount) {
-        return create(new Service(id, name, price,description,discount));
+    public boolean create(String id, String name,float price, String description) {
+        return create(new Service(id, name, price,description));
     }
 
-    public boolean update(String id, String name, int price, String description,int discount) {
+    public boolean update(String id, String name, float price, String description) {
         return executeUpdate(String.format(
-                "UPDATE %s SET name_serv = '%s', price_serv = '%d', description_serv = '%a',discount_serv = %b WHERE id_serv = '%s'",
-                  getTableName(), name,price,description,discount,id));
+                "UPDATE %s SET name_serv = '%s', price_serv = '%d', description_serv = '%a' WHERE id_serv = '%s'",
+                  getTableName(), name,price,description,id));
     }
 
     public boolean update(Service service) {
-        return update(service.getId(),service.getName(),service.getPrice(),service.getDescription(),service.getDiscount());
+        return update(service.getId(),service.getName(),service.getPrice(),service.getDescription());
     }
 
     public boolean erase(String id) {

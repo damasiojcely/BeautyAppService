@@ -1,4 +1,4 @@
-package models;
+package pe.com.ctaf.beautyapp.models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

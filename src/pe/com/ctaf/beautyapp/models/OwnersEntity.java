@@ -1,4 +1,4 @@
-package models;
+package pe.com.ctaf.beautyapp.models;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OwnersEntity extends BaseEntity {
-    public OwnersEntity() {
+    public OwnersEntity(Connection connection) {
         super();
         setTableName("owner");
     }
@@ -28,7 +28,7 @@ public class OwnersEntity extends BaseEntity {
                                     .concat(criteria));
             List<Owner> owners= new ArrayList<>();
             while(rs.next())
-                owners.add(Owner.from(rs, usersEntity));
+                owners.add(Owner.build(rs, usersEntity));
 
             return owners;
         } catch (SQLException e) {
@@ -66,7 +66,7 @@ public class OwnersEntity extends BaseEntity {
     public boolean create(Owner owner) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(id_own, dni_own,firstname_own,lastname_own, email_own, phone_own, username) VALUES( '%d', '%s', '%a', '%b', '%c','%d','%e')",
-                getTableName(),owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUsername()));
+                getTableName(),owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUser().getUsername()));
     }
     public boolean create(String id, String dni,String name, String last,String email,String phone, User user) {
         return create(new Owner(id,dni,name,last,email,phone, user));
@@ -79,7 +79,7 @@ public class OwnersEntity extends BaseEntity {
     }
 
     public boolean update(Owner owner) {
-        return update(owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUsername());
+        return update(owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUser());
     }
 
     public boolean erase(String id) {

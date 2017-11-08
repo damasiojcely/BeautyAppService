@@ -1,4 +1,4 @@
-package models;
+package pe.com.ctaf.beautyapp.models;
 
 import org.glassfish.internal.api.Public;
 

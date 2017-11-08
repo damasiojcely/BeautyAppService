@@ -1,4 +1,4 @@
-package models;
+package pe.com.ctaf.beautyapp.models;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +29,7 @@ public class LocationsEntity extends BaseEntity {
                                     .concat(criteria));
             List<Location> locations = new ArrayList<>();
             while(rs.next())
-                locations.add(Location.from(rs));
+                locations.add(Location.build(rs));
 
             return locations;
         } catch (SQLException e) {

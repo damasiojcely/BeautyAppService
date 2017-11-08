@@ -1,4 +1,4 @@
-package models;
+package pe.com.ctaf.beautyapp.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -13,17 +13,19 @@ public class Location {
     }
 
     public Location(String id, String departament, String province, String district, String address) {
-        this.setId(id);
-        this.setDepartament(departament);
-        this.setProvince(province);
-        this.setDistrict(district);
-        this.setAddress(address);
+        this.id=id;
+        this.departament=departament;
+        this.province=province;
+        this.district=district;
+        this.address=address;
     }
 
 
     public String getId() {
         return id;
     }
+
+    public String getIdAsValue() { return "'" + getId() + "'";}
 
     public Location setId(String id) {
         this.id = id;
@@ -34,14 +36,18 @@ public class Location {
         return departament;
     }
 
-    public Location setDepartament(String depart) {
-        this.departament = depart;
+    public String getDepartamentAsValue() { return "'" + getDepartament() + "'";}
+
+    public Location setDepartament(String departament) {
+        this.departament = departament;
         return this;
     }
 
     public String getProvince() {
         return province;
     }
+
+    public String getProvinceAsValue() { return "'" + getProvince() + "'";}
 
     public Location setProvince(String province) {
         this.province = province;
@@ -52,6 +58,8 @@ public class Location {
         return district;
     }
 
+    public String getDistrictAsValue() { return "'" + getDistrict() + "'";}
+
     public Location setDistrict(String district) {
         this.district = district;
         return this;
@@ -60,6 +68,8 @@ public class Location {
     public String getAddress() {
         return address;
     }
+
+    public String getAddressAsValue() { return "'" + getAddress() + "'";}
 
     public Location setAddress(String address) {
         this.address = address;

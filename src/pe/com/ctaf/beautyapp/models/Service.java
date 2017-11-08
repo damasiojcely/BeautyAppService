@@ -1,28 +1,30 @@
-package models;
+package pe.com.ctaf.beautyapp.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Service {
     private String id;
     private String name;
-    private int price;
+    private float price;
     private String description;
-    private int discount;
+
 
     public Service() {
     }
 
-    public Service(String id, String name, int price, String description, int discount) {
-        this.setId(id);
-        this.setName(name);
-        this.setPrice(price);
-        this.setDescription(description);
-        this.setDiscount(discount);
+    public Service (String id, String name, float price, String description) {
+        this.id= id;
+        this.name=name;
+        this.price=price;
+        this.description=description;
+
     }
 
     public String getId() {
         return id;
     }
+
+
 
     public Service setId(String id) {
         this.id = id;
@@ -33,16 +35,22 @@ public class Service {
         return name;
     }
 
+    public String getNameAsValue() { return "'" + getName() + "'";}
+
     public Service setName(String name) {
         this.name = name;
         return this;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public Service setPrice(int price) {
+    public String getPriceAsString() {
+        return String.valueOf(getPrice());
+    }
+
+    public Service setPrice(float price) {
         this.price = price;
         return this;
     }
@@ -51,28 +59,22 @@ public class Service {
         return description;
     }
 
+    public String getDescriptionAsValue() { return "'" + getDescription() + "'";}
+
     public Service setDescription(String description) {
         this.description = description;
         return this;
     }
 
-    public int getDiscount() {
-        return discount;
-    }
-
-    public Service setDiscount(int discount) {
-        this.discount = discount;
-        return this;
-    }
     public static Service build (ResultSet rs) {
 
         try {
             return (new Service())
                     .setId(rs.getString("id_serv"))
                     .setName(rs.getString("name_serv"))
-                    .setPrice(rs.getInt("price_serv"))
-                    .setDescripcion(rs.getString("description_serv"))
-                    .setDiscount(rs.getInt("discount_serv"));
+                    .setPrice(rs.getFloat("price_serv"))
+                    .setDescripcion(rs.getString("description"));
+
 
 
         } catch (SQLException e) {
@@ -80,4 +82,6 @@ public class Service {
         }
         return null;
     }
+
+
 }
