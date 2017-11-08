@@ -1,18 +1,18 @@
 package pe.com.ctaf.beautyapp.controllers;
 import pe.com.ctaf.beautyapp.models.BeautyappService;
-import pe.com.ctaf.beautyapp.models.Service;
+import pe.com.ctaf.beautyapp.models.Owner;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-@javax.servlet.annotation.WebServlet(name = "ServicesController",urlPatterns = "/services")
-public class ServicesController extends javax.servlet.http.HttpServlet{
+@javax.servlet.annotation.WebServlet(name = "OwnersController",urlPatterns = "/owners")
+public class OwnersController extends javax.servlet.http.HttpServlet {
     BeautyappService service;
     String url;
-    public ServicesController(){
+    public OwnersController(){
         super();
-        service = new BeautyappService();
+        service=new BeautyappService();
         url="";
     }
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException{
@@ -27,24 +27,24 @@ public class ServicesController extends javax.servlet.http.HttpServlet{
         if(method.equals("GET")) {
             // Index Action
             if(action.equals("index")) {
-                List<Service> services = service.findAllServices();
-                request.setAttribute("services", services);
-                url = "listServices.jsp";
+                List<Owner> owners = service.findAllOwners();
+                request.setAttribute("owners", owners);
+                url = "listOwners.jsp";
             }
             if(action.equals("show")) {
                 String id = request.getParameter("id");
-                Service service1 = service.findAllServiceById(id);
-                request.setAttribute("service", service1);
-                url = "showService.jsp";
+                Owner owner = service.findOwnerById(id);
+                request.setAttribute("owner", owner);
+                url = "showOwner.jsp";
             }
             if(action.equals("new")) {
-                url = "newService.jsp";
+                url = "newOwner.jsp";
             }
             if(action.equals("edit")) {
                 String id = request.getParameter("id");
-                Service service1 = service.findServiceById(id);
-                request.setAttribute("service", service1);
-                url = "editService.jsp";
+                Owner owner = service.findOwnerById(id);
+                request.setAttribute("owner", owner);
+                url = "editOwner.jsp";
             }
         }
 
@@ -52,18 +52,18 @@ public class ServicesController extends javax.servlet.http.HttpServlet{
             // Create Action
             if(action.equals("create")) {
                 String name = request.getParameter("name");
-                Service service1 = service.createService(name);
-                List<Service> services = service.findAllServices();
-                request.setAttribute("services", services);
-                url = "listServices.jsp";
+                Owner owner = service.createOwner(name);
+                List<Owner> owners = service.findAllOwners();
+                request.setAttribute("owners", owners);
+                url = "listOwners.jsp";
             }
             if(action.equals("update")) {
                 String id = request.getParameter("id");
                 String name = request.getParameter("name");
-                boolean isUpdated = service.updateService(id, name);
-                List<Service> services = service.findAllServices();
-                request.setAttribute("services", services);
-                url = "listServices.jsp";
+                boolean isUpdated = service.updateOwner(id, name);
+                List<Owner> owners = service.findAllOwners();
+                request.setAttribute("owners", owners);
+                url = "listOwners.jsp";
             }
         }
 
