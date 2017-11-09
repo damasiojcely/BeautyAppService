@@ -38,11 +38,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Salon.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Salon.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Salon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="87" column="75" lean-forward="false" selection-start-line="87" selection-start-column="75" selection-end-line="87" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SalonsEntity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SalonsEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationsEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/LocationsEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OwnersEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/OwnersEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -107,6 +137,7 @@
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/StylistsEntity.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Salon.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SalonsEntity.java" />
       </list>
     </option>
   </component>
@@ -399,15 +430,16 @@
       <workItem from="1509818791921" duration="1135000" />
       <workItem from="1510119539267" duration="3226000" />
       <workItem from="1510167577667" duration="5632000" />
-      <workItem from="1510191745726" duration="387000" />
+      <workItem from="1510191745726" duration="586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40109000" />
+    <option name="totallyTimeSpent" value="40308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -423,7 +455,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1651671" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1651671" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5434322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -485,16 +517,12 @@
     <entry file="file://$PROJECT_DIR$/src/models/LoginsEntity.java" />
     <entry file="file://$PROJECT_DIR$/src/Service.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/UsersEntity.java" />
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SalonsEntity.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SchedulesEntity.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Schedule.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/User.java" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/abcec957-391e-43aa-8795-fd80724137e5/console.sql" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ReservationsEntity.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Reservation.java" />
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/LocationsEntity.java" />
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Location.java" />
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/OwnersEntity.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Owner.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/zfvdgv.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappDataStore.java" />
@@ -537,7 +565,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/LocationsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/OwnersEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Salon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="87" column="75" lean-forward="false" selection-start-line="87" selection-start-column="75" selection-end-line="87" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SalonsEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
