@@ -50,7 +50,7 @@ public class StylistsEntity extends BaseEntity {
         return findByCriteria(
                 String.format("WHERE last_name= '%s'", lastName), usersEntity).get(0);
     }
-    public Stylist findByEmanil(String email, UsersEntity usersEntity) {
+    public Stylist findByEmail(String email, UsersEntity usersEntity) {
         return findByCriteria(
                 String.format("WHERE email= '%s'", email), usersEntity).get(0);
     }

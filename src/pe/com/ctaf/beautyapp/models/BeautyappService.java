@@ -8,22 +8,24 @@ import java.util.List;
 
 public class BeautyappService {
     private Connection connection;
-    private BeautyappDataStore dataStore;
+    private BeautyDataStore dataStore;
 
-    public BeautyappService {
+    public BeautyappService(){
         try {
-            InitialContext context= new InitialContext();
-            dataStore = new BeautyappDataStore();
-            connection = ((DataSource)context
-                           .lookup("jdbc/MySQLDataSource"))
-                           .getConnection();
+            InitialContext context = new InitialContext();
+            dataStore = new BeautyDataStore();
+            connection = ((DataSource) context
+                    .lookup("jdbc/MySQLDataSource"))
+                    .getConnection();
             dataStore.setConnection(connection);
-        }catch (NamingException e){
+        } catch (NamingException e) {
             e.printStackTrace();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+
 
     public Connection getConnection(){
         return connection;
@@ -31,10 +33,10 @@ public class BeautyappService {
     public void setConnection(Connection connection){
         this.connection=connection;
     }
-    public BeautyappDataStore getDataStore(){
+    public BeautyDataStore getDataStore(){
         return  dataStore;
     }
-    public void  setDataStore(BeautyappDataStore dataStore){
+    public void  setDataStore(BeautyDataStore dataStore){
         this.dataStore=dataStore;
     }
 
@@ -57,7 +59,7 @@ public class BeautyappService {
     public Client findClientById(String id){
         return dataStore.findClientById(id);
     }
-    public Client createClient(){return; }
+    public Client createClient(){ return ;}
 
 
 }

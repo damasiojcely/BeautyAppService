@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OwnersEntity extends BaseEntity {
-    public OwnersEntity(Connection connection) {
+    public OwnersEntity() {
         super();
         setTableName("owner");
     }
