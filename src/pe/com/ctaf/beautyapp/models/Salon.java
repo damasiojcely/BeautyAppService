@@ -1,7 +1,5 @@
 package pe.com.ctaf.beautyapp.models;
 
-import org.glassfish.internal.api.Public;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -13,26 +11,27 @@ public class Salon {
     private String name;
     private String phone;
     private String email;
-    private String own;
-    private String loc;
+    private Owner owner;
+    private Location location;
 
     public Salon(){
 
     }
 
-    public Salon(String id, String name, String phone, String email, String own, String loc) {
-        this.setId(id);
-        this.setName(name);
-        this.setPhone(phone);
-        this.setEmail(email);
-        this.setOwn(own);
-        this.setLoc(    loc);
+    public Salon(String id, String name, String phone, String email, Owner owner, Location location) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.owner = owner;
+        this.location = location;
     }
 
 
     public String getId() {return id;
 
     }
+
 
     public Salon setId(String id) {
         this.id = id;
@@ -42,6 +41,7 @@ public class Salon {
     public String getName() {return name;
 
     }
+    
 
     public Salon setName(String name) {
         this.name = name;
@@ -57,45 +57,40 @@ public class Salon {
         return this;
     }
 
-    public String getEmail() {return email;
-
-    }
+    public String getEmail() {return email; }
 
     public Salon setEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public String getOwn() {  return own;
+    public Owner getOwner() {  return owner; }
 
-    }
-
-    public Salon setOwn(String own) {
-        this.own = own;
+    public Salon setOwner(Owner owner) {
+        this.owner = owner;
         return this;
     }
 
-    public String getLoc() {return loc;
+    public Location getLocation () {return location; }
 
-    }
-
-    public Salon setLoc(String loc) {
-        this.loc = loc;
+    public Salon setLocation(Location location) {
+        this.location = location;
         return this;
     }
 
-    public static Salon build (ResultSet  rs ,OwnersEntity ownersEntity ,UbigeosEntity ubigeosEntity){
+    public static Salon build (ResultSet  rs , OwnersEntity ownersEntity , LocationsEntity locationsEntity){
         try{
             return (new Salon())
-                .setId(rs.getString("id_sal"))
-                    .setName(rs.getString("name_sal"))
-                    .setPhone(rs.getString("phone_sal"))
-                    .setEmail(rs.getString("mail_sal"))
-                    .setOwn(rs.getString("id_own"))
-                    .setLoc(rs.getString("id_loc"));
-        }catch (SQLException e){
-            e.printStackTrace();
+                .setId(rs.getString("id"))
+                    .setName(rs.getString("name"))
+                    .setPhone(rs.getString("phone"))
+                    .setEmail(rs.getString("email"))
+                    .setOwner(ownersEntity.findById(rs.getString("ownerid")))
+                    .setLocation(locationsEntity.findById(rs.getString("locationid")));
+        }catch (SQLException var4){
+           var4.printStackTrace();
+            return null;
         }
-         return null;
+
     }
 }
