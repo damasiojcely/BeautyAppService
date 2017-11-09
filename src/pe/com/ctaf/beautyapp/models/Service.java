@@ -73,7 +73,7 @@ public class Service {
                     .setId(rs.getString("id_serv"))
                     .setName(rs.getString("name_serv"))
                     .setPrice(rs.getFloat("price_serv"))
-                    .setDescripcion(rs.getString("description"));
+                    .setDescription(rs.getString("description"));
 
 
 

@@ -89,16 +89,16 @@ public class Schedule {
     }
 
     public static Schedule from(ResultSet rs, StylistsEntity stylistsEntity, ServicesEntity servicesEntity,
-                                SalonsEntity salonsEntity) {
+                                SalonsEntity salonsEntity,UsersEntity usersEntity,OwnersEntity  ownersEntity ,LocationsEntity locationsEntity) {
         Schedule schedule = new Schedule();
         try {
             return schedule.setId(rs.getString("id"))
                     .setStartAt(rs.getString("start_at"))
                     .setEndAt(rs.getString("end_at"))
                     .setDiscount(rs.getFloat("discount"))
-                    .setStylist(stylistsEntity.findById(rs.getString("stylistid")))
+                    .setStylist(stylistsEntity.findById(rs.getString("stylistid"),usersEntity))
                     .setService(servicesEntity.findById(rs.getString("serviceid")))
-                    .setSalon(salonsEntity.findById(rs.getString("salonid"))));
+                    .setSalon(salonsEntity.findById(rs.getString("salonid"), ownersEntity,locationsEntity));
 
         } catch (SQLException e) {
             e.printStackTrace();

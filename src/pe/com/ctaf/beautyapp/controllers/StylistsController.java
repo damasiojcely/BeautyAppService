@@ -34,7 +34,7 @@ public class StylistsController extends   javax.servlet.http.HttpServlet{
             if(method.equals("GET")) {
                 // Index Action
                 if(action.equals("index2")) {
-                    List<Stylist> stylists = service.findAllStylist();
+                    List<Stylist> stylists = service.findAllStylists();
                     request.setAttribute("stylist", stylists);
                     url = "listStylists.jsp";
                 }

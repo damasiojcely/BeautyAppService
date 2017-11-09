@@ -102,7 +102,8 @@ public class Reservation {
         return this;
     }
 
-    public static Reservation from(ResultSet rs, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+    public static Reservation from(ResultSet rs, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,
+                                   UsersEntity  usersEntity  ,StylistsEntity stylistsEntity ,ServicesEntity servicesEntity ,SalonsEntity salonsEntity) {
         Reservation reservation = new Reservation();
         try {
             return reservation.setId(rs.getString("id"))
@@ -111,8 +112,8 @@ public class Reservation {
                     .setPrice(rs.getFloat("price"))
                     .setStartat(rs.getString("start_at"))
                     .setEndat(rs.getString("end_at"))
-                    .setClient(clientsEntity.findById(rs.getString("clientid")))
-                    .setSchedule(schedulesEntity.findById(rs.getString("scheduleid")));
+                    .setClient(clientsEntity.findById(rs.getString("clientid"),usersEntity))
+                    .setSchedule(schedulesEntity.findById(rs.getString("scheduleid"),stylistsEntity,servicesEntity,salonsEntity));
 
         } catch (SQLException e) {
             e.printStackTrace();

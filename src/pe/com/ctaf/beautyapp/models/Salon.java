@@ -78,14 +78,14 @@ public class Salon {
         return this;
     }
 
-    public static Salon build (ResultSet  rs , OwnersEntity ownersEntity , LocationsEntity locationsEntity){
+    public static Salon build (ResultSet  rs , OwnersEntity ownersEntity , LocationsEntity locationsEntity,UsersEntity usersEntity){
         try{
             return (new Salon())
                 .setId(rs.getString("id"))
                     .setName(rs.getString("name"))
                     .setPhone(rs.getString("phone"))
                     .setEmail(rs.getString("email"))
-                    .setOwner(ownersEntity.findById(rs.getString("ownerid"),))
+                    .setOwner(ownersEntity.findById(rs.getString("ownerid"),usersEntity))
                     .setLocation(locationsEntity.findById(rs.getString("locationid")));
         }catch (SQLException var4){
            var4.printStackTrace();
