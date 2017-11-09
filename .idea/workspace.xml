@@ -48,8 +48,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientsEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientsEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ClientsEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stylist.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -114,6 +124,7 @@
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/OwnersController.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Client.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ClientsEntity.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java" />
       </list>
     </option>
   </component>
@@ -406,12 +417,12 @@
       <workItem from="1509818791921" duration="1135000" />
       <workItem from="1510119539267" duration="3226000" />
       <workItem from="1510167577667" duration="5632000" />
-      <workItem from="1510191745726" duration="83000" />
+      <workItem from="1510191745726" duration="281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39805000" />
+    <option name="totallyTimeSpent" value="40003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -490,7 +501,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Login.java" />
     <entry file="file://$PROJECT_DIR$/src/models/LoginsEntity.java" />
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Salon.java" />
     <entry file="file://$PROJECT_DIR$/src/Service.java" />
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/UsersEntity.java" />
@@ -524,6 +534,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ClientsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />

@@ -15,29 +15,25 @@ public class Stylist {
    private String lastName;
    private String email;
    private String phone;
-   private String especialty;
-   private String username;
+   private User user;
 
 
-    public Stylist(String id, String dni, String firstName, String lastName, String email, String phone, String especialty , String username) {
-        this.setId(id);
-        this.setDni(dni);
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setEmail(email);
-        this.setPhone(phone);
-        this.setEspecialty(especialty);
-        this.setUsername(username);
-    }
-
-
-     public Stylist(){
-
-     }
-
-    public String getId() {return id;
+    public Stylist(){
 
     }
+
+    public Stylist(String id, String dni, String firstName, String lastName, String email, String phone , User user) {
+        this.id=id;
+        this.dni=dni;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.phone=phone;
+        this.user=user;
+    }
+
+    public String getId() {return id; }
+
 
     public Stylist setId(String id) {
         this.id = id;
@@ -53,9 +49,9 @@ public class Stylist {
         return  this;
     }
 
-    public String getFirstName() { return firstName;
+    public String getFirstName() { return firstName; }
 
-    }
+
 
     public Stylist setFirstName(String firstName) {
         this.firstName = firstName;
@@ -71,17 +67,14 @@ public class Stylist {
         return  this;
     }
 
-    public String getEmail() { return email;
-
-    }
+    public String getEmail() { return email; }
 
     public Stylist setEmail(String email) {
         this.email = email;
         return  this;
     }
 
-    public String getPhone() {return phone;
-    }
+    public String getPhone() {return phone; }
 
 
     public Stylist setPhone(String phone) {
@@ -89,40 +82,30 @@ public class Stylist {
         return  this;
     }
 
-    public String getEspecialty() {  return especialty;
+
+    public User getUser() { return user; }
 
 
+    public Stylist setUser(User user) {
+        this.user =user;
+        return this;
     }
 
-    public Stylist setEspecialty(String especialty) {
-        this.especialty = especialty;
-        return  this;
-    }
-
-    public String getUsername() {  return username;
-
-
-    }
-
-    public Stylist setUsername(String username) {
-        this.username = username;
-        return  this;
-    }
-    public static Stylist build (ResultSet resultSet){
+    public static Stylist build(ResultSet rs, UsersEntity usersEntity){
          try{
              return (new Stylist())
-                     .setId(resultSet.getString("id_sty"))
-                     .setDni(resultSet.getString("dni_sty"))
-                     .setFirstName(resultSet.getString("firstname:sty"))
-                     .setLastName(resultSet.getString("lastname_sty"))
-                     .setEmail(resultSet.getString("email_sty"))
-                     .setPhone(resultSet.getString("phone_sty"))
-                     .setEspecialty(resultSet.getString("especialty_sty"))
-                     .setUsername(resultSet.getString("username"));
+                     .setId(rs.getString("id"))
+                     .setDni(rs.getString("dni"))
+                     .setFirstName(rs.getString("first_name"))
+                     .setLastName(rs.getString("last_name"))
+                     .setEmail(rs.getString("email"))
+                     .setPhone(rs.getString("phone"))
+                     .setUser(usersEntity.findById(rs.getString("username")));
 
-         }catch (SQLException e){
-             e.printStackTrace();
+         }catch (SQLException var7){
+             var7.printStackTrace();
+             return  null;
      }
-         return  null;
+
     }
 }
