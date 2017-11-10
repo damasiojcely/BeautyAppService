@@ -5,5 +5,40 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+    <package name="default" extends="struts-default">
+        <action name="index">
+            <result>index.jsp</result>
+        </action>
+        <action name="client" class="pe.com.ctaf.beautyapp.actions.ClientAction">
+            
+        </action>
+        <action name="location" class="pe.com.ctaf.beautyapp.actions.LocationAction">
+
+        </action>
+        <action name="owner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
+
+        </action>
+        <action name="reservation" class="pe.com.ctaf.beautyapp.actions.ReservationAction">
+
+        </action>
+        <action name="salon" class="pe.com.ctaf.beautyapp.actions.SalonAction">
+            
+        </action>
+        <action name="schedule" class="pe.com.ctaf.beautyapp.actions.ScheduleAction">
+            
+        </action>
+        <action name="service" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
+
+        </action>
+        <action name="skill" class="pe.com.ctaf.beautyapp.actions.SkillAction">
+            
+        </action>
+        <action name="stylist" class="pe.com.ctaf.beautyapp.actions.StylistAction">
+            
+        </action>
+        <action name="user" class="pe.com.ctaf.beautyapp.actions.UserAction">
+
+        </action>
+    </package>
 
 </struts>
