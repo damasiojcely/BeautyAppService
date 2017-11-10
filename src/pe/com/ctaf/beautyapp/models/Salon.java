@@ -78,7 +78,7 @@ public class Salon {
         return this;
     }
 
-    public static Salon build (ResultSet  rs , OwnersEntity ownersEntity , LocationsEntity locationsEntity,UsersEntity usersEntity){
+    public static Salon build (ResultSet  rs , OwnersEntity ownersEntity , LocationsEntity locationsEntity, UsersEntity usersEntity){
         try{
             return (new Salon())
                 .setId(rs.getString("id"))

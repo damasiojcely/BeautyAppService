@@ -89,7 +89,7 @@ public class Schedule {
     }
 
     public static Schedule from(ResultSet rs, StylistsEntity stylistsEntity, ServicesEntity servicesEntity,
-                                SalonsEntity salonsEntity,UsersEntity usersEntity,OwnersEntity  ownersEntity ,LocationsEntity locationsEntity) {
+                                SalonsEntity salonsEntity, UsersEntity usersEntity, OwnersEntity  ownersEntity , LocationsEntity locationsEntity) {
         Schedule schedule = new Schedule();
         try {
             return schedule.setId(rs.getString("id"))
@@ -98,7 +98,7 @@ public class Schedule {
                     .setDiscount(rs.getFloat("discount"))
                     .setStylist(stylistsEntity.findById(rs.getString("stylistid"),usersEntity))
                     .setService(servicesEntity.findById(rs.getString("serviceid")))
-                    .setSalon(salonsEntity.findById(rs.getString("salonid"), ownersEntity,locationsEntity));
+                    .setSalon(salonsEntity.findById(rs.getString("salonid"), ownersEntity,locationsEntity,usersEntity));
 
         } catch (SQLException e) {
             e.printStackTrace();

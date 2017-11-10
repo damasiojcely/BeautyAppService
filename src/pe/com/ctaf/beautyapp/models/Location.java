@@ -79,11 +79,11 @@ public class Location {
 
         try {
             return (new Location())
-                    .setId(rs.getString("id_loc"))
-                    .setDepartament(rs.getString("departament_loc"))
-                    .setProvince(rs.getString("province_loc"))
-                    .setDistrict(rs.getString("district_loc"))
-                    .setAddress(rs.getString("address_loc"));
+                    .setId(rs.getString("id"))
+                    .setDepartament(rs.getString("departament"))
+                    .setProvince(rs.getString("province"))
+                    .setDistrict(rs.getString("district"))
+                    .setAddress(rs.getString("address"));
 
 
         } catch (SQLException e) {

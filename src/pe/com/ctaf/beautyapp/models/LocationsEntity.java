@@ -17,7 +17,7 @@ public class LocationsEntity extends BaseEntity {
     }
     public Location findById(String id) {
         return findByCriteria(
-                String.format("WHERE id_serv = '%d'", id)).get(0);
+                String.format("WHERE id = '%d'", id)).get(0);
     }
 
     public List<Location> findByCriteria(String criteria) {
@@ -40,29 +40,29 @@ public class LocationsEntity extends BaseEntity {
     }
     public Location findByDespartament(String departament) {
         return findByCriteria(
-                String.format("WHERE departament_loc= '%s'", departament)).get(0);
+                String.format("WHERE departament = '%s'", departament)).get(0);
     }
 
     public Location findByProvince(String province){
-        return  findByCriteria(String.format("WHERE province_loc = '%s'", province)).get(0);
+        return  findByCriteria(String.format("WHERE province= '%s'", province)).get(0);
     }
     public Location findByDistrict(String district){
-        return  findByCriteria(String.format("WHERE district_loc= '%s'", district)).get(0);
+        return  findByCriteria(String.format("WHERE district= '%s'", district)).get(0);
     }
     public Location findByAddress(String address){
-        return  findByCriteria(String.format("WHERE address_loc = '%s'", address)).get(0);
+        return  findByCriteria(String.format("WHERE address= '%s'", address)).get(0);
     }
     public List<Location> findAll() {
         return findByCriteria("");
     }
 
     public List<Location> findAllWithLocations() {
-        return findByCriteria("id_loc IN (SELECT DISTINCT id_loc FROM location)");
+        return findByCriteria("id IN (SELECT DISTINCT id FROM location)");
     }
 
     public boolean create(Location location) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(id_loc, departament_loc,province_loc,district_loc,address_loc) VALUES( '%d', '%s', '%a', '%b', '%c')",
+                "INSERT INTO %s(id, departament,province,district,address) VALUES( '%d', '%s', '%a', '%b', '%c')",
                 getTableName(),location.getId(),location.getDepartament(),location.getProvince(),location.getDistrict(),location.getAddress()));
     }
     public boolean create(String id, String departament,String province, String district,String address) {
@@ -71,7 +71,7 @@ public class LocationsEntity extends BaseEntity {
 
     public boolean update(String id, String departament,String province, String district,String address) {
         return executeUpdate(String.format(
-                "UPDATE %s SET departament_loc = '%s', province_loc = '%d', district_loc ='%a', address_loc= '%b' WHERE id_loc = '%s'",
+                "UPDATE %s SET departament = '%s', province = '%d', district ='%a', address= '%b' WHERE id = '%s'",
                 getTableName(), departament,province,district,address,id));
     }
 
@@ -80,12 +80,12 @@ public class LocationsEntity extends BaseEntity {
     }
 
     public boolean erase(String id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id_loc = '%s'",
+        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
                 getTableName(), id));
     }
 
     public boolean erase(Location location) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id_loc = '%s'",
+        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
                 getTableName(), location.getId()));
     }
 }

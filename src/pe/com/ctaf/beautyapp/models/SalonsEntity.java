@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SalonsEntity extends  BaseEntity {
+public class SalonsEntity extends BaseEntity {
     public SalonsEntity() {
         super();
         setTableName("salon");
@@ -15,12 +15,12 @@ public class SalonsEntity extends  BaseEntity {
 
     public SalonsEntity(Connection connection, String tableName) { super(connection, tableName); }
 
-    public Salon findById(String id,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+    public Salon findById(String id, OwnersEntity ownersEntity, LocationsEntity locationsEntity, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE id = '%s'", id), ownersEntity, locationsEntity).get(0);
+                String.format("WHERE id = '%s'", id), ownersEntity, locationsEntity, usersEntity).get(0);
     }
 
-    public List<Salon> findByCriteria(String criteria, OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+    public List<Salon> findByCriteria(String criteria, OwnersEntity ownersEntity, LocationsEntity locationsEntity,UsersEntity usersEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
@@ -29,7 +29,7 @@ public class SalonsEntity extends  BaseEntity {
                                     .concat(criteria));
             List<Salon> salons = new ArrayList<>();
             while(rs.next())
-                salons.add(Salon.build(rs, ownersEntity,locationsEntity));
+                salons.add(Salon.build(rs, ownersEntity,locationsEntity, usersEntity));
 
             return salons;
 
@@ -40,23 +40,23 @@ public class SalonsEntity extends  BaseEntity {
 
     }
 
-    public Salon findByName(String name,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+    public Salon findByName(String name, OwnersEntity ownersEntity, LocationsEntity locationsEntity,UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE name= '%s'", name), ownersEntity,locationsEntity).get(0);
+                String.format("WHERE name= '%s'", name), ownersEntity,locationsEntity,usersEntity).get(0);
     }
 
-    public Salon findByPhone(String phone, OwnersEntity ownersEntity, LocationsEntity locationsEntity) {
+    public Salon findByPhone(String phone, OwnersEntity ownersEntity, LocationsEntity locationsEntity, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE end_at = '%s'", phone), ownersEntity,locationsEntity).get(0);
+                String.format("WHERE end_at = '%s'", phone), ownersEntity,locationsEntity,usersEntity).get(0);
     }
 
-    public Salon findByEmail(String email, OwnersEntity ownersEntity, LocationsEntity locationsEntity) {
+    public Salon findByEmail(String email, OwnersEntity ownersEntity, LocationsEntity locationsEntity, UsersEntity usersEntity) {
         return findByCriteria(
-                String.format("WHERE end_at = '%s'", email), ownersEntity,locationsEntity).get(0);
+                String.format("WHERE end_at = '%s'", email), ownersEntity,locationsEntity,usersEntity).get(0);
     }
 
-    public List<Salon> findAll( OwnersEntity ownersEntity, LocationsEntity locationsEntity) {
-        return findByCriteria("",ownersEntity,locationsEntity);
+    public List<Salon> findAll(OwnersEntity ownersEntity, LocationsEntity locationsEntity, UsersEntity usersEntity) {
+        return findByCriteria("",ownersEntity,locationsEntity,usersEntity);
     }
 
     public boolean create(Salon salon) {

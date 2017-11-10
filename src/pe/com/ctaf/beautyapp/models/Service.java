@@ -70,9 +70,9 @@ public class Service {
 
         try {
             return (new Service())
-                    .setId(rs.getString("id_serv"))
-                    .setName(rs.getString("name_serv"))
-                    .setPrice(rs.getFloat("price_serv"))
+                    .setId(rs.getString("id"))
+                    .setName(rs.getString("name"))
+                    .setPrice(rs.getFloat("price"))
                     .setDescription(rs.getString("description"));
 
 

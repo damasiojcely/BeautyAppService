@@ -17,7 +17,7 @@ public class ServicesEntity extends BaseEntity {
     }
     public Service findById(String id) {
         return findByCriteria(
-                String.format("WHERE id_serv = '%d'", id)).get(0);
+                String.format("WHERE id = '%d'", id)).get(0);
     }
 
     public List<Service> findByCriteria(String criteria) {
@@ -40,29 +40,27 @@ public class ServicesEntity extends BaseEntity {
     }
     public Service findByName(String name) {
         return findByCriteria(
-                String.format("WHERE name_serv = '%s'", name)).get(0);
+                String.format("WHERE name= '%s'", name)).get(0);
     }
 
-    public Service findByPrice(int price){
-        return  findByCriteria(String.format("WHERE name_serv = '%s'", price)).get(0);
+    public Service findByPrice(float price){
+        return  findByCriteria(String.format("WHERE price = '%s'", price)).get(0);
     }
     public Service findByDescription(String description){
-        return  findByCriteria(String.format("WHERE description_serv= '%s'", description)).get(0);
+        return  findByCriteria(String.format("WHERE description= '%s'", description)).get(0);
     }
-    public Service findByDiscount(int discount){
-        return  findByCriteria(String.format("WHERE name_serv = '%s'", discount)).get(0);
-    }
+
     public List<Service> findAll() {
         return findByCriteria("");
     }
 
     public List<Service> findAllWithServices() {
-        return findByCriteria("id_serv IN (SELECT DISTINCT id_serv FROM service)");
+        return findByCriteria("id IN (SELECT DISTINCT id FROM service)");
     }
 
     public boolean create(Service service) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(id_serv, name_serv,price_serv,description_serv) VALUES( '%d', '%s', %a, '%b')",
+                "INSERT INTO %s(id, name,price,description) VALUES( '%d', '%s', %a, '%b')",
                 getTableName(),service.getId(), service.getName(),service.getPrice(), service.getDescription()));
     }
     public boolean create(String id, String name,float price, String description) {
@@ -71,7 +69,7 @@ public class ServicesEntity extends BaseEntity {
 
     public boolean update(String id, String name, float price, String description) {
         return executeUpdate(String.format(
-                "UPDATE %s SET name_serv = '%s', price_serv = '%d', description_serv = '%a' WHERE id_serv = '%s'",
+                "UPDATE %s SET name = '%s', price = '%d', description= '%a' WHERE id= '%s'",
                   getTableName(), name,price,description,id));
     }
 
@@ -80,12 +78,12 @@ public class ServicesEntity extends BaseEntity {
     }
 
     public boolean erase(String id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id_serv = '%s'",
+        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
                 getTableName(), id));
     }
 
     public boolean erase(Service service) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id_serv = '%s'",
+        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
                 getTableName(), service.getId()));
     }
 

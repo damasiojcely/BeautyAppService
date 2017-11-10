@@ -103,7 +103,7 @@ public class Reservation {
     }
 
     public static Reservation from(ResultSet rs, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,
-                                   UsersEntity  usersEntity  ,StylistsEntity stylistsEntity ,ServicesEntity servicesEntity ,SalonsEntity salonsEntity) {
+                                   UsersEntity usersEntity  , StylistsEntity stylistsEntity , ServicesEntity servicesEntity , SalonsEntity salonsEntity, OwnersEntity  ownersEntity, LocationsEntity locationsEntity) {
         Reservation reservation = new Reservation();
         try {
             return reservation.setId(rs.getString("id"))
@@ -113,7 +113,7 @@ public class Reservation {
                     .setStartat(rs.getString("start_at"))
                     .setEndat(rs.getString("end_at"))
                     .setClient(clientsEntity.findById(rs.getString("clientid"),usersEntity))
-                    .setSchedule(schedulesEntity.findById(rs.getString("scheduleid"),stylistsEntity,servicesEntity,salonsEntity));
+                    .setSchedule(schedulesEntity.findById(rs.getString("scheduleid"),stylistsEntity,servicesEntity, salonsEntity, usersEntity, ownersEntity, locationsEntity));
 
         } catch (SQLException e) {
             e.printStackTrace();

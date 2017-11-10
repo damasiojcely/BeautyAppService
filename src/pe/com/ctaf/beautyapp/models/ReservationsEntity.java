@@ -16,12 +16,12 @@ public class ReservationsEntity extends BaseEntity {
         super(connection, tableName);
     }
 
-    public Reservation findById(String id, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+    public Reservation findById(String id, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,UsersEntity usersEntity,StylistsEntity stylistsEntity,ServicesEntity servicesEntity,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
         return findByCriteria(
-                String.format("WHERE id = '%s'", id), clientsEntity, schedulesEntity).get(0);
+                String.format("WHERE id = '%s'", id), clientsEntity, schedulesEntity,usersEntity,stylistsEntity,servicesEntity,salonsEntity,ownersEntity,locationsEntity).get(0);
     }
 
-    public List<Reservation> findByCriteria(String criteria, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+    public List<Reservation> findByCriteria(String criteria, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,UsersEntity usersEntity,StylistsEntity stylistsEntity,ServicesEntity servicesEntity,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
@@ -30,7 +30,7 @@ public class ReservationsEntity extends BaseEntity {
                                     .concat(criteria));
             List<Reservation> reservations = new ArrayList<>();
             while(rs.next())
-                reservations.add(Reservation.from(rs, clientsEntity, schedulesEntity));
+                reservations.add(Reservation.from(rs, clientsEntity, schedulesEntity,usersEntity,stylistsEntity,servicesEntity,salonsEntity,ownersEntity,locationsEntity));
 
             return reservations;
         } catch (SQLException e) {
@@ -40,28 +40,28 @@ public class ReservationsEntity extends BaseEntity {
 
     }
 
-    public Reservation findByStartAt(String startat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+    public Reservation findByStartAt(String startat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,UsersEntity usersEntity,StylistsEntity stylistsEntity,ServicesEntity servicesEntity,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
         return findByCriteria(
-                String.format("WHERE start_at = '%s'", startat), clientsEntity, schedulesEntity).get(0);
+                String.format("WHERE start_at = '%s'", startat), clientsEntity, schedulesEntity,usersEntity,stylistsEntity,servicesEntity,salonsEntity,ownersEntity,locationsEntity).get(0);
     }
 
-    public Reservation findByEndAt(String endat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+    public Reservation findByEndAt(String endat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,UsersEntity usersEntity,StylistsEntity stylistsEntity,ServicesEntity servicesEntity,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
         return findByCriteria(
-                String.format("WHERE end_at = '%s'", endat), clientsEntity, schedulesEntity).get(0);
+                String.format("WHERE end_at = '%s'", endat), clientsEntity, schedulesEntity,usersEntity,stylistsEntity,servicesEntity,salonsEntity,ownersEntity,locationsEntity).get(0);
     }
 
-    public Reservation findReservedAt(String reservedat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+    public Reservation findReservedAt(String reservedat, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,UsersEntity usersEntity,StylistsEntity stylistsEntity,ServicesEntity servicesEntity,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
         return findByCriteria(
-                String.format("WHERE reservedat = '%s'", reservedat), clientsEntity, schedulesEntity).get(0);
+                String.format("WHERE reservedat = '%s'", reservedat), clientsEntity, schedulesEntity,usersEntity,stylistsEntity,servicesEntity,salonsEntity,ownersEntity,locationsEntity).get(0);
     }
 
-    public Reservation findRequestedFor(String requestedfor, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
+    public Reservation findRequestedFor(String requestedfor, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,UsersEntity usersEntity,StylistsEntity stylistsEntity,ServicesEntity servicesEntity,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
         return findByCriteria(
-                String.format("WHERE requestedfor = '%s'", requestedfor), clientsEntity, schedulesEntity).get(0);
+                String.format("WHERE requestedfor = '%s'", requestedfor), clientsEntity, schedulesEntity,usersEntity,stylistsEntity,servicesEntity,salonsEntity,ownersEntity,locationsEntity).get(0);
     }
 
-    public List<Reservation> findAll(ClientsEntity clientsEntity, SchedulesEntity schedulesEntity) {
-        return findByCriteria("", clientsEntity, schedulesEntity);
+    public List<Reservation> findAll(ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,UsersEntity usersEntity,StylistsEntity stylistsEntity,ServicesEntity servicesEntity,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+        return findByCriteria("", clientsEntity, schedulesEntity,usersEntity,stylistsEntity,servicesEntity,salonsEntity,ownersEntity,locationsEntity);
     }
 
     public boolean create(Reservation reservation) {

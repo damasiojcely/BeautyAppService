@@ -103,13 +103,13 @@ public class Owner {
 
         try {
             return (new Owner())
-                    .setId(rs.getString("id_own"))
-                    .setDni(rs.getString("dni_own"))
-                    .setName(rs.getString("firstname_own"))
-                    .setLast(rs.getString("lastname_own"))
-                    .setEmail(rs.getString("email_own"))
-                    .setPhone(rs.getString("phone_own"))
-                    .setUser(usersEntity.findById(rs.getString("username")));
+                    .setId(rs.getString("id"))
+                    .setDni(rs.getString("dni"))
+                    .setName(rs.getString("first_name"))
+                    .setLast(rs.getString("last_name"))
+                    .setEmail(rs.getString("email"))
+                    .setPhone(rs.getString("phone"))
+                    .setUser(usersEntity.findById(rs.getString("userid")));
 
 
 

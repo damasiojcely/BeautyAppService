@@ -16,13 +16,13 @@ public class SchedulesEntity extends BaseEntity {
     public SchedulesEntity(Connection connection, String tableName) { super(connection, tableName); }
 
     public Schedule findById(String id, StylistsEntity stylistsEntity,
-                             ServicesEntity servicesEntity, SalonsEntity salonsEntity,UsersEntity usersEntity,OwnersEntity  ownersEntity ,LocationsEntity locationsEntity ) {
+                             ServicesEntity servicesEntity, SalonsEntity salonsEntity, UsersEntity usersEntity, OwnersEntity  ownersEntity , LocationsEntity locationsEntity ) {
         return findByCriteria(
                 String.format("WHERE id = '%s'", id), stylistsEntity, servicesEntity, salonsEntity,usersEntity, ownersEntity , locationsEntity).get(0);
     }
 
     public List<Schedule> findByCriteria(String criteria, StylistsEntity stylistsEntity,
-                                         ServicesEntity servicesEntity, SalonsEntity salonsEntity,UsersEntity usersEntity,OwnersEntity  ownersEntity ,LocationsEntity locationsEntity) {
+                                         ServicesEntity servicesEntity, SalonsEntity salonsEntity, UsersEntity usersEntity, OwnersEntity  ownersEntity , LocationsEntity locationsEntity) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
@@ -42,18 +42,18 @@ public class SchedulesEntity extends BaseEntity {
     }
 
     public Schedule findByStartAt(String startat, StylistsEntity stylistsEntity,
-                                  ServicesEntity servicesEntity, SalonsEntity salonsEntity,UsersEntity usersEntity,OwnersEntity  ownersEntity ,LocationsEntity locationsEntity) {
+                                  ServicesEntity servicesEntity, SalonsEntity salonsEntity, UsersEntity usersEntity, OwnersEntity  ownersEntity , LocationsEntity locationsEntity) {
         return findByCriteria(
                 String.format("WHERE start_at = '%s'", startat), stylistsEntity, servicesEntity, salonsEntity,usersEntity, ownersEntity , locationsEntity).get(0);
     }
 
     public Schedule findByEndAt(String endat, StylistsEntity stylistsEntity,
-                                ServicesEntity servicesEntity, SalonsEntity salonsEntity,UsersEntity usersEntity,OwnersEntity  ownersEntity ,LocationsEntity locationsEntity) {
+                                ServicesEntity servicesEntity, SalonsEntity salonsEntity, UsersEntity usersEntity, OwnersEntity  ownersEntity , LocationsEntity locationsEntity) {
         return findByCriteria(
                 String.format("WHERE end_at = '%s'", endat), stylistsEntity, servicesEntity, salonsEntity,usersEntity, ownersEntity , locationsEntity).get(0);
     }
 
-    public List<Schedule> findAll(StylistsEntity stylistsEntity, ServicesEntity servicesEntity, SalonsEntity salonsEntity,UsersEntity usersEntity,OwnersEntity  ownersEntity ,LocationsEntity locationsEntity) {
+    public List<Schedule> findAll(StylistsEntity stylistsEntity, ServicesEntity servicesEntity, SalonsEntity salonsEntity, UsersEntity usersEntity, OwnersEntity  ownersEntity , LocationsEntity locationsEntity) {
         return findByCriteria("", stylistsEntity, servicesEntity, salonsEntity,usersEntity, ownersEntity , locationsEntity);
     }
 
