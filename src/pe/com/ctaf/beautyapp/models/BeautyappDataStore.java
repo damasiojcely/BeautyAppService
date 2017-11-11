@@ -94,6 +94,9 @@ public class BeautyappDataStore {
 
         return getConnection() ==null ? null:getSkillsEntity().findAll();
     }
+    public List<Location> findAllLocations(){
+        return getConnection()== null ? null:getLocationsEntity().findAll();
+    }
     public User createUser(String username,String password){
         return getConnection() ==null ?
                 null:

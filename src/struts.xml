@@ -12,8 +12,16 @@
         <action name="client" class="pe.com.ctaf.beautyapp.actions.ClientAction">
             
         </action>
-        <action name="location" class="pe.com.ctaf.beautyapp.actions.LocationAction">
-
+        <action name="listlocation" class="pe.com.ctaf.beautyapp.actions.LocationAction">
+              <result name="success">listLocation.jsp</result>
+        </action>
+        <action name="createLocation" class="pe.com.ctaf.beautyapp.actions.LocationAction">
+            <result name="input">createLocation.jsp</result>
+            <result name="success">listLocation.jsp</result>
+        </action>
+        <action name="editLocation" class="pe.com.ctaf.beautyapp.actions.LocationAction">
+            <result name="input">editLocation.jsp</result>
+            <result name="success">listLocation.jsp</result>
         </action>
         <action name="listowner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
             <result name="success">listOwner.jsp</result>
@@ -38,7 +46,7 @@
         <action name="listservice" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
             <result name="success">listService.jsp</result>
         </action>
-        <action name="createservices" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
+        <action name="createservice" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
             <result name="input">createService.jsp</result>
             <result name="success">listService.jsp</result>
         </action>

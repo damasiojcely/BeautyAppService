@@ -40,26 +40,26 @@ public class BeautyappService {
         this.dataStore=dataStore;
     }
 
-    //public List<Client> findAllClients(){
-    //    return  dataStore.findAllClients();
-    //}
-    //public List<Location> findAllLocations(){
-      //  return  dataStore.findAllLocations();
-    //}
-    //public List<Owner> findAllOwners(){
-      //  return  dataStore.findAllOwners();
-    //}
-    //public List<Reservation> findAllReservations(){return dataStore.findAllReservations();}
-    //public List<Salon> findAllSalons(){return  dataStore.findAllSalons();}
-    //public List<Schedule> findAllSchedules(){return dataStore.findAllSchedules();}
-    //public List<Service> findAllServices(){return dataStore.findAllServices();}
-    //public List<Stylist> findAllStylists(){return dataStore.findAllStylists();}
-    //public List<User> findAllUsers(){return dataStore.findAllUsers();}
+    public List<Client> findAllClients(){
+        return  dataStore.findAllClients();
+    }
+    public List<Location> findAllLocations(){
+      return  dataStore.findAllLocations();
+    }
+    public List<Owner> findAllOwners(){
+        return  dataStore.findAllOwners();
+    }
+    public List<Reservation> findAllReservations(){return dataStore.findAllReservations();}
+    public List<Salon> findAllSalons(){return  dataStore.findAllSalons();}
+    public List<Schedule> findAllSchedules(){return dataStore.findAllSchedules();}
+    public List<Service> findAllServices(){return dataStore.findAllServices();}
+    public List<Stylist> findAllStylists(){return dataStore.findAllStylists();}
+    public List<User> findAllUsers(){return dataStore.findAllUsers();}
 
-    //public Client findClientById(String id){
-      //  return dataStore.findClientById(id);
-    //}
-    //public Client createClient(){return; }
+    public Client findClientById(String id){
+      return dataStore.findClientById(id);
+    }
+
 
 
 }

@@ -26,6 +26,6 @@
     <s:textfield id="phone" name="phone"/>
     <s:submit value="Save"/>
 
-</s:form>
+
 </body>
 </html>
