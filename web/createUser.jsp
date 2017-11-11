@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Cristian
@@ -14,6 +15,13 @@
 <h1>
     Inscribase en Nuestro servicio
 </h1>
+<s:form action="createuser">
+    <s:label for="username" value="Username"/>
+    <s:textfield id="username" value="username"/>
+    <s:label for="password" value="Password"/>
+    <s:textfield id="password" value="password"/>
+    <s:submit value="Save"/>
+</s:form>
 
 </body>
 </html>
