@@ -15,8 +15,16 @@
         <action name="location" class="pe.com.ctaf.beautyapp.actions.LocationAction">
 
         </action>
-        <action name="owner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
-
+        <action name="listowner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
+            <result name="success">listOwner.jsp</result>
+        </action>
+        <action name="createowner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
+            <result name="input">createOwner.jsp</result>
+            <result name="success">listOwner.jsp</result>
+        </action>
+        <action name="editowner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
+            <result name="input">editOwner.jsp</result>
+            <result name="success">listOwner.jsp</result>
         </action>
         <action name="reservation" class="pe.com.ctaf.beautyapp.actions.ReservationAction">
 
@@ -27,8 +35,16 @@
         <action name="schedule" class="pe.com.ctaf.beautyapp.actions.ScheduleAction">
             
         </action>
-        <action name="service" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
-
+        <action name="listservice" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
+            <result name="success">listService.jsp</result>
+        </action>
+        <action name="createservices" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
+            <result name="input">createService.jsp</result>
+            <result name="success">listService.jsp</result>
+        </action>
+        <action name="editservice" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
+            <result name="input">editService.jsp</result>
+            <result name="success">listService.jsp</result>
         </action>
         <action name="skill" class="pe.com.ctaf.beautyapp.actions.SkillAction">
             
