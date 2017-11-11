@@ -52,11 +52,11 @@
             <result name="success">listSchedule.jsp</result>
         </action>
         <action name="createschedule" class="pe.com.ctaf.beautyapp.actions.ScheduleAction">
-            <result name="input">createschedule.action</result>
+            <result name="input">createSchedule.jsp</result>
             <result name="success">listSchedule.jsp</result>
         </action>
         <action name="editschedule" class="pe.com.ctaf.beautyapp.actions.ScheduleAction">
-            <result name="input">editschedule.action</result>
+            <result name="input">editSchedule.jsp</result>
             <result name="success">listSchedule.jsp</result>
         </action>
         <action name="listservice" class="pe.com.ctaf.beautyapp.actions.ServiceAction">
@@ -81,7 +81,7 @@
             <result name="success">showUser.jsp</result>
         </action>
         <action name="edituser" class="pe.com.ctaf.beautyapp.actions.UserAction">
-            <result name="input">edituser.action</result>
+            <result name="input">editUser.jsp</result>
             <result name="success">showUser.jsp</result>
         </action>
     </package>
