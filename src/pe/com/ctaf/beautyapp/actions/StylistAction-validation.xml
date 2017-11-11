@@ -1,9 +1,36 @@
 <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
         "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+
 <validators>
+    <field name="dni">
+        <field-validator type="stringlength">
+            <param name="minLength">8</param>
+            <param name="maxLength">8</param>
+            <message>Ingrese correctamente su DNI</message>
+        </field-validator>
+    </field>
     <field name="email">
         <field-validator type="email">
-            <message>Please input a valid email address</message>
+            <message>Coloque bien la direción de su correo</message>
+        </field-validator>
+    </field>
+    <field name="firstname">
+        <field-validator type="requiredstring">
+            <message>este campo es obligatorio</message>
+        </field-validator>
+    </field>
+    <field name="lastname">
+        <field-validator type="requiredstring">
+            <message>este campo es obligatorio</message>
+        </field-validator>
+    </field>
+
+    <field name="phone">
+        <field-validator type="stringlength">
+            <param name="maxLength">9</param>
+            <param name="minLength">9</param>
+            <message>Ingrese correctamente su telefono o celular</message>
         </field-validator>
     </field>
 </validators>

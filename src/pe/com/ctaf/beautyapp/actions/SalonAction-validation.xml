@@ -1,0 +1,22 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <message>Coloque bien la direción de su correo</message>
+        </field-validator>
+
+    </field>
+    <field name="phone">
+        <field-validator type="stringlength">
+            <param name="maxLength">9</param>
+            <param name="minLength">9</param>
+            <message>Ingrese correctamente su telefono </message>
+        </field-validator>
+    </field>
+    <field name="email">
+        <field-validator type="email">
+            <message>Coloque bien la direción de su correo</message>
+        </field-validator>
+    </field>
+</validators>
