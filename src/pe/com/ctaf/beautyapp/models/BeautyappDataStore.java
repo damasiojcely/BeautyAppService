@@ -97,10 +97,11 @@ public class BeautyappDataStore {
     public List<Location> findAllLocations(){
         return getConnection()== null ? null:getLocationsEntity().findAll();
     }
-    public User createUser(String username,String password){
+
+    public User createUser(String id, String username,String password){
         return getConnection() ==null ?
                 null:
-                getUsersEntity().create(username,password);
+                getUsersEntity().create(id, username,password);
     }
     public boolean updateUser(String id,String name,String password){
         return  getConnection() ==null ?

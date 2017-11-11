@@ -45,6 +45,8 @@ public class UsersEntity extends BaseEntity {
 
     public List<User> findAll() {return findByCriteria("");}
 
+
+
     public User create(User user) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(id, username, password) VALUES('%s', '%s', '%s')",

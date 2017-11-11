@@ -9,10 +9,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Show Schedule</title>
+    <title>Horario</title>
 </head>
 <body>
-<h1>Horario</h1>
+<h1>Su nuevo horario</h1>
 <p>Inicio: <s:property value="star"/> </p>
 <p>Termino: <s:property value="end"/> </p>
 <p>Descuento: <s:property value="discount"/> </p>

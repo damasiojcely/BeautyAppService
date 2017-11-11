@@ -18,7 +18,7 @@ public class SkillsEntity extends BaseEntity {
     }
 
     public List<Skill> findById(String stylistId, String serviceid){
-        return findByCriteria(String.format("WHERE stilistid = '%s' AND serviceid = '%s'", stylistId, serviceid));}
+        return findByCriteria(String.format("WHERE stylistid = '%s' AND serviceid = '%s'", stylistId, serviceid));}
 
     public List<Skill> findByCriteria(String criteria) {
         try {
