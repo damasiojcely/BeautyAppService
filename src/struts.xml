@@ -52,8 +52,13 @@
         <action name="stylist" class="pe.com.ctaf.beautyapp.actions.StylistAction">
             
         </action>
-        <action name="user" class="pe.com.ctaf.beautyapp.actions.UserAction">
-
+        <action name="createuser" class="pe.com.ctaf.beautyapp.actions.UserAction">
+            <result name="input">createUser.jsp</result>
+            <result name="success">index.jsp</result>
+        </action>
+        <action name="edituser" class="pe.com.ctaf.beautyapp.actions.UserAction">
+            <result name="input">edituser.action</result>
+            <result name="success">index.jsp</result>
         </action>
     </package>
 

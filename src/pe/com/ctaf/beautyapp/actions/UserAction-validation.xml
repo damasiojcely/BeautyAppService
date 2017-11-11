@@ -1,0 +1,18 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="password">
+        <field-validator type="stringlength">
+            <param name="minLengthExpression">6</param>
+            <param name="maxLengthExpression">8</param>
+            <message>Ingrese un password mayor a 6 y menor a 8</message>
+        </field-validator>
+    </field>
+    <field name="username">
+        <field-validator type="stringlength">
+            <param name="minLengthExpression">6</param>
+            <param name="maxLengthExpression">8</param>
+            <message>Ingrese un usuario mayor a 6 y menor a 8</message>
+        </field-validator>
+    </field>
+</validators>
