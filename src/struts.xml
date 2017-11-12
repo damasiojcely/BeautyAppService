@@ -10,7 +10,8 @@
             <result>index.jsp</result>
         </action>
         <action name="client" class="pe.com.ctaf.beautyapp.actions.ClientAction">
-            
+            <result name="success">listClient.jsp</result>
+            <result name="input">createClient.jsp</result>
         </action>
         <action name="listlocation" class="pe.com.ctaf.beautyapp.actions.LocationAction">
               <result name="success">listLocation.jsp</result>
@@ -46,7 +47,8 @@
             <result name="success">listReservation.jsp</result>
         </action>
         <action name="salon" class="pe.com.ctaf.beautyapp.actions.SalonAction">
-            
+            <result name="success">listSalon.jsp</result>
+            <result name="input">createClient.jsp</result>
         </action>
         <action name="listschedule" class="pe.com.ctaf.beautyapp.actions.ScheduleAction">
             <result name="success">listSchedule.jsp</result>
@@ -74,7 +76,8 @@
             
         </action>
         <action name="stylist" class="pe.com.ctaf.beautyapp.actions.StylistAction">
-            
+            <result name="success">listStylist.jsp</result>
+            <result name="input">createStylist.jsp</result>
         </action>
         <action name="createuser" class="pe.com.ctaf.beautyapp.actions.UserAction">
             <result name="input">createUser.jsp</result>
