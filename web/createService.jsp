@@ -17,7 +17,7 @@
     <s:label for="name" value="Nombre del servcio"/>
     <s:textfield id="name" name="name"/>
     <s:label for="price" value="Precio"/>
-    <s:textfield id="price" name="price"/>
+    <s:textfield id="pice" name="price"/>
     <s:label for="description" value="Descripción del servicio"/>
     <s:textarea id="description" name="description"/>
 </s:form>

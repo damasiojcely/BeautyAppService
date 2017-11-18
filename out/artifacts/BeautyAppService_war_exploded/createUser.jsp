@@ -1,56 +1,62 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Cristian
-  Date: 10/11/2017
-  Time: 21:40
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Ingrese sus datos</title>
+
+    <title>New Owner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 100%;
+            margin: auto;
+        }
+
+    </style>
 </head>
-<body>
-<h1>
-    Inscribase en Nuestro servicio
-</h1>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #F1F1F1">
+<jsp:include page="head.jsp"/>
+<jsp:useBean id="service" class="pe.com.ctaf.beautyapp.models.BeautyappService"/>
 
-<s:form action="createuser">
-    <s:label for="username" value="Username"/>
-    <s:textfield id="username" value="username"/>
-    <s:label for="password" value="Password"/>
-    <s:textfield id="password" value="password"/>
-    <s:submit value="Save"/>
-</s:form>
+<center><div class="container img-responsive" style="width:500px; height: 434px ">
 
-<div class="container">
-    <form action="" method="post" class="form-horizontal" role="form">
+    <form class="form-horizontal" action="organizers" method="post">
+        <h2>${action == 'edit' ? "Editar Perfil" : "Nuevo Usuario"}</h2><br>
         <div class="form-group">
-            <legend>Beauty Service</legend>
-        </div>
-
-        <div class="form-group">
-            <label for="username" class="col-sm-2 control-label">Label:</label>
-            <div class="col-sm-10">
-                <input type="text" name="username" id="username" class="form-control" value="" title="" required="required">
+            <label class="control-label col-md-6">ID:</label>
+            <div class="col-md-6">
+                <input type="text" name="id" class="form-control" placeholder="Id" value="${user.id}"
+                        <c:out value="${action == 'edit' ? 'readonly=\"readonly\"' : '' }"/>
+                />
             </div>
         </div>
-
         <div class="form-group">
-            <label for="password" class="col-sm-2 control-label">Label:</label>
-            <div class="col-sm-10">
-                <input type="text" name="password" id="password" class="form-control" value="" title="" required="required">
+            <label class="control-label col-md-6">Username:</label>
+            <div class="col-md-6">
+                <input type="text" name="usename" class="form-control" placeholder="Username" value="${user.username}"/>
             </div>
         </div>
-
         <div class="form-group">
-            <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-primary">Login</button>
+            <label class="control-label col-md-6">Apellidos:</label>
+            <div class="col-md-6">
+                <input type="password" name="password" class="form-control" placeholder="Ingrese una contrase&ntilde;a" value="${user.password}"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-md-6">
+                <button type="submit" class="btn btn-primary" value="Ingresar">${action == 'edit' ? "Actualizar" : "Grabar"}</button>
+
             </div>
         </div>
     </form>
-</div>
+</div></center>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
 
 </body>
 </html>
