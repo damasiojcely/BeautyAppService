@@ -1,14 +1,16 @@
 package pe.com.ctaf.beautyapp.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import pe.com.ctaf.beautyapp.models.Location;
+import pe.com.ctaf.beautyapp.models.Owner;
 
 public class SalonAction extends ActionSupport {
     private String id;
     private String name;
     private String phone;
     private String email;
-    private String ownerid;
-    private String locationid;
+    private Owner owner;
+    private Location location;
 
     public String getId() {
         return id;
@@ -42,20 +44,20 @@ public class SalonAction extends ActionSupport {
         this.email = email;
     }
 
-    public String getOwnerid() {
-        return ownerid;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setOwnerid(String ownerid) {
-        this.ownerid = ownerid;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public String getLocationid() {
-        return locationid;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocationid(String locationid) {
-        this.locationid = locationid;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public String execute(){

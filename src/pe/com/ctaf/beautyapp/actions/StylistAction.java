@@ -1,6 +1,7 @@
 package pe.com.ctaf.beautyapp.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import pe.com.ctaf.beautyapp.models.User;
 
 public class StylistAction extends ActionSupport {
     private String id;
@@ -9,7 +10,7 @@ public class StylistAction extends ActionSupport {
     private String lastname;
     private String email;
     private String phone;
-    private String userid;
+    private User user;
 
     public String getId() {
         return id;
@@ -59,12 +60,12 @@ public class StylistAction extends ActionSupport {
         this.phone = phone;
     }
 
-    public String getUserid() {
-        return userid;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUser(User user) {
+        this.user = user;
     }
     public String execute(){
         return SUCCESS;

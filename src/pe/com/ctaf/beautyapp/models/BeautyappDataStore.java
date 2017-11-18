@@ -60,11 +60,14 @@ public class BeautyappDataStore {
         if(getConnection() ==null)return  null;
         return  getServicesEntity().findById(id);
     }
-    //Aqui falta como poner las dos  llaves primaria de  la tabla skill
+
+
     public Skill findSkillById(String stylistid, String serviceid){
         if(getConnection() ==null)return  null;
-        return  getSkillsEntity().findById(stylistid,serviceid);
+        return (Skill) getSkillsEntity().findById(stylistid,serviceid);
+
     }
+
     public List<User> findAllUsers(){
         return  getConnection() ==null ? null:getUsersEntity().findAll();
     }
@@ -89,22 +92,26 @@ public class BeautyappDataStore {
     public List<Service> findAllServices(){
         return getConnection() ==null  ?null:getServicesEntity().findAll();
     }
+
     //Aqui falta como poner las dos  llaves primaria de  la tabla skill
     public List<Skill> findAllSkills(){
 
         return getConnection() ==null ? null:getSkillsEntity().findAll();
     }
+
     public List<Location> findAllLocations(){
         return getConnection()== null ? null:getLocationsEntity().findAll();
     }
 
-    public User createUser(String id, String username,String password){
+    //de aqui comienza para hacer de todas las tablas
+
+    public User createUser( String id,String username,String password){
         return getConnection() ==null ?
                 null:
-                getUsersEntity().create(id, username,password);
+                getUsersEntity().create(id,username,password);
     }
     public boolean updateUser(String id,String name,String password){
-        return  getConnection() ==null ?
+        return  connection ==null ?
                 false:
                 getUsersEntity().update(id,name,password);
     }
@@ -118,23 +125,194 @@ public class BeautyappDataStore {
                 getUsersEntity().erase(id);
     }
 
-    //falta hacer de  todas las tablas esta parte como e hecho para el user create,update,erase
-    /**public  Service createService(String name,int price ,String description){
-     return getConnection() ==null ?
-     null:
-     getServicesEntity().create(name,price,description);
 
-     }
-     //solo estoy haciendo d elos que no tiene  dependencias de llaves foraneas
-     public Client createClient(String dni ,String firstName ,String lastName,String email ,String phone ,User user){
+    public boolean createClient(String id, String dni , String firstName , String lastName, String email , String phone , User user){
+        return  getConnection() ==null ?
+                null:
+                getClientsEntity().create(id,dni,firstName,lastName,email,phone,user);
+    }
+    public boolean updateClient(String id, String dni , String firstName , String lastName, String email , String phone , User user){
+        return  connection ==null ?
+                false:
+                getClientsEntity().update(id,dni,firstName,lastName,email,phone,user);
+
+    }
+    public boolean  updateClient (Client client){
+        return  updateClient(client.getId(),client.getDni(),client.getFirstName(),client.getLastName(),client.getEmail(),client.getPhone(),client.getUser());
+    }
+
+    public boolean eraseClient(String id){
+        return connection ==null ?
+                false:
+                getClientsEntity().erase(id);
+    }
+    public Boolean createLocation(String id, String departament , String province , String  district , String address) {
+        return getConnection() ==null ?
+                null:
+                getLocationsEntity().create(id,departament,province,district,address);
+    }
+    public boolean updateLocation(String id, String departament , String province , String  district , String address){
+        return connection== null?
+                false:
+                getLocationsEntity().update(id,departament,province,district,address);
+    }
+    public boolean updateLocation(Location location){
+        return updateLocation(location.getId(),location.getDepartament(),location.getProvince(),location.getDistrict(),location.getAddress());
+    }
+    public  boolean eraseLocation(String id){
+        return connection ==null ?
+                false:
+                getLocationsEntity().erase(id);
+    }
+
+    public boolean createOwner(String id, String dni , String name , String last, String email , String phone , User user){
+        return  getConnection() ==null ?
+                null:
+                getOwnersEntity().create(id,dni,name,last,email,phone,user);
+    }
+    public boolean updateOwner(String id, String dni , String name , String last, String email , String phone , User user){
+        return  connection ==null ?
+                false:
+                getOwnersEntity().update(id,dni,name,last,email,phone,user);
+
+    }
+    public boolean  updateOwner(Owner owner){
+        return  updateOwner(owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUser());
+    }
+
+    public boolean eraseOwner(String id){
+        return connection ==null ?
+                false:
+                getOwnersEntity().erase(id);
+    }
+
+    public boolean createReservation(String id, String reservedat , String requestedfor , Float price , String startat , String endat ,Client client ,Schedule schedule){
+        return  getConnection() ==null ?
+                null:
+                getReservationsEntity().create(id, reservedat , requestedfor ,price , startat , endat ,client , schedule);
+    }
+
+    public boolean updateReservation(String id, String reservedat , String requestedfor , Float price , String startat , String endat ,Client client ,Schedule schedule){
+        return  connection ==null ?
+                false:
+                getReservationsEntity().update(id, reservedat , requestedfor ,price , startat , endat ,client , schedule);
+    }
+    public boolean updateReservation(Reservation reservation){
+        return  updateReservation(reservation.getId(),reservation.getReservedat(),reservation.getRequestedfor(),reservation.getPrice(),reservation.getStartat(),reservation.getEndat(),reservation.getClient(),reservation.getSchedule());
+
+    }
+    public boolean eraseReservation(String id){
+        return connection ==null ?
+                false:
+                getReservationsEntity().erase(id);
+    }
+
+    public boolean createSalon(String id, String name , String phone ,String email, Owner owner ,Location location) {
+        return  getConnection() ==null ?
+                null:
+                getSalonsEntity().create( id,  name ,  phone , email,  owner ,location);
+    }
+    public boolean updateSalon(String id, String name , String phone ,String email, Owner owner ,Location location) {
+        return  connection ==null ?
+                false:
+                getSalonsEntity().update(id,  name ,  phone , email,  owner ,location);
+    }
+    public  boolean updateSalon (Salon salon ){
+        return updateSalon(salon.getId(),salon.getName(),salon.getPhone(),salon.getEmail(),salon.getOwner(),salon.getLocation());
+    }
+    public boolean eraseSalon(String id){
+        return connection ==null ?
+                false:
+                getSalonsEntity().erase(id);
+    }
+
+    public boolean createSchedule(String id ,String startAt ,String endArt,Float discount,Stylist stylist,Service service ,Salon salon)
+    {
+        return  getConnection() ==null ?
+                null:
+                getSchedulesEntity().create( id , startAt , endArt, discount, stylist, service , salon);
+    }
+
+    public  boolean updateSchedule(String id ,String startAt ,String endArt,Float discount,Stylist stylist,Service service ,Salon salon){
+        return  connection ==null ?
+                false:
+                getSchedulesEntity().update( id , startAt , endArt, discount, stylist, service , salon);
+    }
+
+    public boolean updateSchedule(Schedule schedule){
+        return  updateSchedule(schedule.getId(),schedule.getStartAt(),schedule.getEndAt(),schedule.getDiscount(),schedule.getStylist(),schedule.getService(),schedule.getSalon());
+    }
+
+    public boolean eraserSchedule(String id){
+        return connection ==null ?
+                false:
+                getSchedulesEntity().erase(id);
+    }
+
+    //service
+    public boolean createService(String id, String name, float price , String description){
+        return  getConnection() ==null ?
+                null:
+                getServicesEntity().create(id,name ,price,description);
+    }
+    public boolean updateService(String id, String name, float price , String description){
+        return  connection ==null ?
+                false:
+                getServicesEntity().update(id,name ,price,description);
+    }
+    public boolean updateService(Service service){
+        return  updateService(service.getId(),service.getName(),service.getPrice(),service.getDescription());
+    }
+    public boolean eraseService(String id){
+        return connection ==null ?
+                false:
+                getServicesEntity().erase(id);
+    }
+    public boolean createStylist(String id, String dni , String firstName , String lastName, String email , String phone , User user){
+        return  getConnection() ==null ?
+                null:
+                getStylistsEntity().create(id,dni,firstName,lastName,email,phone,user);
+    }
+    public boolean updateStylist(String id, String dni , String firstName , String lastName, String email , String phone , User user){
+        return  connection ==null ?
+                false:
+                getStylistsEntity().update(id,dni,firstName,lastName,email,phone,user);
+
+    }
+    public boolean  updateStylist (Stylist stylist){
+        return  updateClient(stylist.getId(),stylist.getDni(),stylist.getFirstName(),stylist.getLastName(),stylist.getEmail(),stylist.getPhone(),stylist.getUser());
+    }
+
+    public boolean eraseStylist(String id){
+        return connection ==null ?
+                false:
+                getStylistsEntity().erase(id);
+    }
+
+    /**Skill ,falta crear en el skill entity
+     public boolean createSkill(String  stylistid ,String serviceid ,Float time){
      return  getConnection() ==null ?
      null:
-     getClientsEntity().create(dni,firstName,lastName,email,phone,user);
+     getSkillsEntity().create(stylistid ,serviceid ,time);
      }
+     public boolean updateSkil(String  stylistid ,String serviceid ,Float time){
+     return  connection ==null ?
+     false:
+     getSkillsEntity().update(stylistid ,serviceid ,time);
+     }
+     public boolean updateSkill(Skill skill){
+     return updateSkil(skill.getStylistid(),skill.getServiceid(),skill.getTime());
+     }
+     public boolean eraseSkill(String stylistid ,String serviceid ){
+     return connection ==null ?
+     false:
+     getSkillsEntity().erase(stylistid , serviceid );
+     }
+     **/
 
-     //solo estoy haciendo d elos que no tiene  dependencias de llaves foraneas
 
-     */
+
+
 
     public Connection getConnection() {
         return connection;
