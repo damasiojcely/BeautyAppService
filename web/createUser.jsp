@@ -16,41 +16,39 @@
     Inscribase en Nuestro servicio
 </h1>
 
-<s:form action="createuser">
-    <s:label for="username" value="Username"/>
-    <s:textfield id="username" value="username"/>
-    <s:label for="password" value="Password"/>
-    <s:textfield id="password" value="password"/>
-    <s:submit value="Save"/>
-</s:form>
 
-<div class="container">
-    <form action="" method="post" class="form-horizontal" role="form">
-        <div class="form-group">
-            <legend>Beauty Service</legend>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Sing up</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="container">
+            <form action="createuser.action" method="post" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label for="username" class="col-sm-2 control-label">Username:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="username" id="username" class="form-control" value="username" title="" required="required">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">Password:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="password" id="password" class="form-control" value="password" title="" required="required">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary">Sing in</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="username" class="col-sm-2 control-label">Label:</label>
-            <div class="col-sm-10">
-                <input type="text" name="username" id="username" class="form-control" value="" title="" required="required">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="password" class="col-sm-2 control-label">Label:</label>
-            <div class="col-sm-10">
-                <input type="text" name="password" id="password" class="form-control" value="" title="" required="required">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
-
 </body>
 </html>

@@ -105,7 +105,7 @@ public class BeautyappDataStore {
 
     //de aqui comienza para hacer de todas las tablas
 
-    public boolean createUser( String id,String username,String password){
+    public boolean createUser(String id, String username,String password){
         return getConnection() ==null ?
                 null:
                 getUsersEntity().create(id,username,password);

@@ -12,5 +12,18 @@
 </head>
 <body>
 
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Reservaciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
