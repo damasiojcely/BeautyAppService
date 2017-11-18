@@ -47,14 +47,13 @@ public class UsersEntity extends BaseEntity {
 
 
 
-    public User create(User user) {
+    public boolean create(User user) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(id, username, password) VALUES('%s', '%s', '%s')",
-                getTableName(), user.getId(), user.getUsername(), user.getPassword())) ?
-                user : null;
+                getTableName(), user.getId(), user.getUsername(), user.getPassword()));
     }
 
-    public User create(String id, String username, String password) {return create(new User(id, username, password));}
+    public boolean create(String id, String username, String password) {return create(new User(id, username, password));}
 
     public boolean update(String id, String username, String password) {
         return executeUpdate(String.format(

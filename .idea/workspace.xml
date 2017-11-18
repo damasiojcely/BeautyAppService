@@ -32,90 +32,103 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="beautyapp@localhost" type="e3449647:DbNodeDescriptor" />
         <item name="beautyapp" type="e3449647:DbNodeDescriptor" />
-        <item name="location" type="e3449647:DbNodeDescriptor" />
+        <item name="stylist" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BeautyappDataStore.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BeautyappService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+              <folding>
+                <element signature="e#1232#1233#0" expanded="true" />
+                <element signature="e#1282#1283#0" expanded="true" />
+                <element signature="e#2068#2069#0" expanded="true" />
+                <element signature="e#2117#2118#0" expanded="true" />
+                <element signature="e#2166#2167#0" expanded="true" />
+                <element signature="e#2220#2221#0" expanded="true" />
+                <element signature="e#2263#2264#0" expanded="true" />
+                <element signature="e#2313#2314#0" expanded="true" />
+                <element signature="e#2368#2369#0" expanded="true" />
+                <element signature="e#2424#2425#0" expanded="true" />
+                <element signature="e#2467#2468#0" expanded="true" />
+                <element signature="e#2517#2518#0" expanded="true" />
+                <element signature="e#2566#2567#0" expanded="true" />
+                <element signature="e#2619#2620#0" expanded="true" />
+                <element signature="e#2666#2667#0" expanded="true" />
+                <element signature="e#2718#2719#0" expanded="true" />
+                <element signature="e#2765#2766#0" expanded="true" />
+                <element signature="e#2817#2818#0" expanded="true" />
+                <element signature="e#2858#2859#0" expanded="true" />
+                <element signature="e#2907#2908#0" expanded="true" />
+                <element signature="e#2963#2964#0" expanded="true" />
+                <element signature="e#3018#3019#0" expanded="true" />
+                <element signature="e#4689#4690#0" expanded="true" />
+                <element signature="e#4746#4747#0" expanded="true" />
+                <element signature="e#6417#6418#0" expanded="true" />
+                <element signature="e#6474#6475#0" expanded="true" />
+                <element signature="e#6517#6518#0" expanded="true" />
+                <element signature="e#6565#6566#0" expanded="true" />
+                <element signature="e#6610#6611#0" expanded="true" />
+                <element signature="e#6660#6661#0" expanded="true" />
+                <element signature="e#6702#6703#0" expanded="true" />
+                <element signature="e#6749#6750#0" expanded="true" />
+                <element signature="e#6797#6798#0" expanded="true" />
+                <element signature="e#6850#6851#0" expanded="true" />
+                <element signature="e#6892#6893#0" expanded="true" />
+                <element signature="e#6939#6940#0" expanded="true" />
+                <element signature="e#6984#6985#0" expanded="true" />
+                <element signature="e#7035#7036#0" expanded="true" />
+                <element signature="e#7079#7080#0" expanded="true" />
+                <element signature="e#7128#7129#0" expanded="true" />
+                <element signature="e#7172#7173#0" expanded="true" />
+                <element signature="e#7221#7222#0" expanded="true" />
+                <element signature="e#7262#7263#0" expanded="true" />
+                <element signature="e#7308#7309#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeautyappDataStore.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappDataStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="444" column="0" lean-forward="true" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
+            <state relative-caret-position="302">
+              <caret line="121" column="35" lean-forward="false" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ClientAction.java">
+      <file leaf-file-name="UsersEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/UsersEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientAction-validation.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ClientAction-validation.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="66" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="66" />
+            <state relative-caret-position="285">
+              <caret line="57" column="72" lean-forward="true" selection-start-line="57" selection-start-column="72" selection-end-line="57" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SalonAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/SalonAction.java">
+      <file leaf-file-name="SchedulesEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SchedulesEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="22" lean-forward="true" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1221#1222#0" expanded="true" />
-                <element signature="e#1251#1252#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StylistAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/StylistAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1342#1343#0" expanded="true" />
-                <element signature="e#1372#1373#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocationAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/LocationAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="32" />
+            <state relative-caret-position="-77">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createClient.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/createClient.jsp">
+      <file leaf-file-name="OwnersEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/OwnersEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+            <state relative-caret-position="-507">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -149,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SalonsEntity.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Location.java" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/LocationsEntity.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Owner.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/OwnersEntity.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Service.java" />
@@ -167,7 +179,6 @@
         <option value="$PROJECT_DIR$/web/editOwner.jsp" />
         <option value="$PROJECT_DIR$/web/listOwner.jsp" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ServiceAction-validation.xml" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java" />
         <option value="$PROJECT_DIR$/web/editLocation.jsp" />
         <option value="$PROJECT_DIR$/web/listService.jsp" />
         <option value="$PROJECT_DIR$/web/createService.jsp" />
@@ -183,10 +194,14 @@
         <option value="$PROJECT_DIR$/web/createStylist.jsp" />
         <option value="$PROJECT_DIR$/web/editClient.jsp" />
         <option value="$PROJECT_DIR$/src/struts.xml" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappDataStore.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ClientAction.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/SalonAction.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/StylistAction.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/LocationsEntity.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ClientsEntity.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappDataStore.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/UsersEntity.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java" />
       </list>
     </option>
   </component>
@@ -203,10 +218,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="683" />
-    <option name="y" value="12" />
-    <option name="width" value="915" />
-    <option name="height" value="840" />
+    <option name="x" value="475" />
+    <option name="y" value="149" />
+    <option name="width" value="1004" />
+    <option name="height" value="592" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -243,13 +258,6 @@
               <item name="BeautyAppService" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="beautyapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BeautyAppService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BeautyAppService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="beautyapp" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BeautyAppService" type="b2602c69:ProjectViewProjectNode" />
@@ -474,12 +482,12 @@
       <workItem from="1510426140482" duration="353000" />
       <workItem from="1510426517483" duration="2015000" />
       <workItem from="1510449655213" duration="141000" />
-      <workItem from="1510966330586" duration="619000" />
+      <workItem from="1510966330586" duration="3899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26980000" />
+    <option name="totallyTimeSpent" value="30260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -488,28 +496,28 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20758355" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13496144" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22750643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14974293" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -561,76 +569,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/createUser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ReservationAction-validation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ScheduleAction-validation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/editOwner.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SkillsEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/editLocation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/createService.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/listService.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/LocationAction-validation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -885,11 +823,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/createClient.jsp">
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ClientAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="691">
+          <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -898,26 +840,6 @@
         <state relative-caret-position="17">
           <caret line="1" column="66" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="66" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/LocationAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/StylistAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1342#1343#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -933,23 +855,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ClientAction.java">
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/StylistAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/LocationAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/createClient.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/LocationsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="62" column="46" lean-forward="true" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/ed1e92a6/d8b846fe-b3cd-4868-9067-31c211fbfcf2/beautyapp.service">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/ed1e92a6/d8b846fe-b3cd-4868-9067-31c211fbfcf2/beautyapp.skill">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ClientsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/OwnersEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-507">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/SchedulesEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-77">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/UsersEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="57" column="72" lean-forward="true" selection-start-line="57" selection-start-column="72" selection-end-line="57" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappDataStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="444" column="0" lean-forward="true" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
+        <state relative-caret-position="302">
+          <caret line="121" column="35" lean-forward="false" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding>
+            <element signature="e#1232#1233#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#2068#2069#0" expanded="true" />
+            <element signature="e#2117#2118#0" expanded="true" />
+            <element signature="e#2166#2167#0" expanded="true" />
+            <element signature="e#2220#2221#0" expanded="true" />
+            <element signature="e#2263#2264#0" expanded="true" />
+            <element signature="e#2313#2314#0" expanded="true" />
+            <element signature="e#2368#2369#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
+            <element signature="e#2467#2468#0" expanded="true" />
+            <element signature="e#2517#2518#0" expanded="true" />
+            <element signature="e#2566#2567#0" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+            <element signature="e#2666#2667#0" expanded="true" />
+            <element signature="e#2718#2719#0" expanded="true" />
+            <element signature="e#2765#2766#0" expanded="true" />
+            <element signature="e#2817#2818#0" expanded="true" />
+            <element signature="e#2858#2859#0" expanded="true" />
+            <element signature="e#2907#2908#0" expanded="true" />
+            <element signature="e#2963#2964#0" expanded="true" />
+            <element signature="e#3018#3019#0" expanded="true" />
+            <element signature="e#4689#4690#0" expanded="true" />
+            <element signature="e#4746#4747#0" expanded="true" />
+            <element signature="e#6417#6418#0" expanded="true" />
+            <element signature="e#6474#6475#0" expanded="true" />
+            <element signature="e#6517#6518#0" expanded="true" />
+            <element signature="e#6565#6566#0" expanded="true" />
+            <element signature="e#6610#6611#0" expanded="true" />
+            <element signature="e#6660#6661#0" expanded="true" />
+            <element signature="e#6702#6703#0" expanded="true" />
+            <element signature="e#6749#6750#0" expanded="true" />
+            <element signature="e#6797#6798#0" expanded="true" />
+            <element signature="e#6850#6851#0" expanded="true" />
+            <element signature="e#6892#6893#0" expanded="true" />
+            <element signature="e#6939#6940#0" expanded="true" />
+            <element signature="e#6984#6985#0" expanded="true" />
+            <element signature="e#7035#7036#0" expanded="true" />
+            <element signature="e#7079#7080#0" expanded="true" />
+            <element signature="e#7128#7129#0" expanded="true" />
+            <element signature="e#7172#7173#0" expanded="true" />
+            <element signature="e#7221#7222#0" expanded="true" />
+            <element signature="e#7262#7263#0" expanded="true" />
+            <element signature="e#7308#7309#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

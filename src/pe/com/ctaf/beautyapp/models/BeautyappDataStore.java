@@ -105,7 +105,7 @@ public class BeautyappDataStore {
 
     //de aqui comienza para hacer de todas las tablas
 
-    public User createUser( String id,String username,String password){
+    public boolean createUser( String id,String username,String password){
         return getConnection() ==null ?
                 null:
                 getUsersEntity().create(id,username,password);
@@ -186,13 +186,13 @@ public class BeautyappDataStore {
                 getOwnersEntity().erase(id);
     }
 
-    public boolean createReservation(String id, String reservedat , String requestedfor , Float price , String startat , String endat ,Client client ,Schedule schedule){
+    public boolean createReservation(String id, String reservedat , String requestedfor , float price , String startat , String endat ,Client client ,Schedule schedule){
         return  getConnection() ==null ?
                 null:
                 getReservationsEntity().create(id, reservedat , requestedfor ,price , startat , endat ,client , schedule);
     }
 
-    public boolean updateReservation(String id, String reservedat , String requestedfor , Float price , String startat , String endat ,Client client ,Schedule schedule){
+    public boolean updateReservation(String id, String reservedat , String requestedfor , float price , String startat , String endat ,Client client ,Schedule schedule){
         return  connection ==null ?
                 false:
                 getReservationsEntity().update(id, reservedat , requestedfor ,price , startat , endat ,client , schedule);
@@ -226,14 +226,14 @@ public class BeautyappDataStore {
                 getSalonsEntity().erase(id);
     }
 
-    public boolean createSchedule(String id ,String startAt ,String endArt,Float discount,Stylist stylist,Service service ,Salon salon)
+    public boolean createSchedule(String id ,String startAt ,String endArt,float discount,Stylist stylist,Service service ,Salon salon)
     {
         return  getConnection() ==null ?
                 null:
                 getSchedulesEntity().create( id , startAt , endArt, discount, stylist, service , salon);
     }
 
-    public  boolean updateSchedule(String id ,String startAt ,String endArt,Float discount,Stylist stylist,Service service ,Salon salon){
+    public  boolean updateSchedule(String id ,String startAt ,String endArt,float discount,Stylist stylist,Service service ,Salon salon){
         return  connection ==null ?
                 false:
                 getSchedulesEntity().update( id , startAt , endArt, discount, stylist, service , salon);
