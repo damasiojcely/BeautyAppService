@@ -47,13 +47,31 @@ public class UsersEntity extends BaseEntity {
 
 
 
-    public boolean create(User user) {
+    public User create(User user) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(id, username, password) VALUES('%s', '%s', '%s')",
-                getTableName(), user.getId(), user.getUsername(), user.getPassword()));
+                getTableName(), user.getId(), user.getUsername(), user.getPassword())) ? user : null;
     }
 
-    public boolean create(String id, String username, String password) {return create(new User(id, username, password));}
+    private int getMaxId() {
+        String sql = "SELECT MAX(id) AS max_id FROM user";
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            return resultSet.next() ?
+                    resultSet.getInt("max_id") : 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public User create(String username, String password) {
+        return create(String.valueOf(getMaxId()+1), username, password);
+    }
+
+    public User create(String id, String username, String password) {return create(new User(id, username, password));}
 
     public boolean update(String id, String username, String password) {
         return executeUpdate(String.format(
