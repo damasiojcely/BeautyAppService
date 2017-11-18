@@ -1,0 +1,19 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="discount">
+        <field-validator type="int">
+            <message>Ingrese un valor numerico</message>
+        </field-validator>
+    </field>
+    <field name="star">
+        <field-validator type="date">
+            <message>Ingrese una fecha dd/mm/yy</message>
+        </field-validator>
+    </field>
+    <field name="end">
+        <field-validator type="date">
+            <message>Ingrese una fecha dd/mm/yy</message>
+        </field-validator>
+    </field>
+</validators>

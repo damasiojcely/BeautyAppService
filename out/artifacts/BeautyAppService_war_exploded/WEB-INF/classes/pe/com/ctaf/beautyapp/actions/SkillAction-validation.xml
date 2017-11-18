@@ -1,0 +1,5 @@
+<!DOCTYPE validator PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validator type="int">
+    <message>Debe de ingresar un valor en minutos</message>
+</validator>
