@@ -21,9 +21,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">NOSOTROS</a></li>
+                    <li><a href="nosotros.jsp">NOSOTROS</a></li>
                     <li><a href="">INFORMATE</a></li>
-                    <li><a href="">CONTACTANOS</a></li>
+                    <li><a href="contacto.jsp">CONTACTANOS</a></li>
                     <li><a href="#"class="glyphicon glyphicon-user" data-toggle="dropdown"> REGISTRARSE </a>
 
                         <ul class="dropdown-menu" role="menu">

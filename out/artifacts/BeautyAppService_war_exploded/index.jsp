@@ -89,7 +89,7 @@
     </div>
     <div class="col-sm-4">
       <h2 style="color: #FF427E">APROVECHA</h2><br>
-      <h3>Haz tus reservaciones desde cualquier lugar y utiliza tu tiempo en otras actividades.</h3><br>
+      <h3>Haz tus reservaciones desde cualquier lugar y utiliza tu tiempo para otras actividades.</h3><br>
     </div>
     <div class="col-sm-1">
     </div>

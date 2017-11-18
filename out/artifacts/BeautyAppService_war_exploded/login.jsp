@@ -54,21 +54,21 @@
     <h2>Log in</h2><br>
     <form class="form-horizontal" action="login" method="post">
         <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Id:</label>
+            <label class="control-label col-sm-2" for="id">Id:</label>
             <div class="col-sm-10">
                 <input type="id" class="form-control" id="id" placeholder="Enter id" name="id">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Email:</label>
+            <label class="control-label col-sm-2" for="username">Email:</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                <input type="username" class="form-control" id="username" placeholder="Enter username" name="email">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="pwd">Password:</label>
+            <label class="control-label col-sm-2" for="password">Password:</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
             </div>
         </div>
 

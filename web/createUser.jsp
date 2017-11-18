@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-6">Contraseña:</label>
+            <label class="control-label col-md-6">Contrase&ntilde;a:</label>
             <div class="col-md-6">
                 <input type="password" name="password" class="form-control" placeholder="Ingrese una contrase&ntilde;a" value="${user.password}"/>
             </div>
