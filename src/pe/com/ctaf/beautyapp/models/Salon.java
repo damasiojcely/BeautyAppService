@@ -28,67 +28,79 @@ public class Salon {
     }
 
 
-    public String getId() {return id;
+    public String getId() {return this.id;
 
     }
-
+    public String getIdAsValue() {
+        return "'" + this.getId() + "'";
+    }
 
     public Salon setId(String id) {
         this.id = id;
         return this;
     }
 
-    public String getName() {return name;
+    public String getName() {return this.name;
 
     }
-    
-
+    public String getNameAsValue() {
+        return "'" + this.getName() + "'";
+    }
     public Salon setName(String name) {
         this.name = name;
         return this;
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
+    public String getPhoneAsValue() {
+        return "'" + this.getPhone() + "'";
+    }
     public Salon setPhone(String phone) {
         this.phone = phone;
         return this;
     }
 
-    public String getEmail() {return email; }
-
+    public String getEmail() {return this.email; }
+    public String getEmailAsValue() {
+        return "'" + this.getEmail() + "'";
+    }
     public Salon setEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public Owner getOwner() {  return owner; }
+    public Owner getOwner() {  return this.owner; }
+    public String getOwnerAsValue() {
+        return "'" + this.getOwner() + "'";
+    }
 
     public Salon setOwner(Owner owner) {
         this.owner = owner;
         return this;
     }
 
-    public Location getLocation () {return location; }
+    public Location getLocation () {return this.location; }
+    public String getLocationAsValue() { return "'" + this.getLocation() + "'"; }
 
     public Salon setLocation(Location location) {
         this.location = location;
         return this;
     }
 
-    public static Salon build (ResultSet  rs , OwnersEntity ownersEntity , LocationsEntity locationsEntity, UsersEntity usersEntity){
+    public static Salon build (ResultSet  rs , OwnersEntity ownersEntity , LocationsEntity locationsEntity){
         try{
             return (new Salon())
-                .setId(rs.getString("id"))
+                    .setId(rs.getString("id"))
                     .setName(rs.getString("name"))
                     .setPhone(rs.getString("phone"))
                     .setEmail(rs.getString("email"))
-                    .setOwner(ownersEntity.findById(rs.getString("ownerid"),usersEntity))
+                    .setOwner(ownersEntity.findById(rs.getString("ownerid")))
                     .setLocation(locationsEntity.findById(rs.getString("locationid")));
         }catch (SQLException var4){
-           var4.printStackTrace();
+            var4.printStackTrace();
             return null;
         }
 

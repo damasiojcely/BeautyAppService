@@ -8,92 +8,90 @@ import java.util.List;
 
 public class StylistsEntity extends BaseEntity {
 
+
+
+    public StylistsEntity(Connection connection){super(connection,"stylist"); }
+
     public StylistsEntity(){
-        super();
-        setTableName("stylist");
+
     }
 
-    public StylistsEntity(Connection connection, String tableName){super(connection,tableName); }
-    public Stylist findById(String id, UsersEntity usersEntity){
-        return findByCriteria(
-                String.format("WHERE id= ' %s' ",id),usersEntity).get(0);
+    public List<Stylist> findAll(OwnersEntity ownersEntity) {
+        return this.findByCriteria("", ownersEntity);
     }
 
-    public List<Stylist> findByCriteria(String  criteria, UsersEntity usersEntity){
-        try{
-            ResultSet rs = getConnection()
-                    .createStatement()
-                    .executeQuery(
-                            getBaseStatement()
-                                    .concat(criteria));
-            List<Stylist> stylists =new ArrayList<>();
-            while(rs.next())
-                stylists.add(Stylist.build(rs,usersEntity));
+    public Stylist findById(String id, OwnersEntity ownersEntity) {
+        String criteria = " id = '" + id + "'";
+        return (Stylist) this.findByCriteria(criteria, ownersEntity).get(0);
+    }
 
+    public List<Stylist> findAllId(String id,OwnersEntity ownersEntity) {
+        String criteria = " ownerid = '" + id + "'";
+        return this.findByCriteria(criteria, ownersEntity);
+    }
+
+
+    public List<Stylist> findByCriteria(String criteria, OwnersEntity ownersEntity) {
+        String sql = this.getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
+        ArrayList stylists = new ArrayList();
+
+        try {
+            ResultSet rs = this.getConnection().createStatement().executeQuery(sql);
+            if (rs == null) {
+                return null;
+            } else {
+                while(rs.next()) {
+                    stylists.add(Stylist.build(rs, ownersEntity));
+                }
+
+                return stylists;
+            }
+        } catch (SQLException var6) {
+            var6.printStackTrace();
             return stylists;
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-        return  null;
     }
 
-    public Stylist findByDni(String dni, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE dni= '%s'", dni), usersEntity).get(0);
+    public List<Stylist> findByOwner(Owner owner, OwnersEntity ownersEntity) {
+        String criteria = "ownerid = " + owner.getIdAsValue();
+        return this.findByCriteria(criteria, ownersEntity);
     }
 
-    public Stylist findByName(String firstName, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE first_name= '%s'", firstName), usersEntity).get(0);
-    }
-    public Stylist findByLast(String lastName, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE last_name= '%s'", lastName), usersEntity).get(0);
-    }
-    public Stylist findByEmail(String email, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE email= '%s'", email), usersEntity).get(0);
-    }
-    public Stylist findByPhone(String phone, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE phone= '%s'", phone), usersEntity).get(0);
+    public List<Stylist> findAllOrderByFirstName(OwnersEntity ownersEntity, boolean isAscending) {
+        return this.findByCriteria("true ORDER BY first_name" + (isAscending ? "" : " DESC"), ownersEntity);
     }
 
-    public List<Stylist> findAll(UsersEntity usersEntity) {
-        return findByCriteria("", usersEntity);
+    public List<Stylist> findAllOrderByLastName(OwnersEntity ownersEntity, boolean isAscending) {
+        return this.findByCriteria("true ORDER BY last_name" + (isAscending ? "" : " DESC"), ownersEntity);
     }
 
-    public boolean create(Stylist stylist) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(id, dni,first_name,last_name, email, phone, username) VALUES( '%s', '%s', '%s', '%s', '%s','%s','%e')",
-                getTableName(), stylist.getId(), stylist.getDni(), stylist.getFirstName(), stylist.getLastName(), stylist.getEmail(), stylist.getPhone(), stylist.getUser().getUsername()));
-    }
-    public boolean create(String id, String dni,String name, String last,String email,String phone, User user) {
-        return create(new Stylist(id,dni,name,last,email,phone,user));
-    }
 
-    public boolean update(String id, String dni,String firstName, String lastName,String email,String phone, User user) {
-        return executeUpdate(String.format(
-                "UPDATE %s SET dni = '%s', first_name= '%s', last_name ='%s', email = '%s', phone= '%s', username= '%e' WHERE id = '%s'",
-                getTableName(),dni,firstName,lastName,email,phone, user,id));
+    public boolean add(Stylist stylist) {
+        String sql = "INSERT stylist (id,dni,first_name, last_name, email,password,phone) VALUES(" + stylist.getIdAsValue()+ ", "+ stylist.getDniAsValue()  + ", " + stylist.getFirstNameAsValue() + ", " + stylist.getLastNameAsValue() + ", " + stylist.getEmailAsValue() + ", " +stylist.getPasswordAsValue() + ", " +stylist.getPhoneAsValue() + ", "+ stylist.getOwner().getIdAsValue() + ")";
+        return this.change(sql);
     }
 
 
 
     public boolean update(Stylist stylist) {
-        return update(stylist.getId(), stylist.getDni(), stylist.getFirstName(), stylist.getLastName(), stylist.getEmail(), stylist.getPhone(), stylist.getUser());
+        String sql = "UPDATE stylist SET dni = " + stylist.getDniAsValue() + ",first_name = " + stylist.getFirstNameAsValue() + ", last_name = " + stylist.getLastNameAsValue() + ", email = " + stylist.getEmailAsValue() + ", password = " +stylist.getPasswordAsValue() + ", phone = " + stylist.getPhoneAsValue()+", ownerid = " + stylist.getOwner().getIdAsValue() + " WHERE id = " + stylist.getIdAsValue();
+        return this.change(sql);
     }
 
-    public boolean erase(String id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
-                getTableName(), id));
+    public boolean delete(Stylist stylist) {
+        String sql = "DELETE FROM stylist WHERE id = " + stylist.getIdAsValue();
+        return this.change(sql);
     }
 
-    public boolean erase(Stylist stylist) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'",
-                getTableName(), stylist.getId(),stylist.getUser()));
+    public boolean delete(String id) {
+        String sql = "DELETE FROM stylist WHERE id = '" + id + "'";
+        return this.change(sql);
     }
+
+
 
 
 
 }
+
+
