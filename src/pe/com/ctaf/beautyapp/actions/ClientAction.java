@@ -1,6 +1,5 @@
 package pe.com.ctaf.beautyapp.actions;
 import com.opensymphony.xwork2.ActionSupport;
-import pe.com.ctaf.beautyapp.models.User;
 
 public class ClientAction extends ActionSupport {
     private String id;
