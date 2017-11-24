@@ -113,15 +113,14 @@ public class Stylist {
             return (new Stylist())
                     .setId(rs.getString("id"))
                     .setDni(rs.getString("dni"))
-                    .setFirstName(rs.getString("firstname"))
-                    .setLastName(rs.getString("lastname"))
+                    .setFirstName(rs.getString("first_name"))
+                    .setLastName(rs.getString("last_name"))
                     .setEmail(rs.getString("email"))
                     .setPhone(rs.getString("phone"))
-                    .setOwner(ownersEntity.findById(rs.getString("ownerid")));
+                    .setOwner(ownersEntity.findById(rs.getString("owner_id")));
 
-
-        }catch (SQLException var7){
-            var7.printStackTrace();
+        }catch (SQLException e){
+            e.printStackTrace();
             return  null;
         }
 

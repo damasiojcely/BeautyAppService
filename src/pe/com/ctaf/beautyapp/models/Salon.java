@@ -97,8 +97,8 @@ public class Salon {
                     .setName(rs.getString("name"))
                     .setPhone(rs.getString("phone"))
                     .setEmail(rs.getString("email"))
-                    .setOwner(ownersEntity.findById(rs.getString("ownerid")))
-                    .setLocation(locationsEntity.findById(rs.getString("locationid")));
+                    .setOwner(ownersEntity.findById(rs.getString("owner_id")))
+                    .setLocation(locationsEntity.findById(rs.getString("location_id")));
         }catch (SQLException var4){
             var4.printStackTrace();
             return null;

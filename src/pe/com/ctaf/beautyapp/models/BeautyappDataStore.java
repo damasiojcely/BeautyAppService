@@ -9,12 +9,9 @@ public class BeautyappDataStore {
     private ClientsEntity clientsEntity;
     private LocationsEntity locationsEntity;
     private StylistsEntity stylistsEntity;
-    private  UsersEntity usersEntity;
     private OwnersEntity ownersEntity;
     private ServicesEntity servicesEntity;
-    private SchedulesEntity schedulesEntity;
     private ReservationsEntity reservationsEntity;
-    private  SkillsEntity skillsEntity;
 
 
     public BeautyappDataStore(Connection connection){ this.setConnection(connection); }
@@ -23,26 +20,23 @@ public class BeautyappDataStore {
 
     }
 
-    public User findUserById(String id){
-        if(getConnection() ==null)return null;
-        return getUsersEntity().findById(id);
-    }
+
 
     public Client findClientById(String id){
         if(getConnection() ==null) return  null;
-        return  getClientsEntity().findById(id,getUsersEntity());
+        return  getClientsEntity().findById(id);
     }
     public Stylist findStylistById(String id){
         if(getConnection() ==null)return  null;
-        return  getStylistsEntity().findById(id,getUsersEntity());
+        return  getStylistsEntity().findById(id);
     }
     public Owner findOwnerById(String id){
         if(getConnection() ==null)return  null;
-        return  getOwnersEntity().findById(id,getUsersEntity());
+        return  getOwnersEntity().findById(id);
     }
     public Salon findSalonById(String id){
         if(getConnection() ==null)return  null;
-        return  getSalonsEntity().findById(id,getOwnersEntity(),getLocationsEntity(),getUsersEntity());
+        return  getSalonsEntity().findById(id,getOwnersEntity(),getLocationsEntity());
     }
     public Location findSLocationById(String id){
         if(getConnection() ==null)return  null;
@@ -50,54 +44,38 @@ public class BeautyappDataStore {
     }
     public Reservation findReservationById(String id){
         if(getConnection() ==null)return  null;
-        return  getReservationsEntity().findById(id,getClientsEntity(),getSchedulesEntity(),getUsersEntity(),getStylistsEntity(),getServicesEntity(),getSalonsEntity(),getOwnersEntity(),getLocationsEntity());
+        return  getReservationsEntity().findById(id,getClientsEntity(),getStylistsEntity(),getServicesEntity(),getSalonsEntity(),getOwnersEntity(),getLocationsEntity());
     }
-    public Schedule findScheduleById(String id){
-        if(getConnection() ==null)return  null;
-        return  getSchedulesEntity().findById(id,getStylistsEntity(),getServicesEntity(),getSalonsEntity(),getUsersEntity(),getOwnersEntity(),getLocationsEntity());
-    }
+
     public Service findServiceById(String id){
         if(getConnection() ==null)return  null;
         return  getServicesEntity().findById(id);
     }
 
 
-    public Skill findSkillById(String stylistid, String serviceid){
-        if(getConnection() ==null)return  null;
-        return (Skill) getSkillsEntity().findById(stylistid,serviceid);
 
-    }
 
-    public List<User> findAllUsers(){
-        return  getConnection() ==null ? null:getUsersEntity().findAll();
-    }
     public List<Client> findAllClients(){
-        return  getConnection() ==null ?  null:getClientsEntity().findAll(getUsersEntity());
+        return  getConnection() ==null ?  null:getClientsEntity();
     }
     public List<Stylist> findAllStylists(){
-        return  getConnection() ==null ? null:getStylistsEntity().findAll(getUsersEntity());
+        return  getConnection() ==null ? null:getStylistsEntity();
     }
     public List<Owner> findAllOwners(){
-        return getConnection() ==null  ? null:getOwnersEntity().findAll(getUsersEntity());
+        return getConnection() ==null  ? null:getOwnersEntity();
     }
     public List<Salon> findAllSalons(){
-        return getConnection() ==null  ? null:getSalonsEntity().findAll(getOwnersEntity(),getLocationsEntity(),getUsersEntity());
+        return getConnection() ==null  ? null:getSalonsEntity().findAll(getOwnersEntity(),getLocationsEntity());
     }
     public List<Reservation> findAllReservations(){
-        return getConnection() ==null ? null:getReservationsEntity().findAll(getClientsEntity(),getSchedulesEntity(),getUsersEntity(),getStylistsEntity(),getServicesEntity(),getSalonsEntity(),getOwnersEntity(),getLocationsEntity());
+        return getConnection() ==null ? null:getReservationsEntity().findAll(getClientsEntity(),getStylistsEntity(),getServicesEntity(),getSalonsEntity(),getOwnersEntity(),getLocationsEntity());
     }
-    public List<Schedule> findAllSchedules(){
-        return getConnection() == null ? null:getSchedulesEntity().findAll(getStylistsEntity(),getServicesEntity(),getSalonsEntity(),getUsersEntity(),getOwnersEntity(),getLocationsEntity());
-    }
+
     public List<Service> findAllServices(){
         return getConnection() ==null  ?null:getServicesEntity().findAll();
     }
 
-    //Aqui falta como poner las dos  llaves primaria de  la tabla skill
-    public List<Skill> findAllSkills(){
 
-        return getConnection() ==null ? null:getSkillsEntity().findAll();
-    }
 
     public List<Location> findAllLocations(){
         return getConnection()== null ? null:getLocationsEntity().findAll();
@@ -105,36 +83,16 @@ public class BeautyappDataStore {
 
     //de aqui comienza para hacer de todas las tablas
 
-    public boolean createUser(String id, String username,String password){
-        return getConnection() ==null ?
-                null:
-                getUsersEntity().create(id,username,password);
-    }
-    public boolean updateUser(String id,String name,String password){
-        return  connection ==null ?
-                false:
-                getUsersEntity().update(id,name,password);
-    }
-    public boolean updateUser(User user){
-        return  updateUser(user.getId(),user.getUsername(),user.getPassword());
-    }
 
-    public boolean eraseUser(String id){
-        return connection ==null ?
-                false:
-                getUsersEntity().erase(id);
-    }
-
-
-    public boolean createClient(String id, String dni , String firstName , String lastName, String email , String phone , User user){
+    public boolean createClient(String id, String dni , String firstName , String lastName, String email , String phone ){
         return  getConnection() ==null ?
                 null:
-                getClientsEntity().create(id,dni,firstName,lastName,email,phone,user);
+                getClientsEntity().add(id,dni,firstName,lastName,email,phone);
     }
-    public boolean updateClient(String id, String dni , String firstName , String lastName, String email , String phone , User user){
+    public boolean updateClient(String id, String dni , String firstName , String lastName, String email , String phone ){
         return  connection ==null ?
                 false:
-                getClientsEntity().update(id,dni,firstName,lastName,email,phone,user);
+                getClientsEntity().update(id,dni,firstName,lastName,email,phone);
 
     }
     public boolean  updateClient (Client client){
@@ -144,12 +102,12 @@ public class BeautyappDataStore {
     public boolean eraseClient(String id){
         return connection ==null ?
                 false:
-                getClientsEntity().erase(id);
+                getClientsEntity().delete(id);
     }
     public Boolean createLocation(String id, String departament , String province , String  district , String address) {
         return getConnection() ==null ?
                 null:
-                getLocationsEntity().create(id,departament,province,district,address);
+                getLocationsEntity().add(id,departament,province,district,address);
     }
     public boolean updateLocation(String id, String departament , String province , String  district , String address){
         return connection== null?
@@ -288,32 +246,6 @@ public class BeautyappDataStore {
                 false:
                 getStylistsEntity().erase(id);
     }
-
-    /**Skill ,falta crear en el skill entity
-     public boolean createSkill(String  stylistid ,String serviceid ,Float time){
-     return  getConnection() ==null ?
-     null:
-     getSkillsEntity().create(stylistid ,serviceid ,time);
-     }
-     public boolean updateSkil(String  stylistid ,String serviceid ,Float time){
-     return  connection ==null ?
-     false:
-     getSkillsEntity().update(stylistid ,serviceid ,time);
-     }
-     public boolean updateSkill(Skill skill){
-     return updateSkil(skill.getStylistid(),skill.getServiceid(),skill.getTime());
-     }
-     public boolean eraseSkill(String stylistid ,String serviceid ){
-     return connection ==null ?
-     false:
-     getSkillsEntity().erase(stylistid , serviceid );
-     }
-     **/
-
-
-
-
-
     public Connection getConnection() {
         return connection;
     }
@@ -370,18 +302,7 @@ public class BeautyappDataStore {
         this.stylistsEntity = stylistsEntity;
     }
 
-    public UsersEntity getUsersEntity() {
-        if(usersEntity ==null){
-            usersEntity =new UsersEntity();
-            usersEntity.setConnection(connection);
-        }
 
-        return usersEntity;
-    }
-
-    public void setUsersEntity(UsersEntity usersEntity) {
-        this.usersEntity = usersEntity;
-    }
 
     public OwnersEntity getOwnersEntity() {
         if(ownersEntity==null){
@@ -407,17 +328,6 @@ public class BeautyappDataStore {
         this.servicesEntity = servicesEntity;
     }
 
-    public SchedulesEntity getSchedulesEntity() {
-        if(schedulesEntity== null){
-            schedulesEntity=new SchedulesEntity();
-            schedulesEntity.setConnection(connection);
-        }
-        return schedulesEntity;
-    }
-
-    public void setSchedulesEntity(SchedulesEntity schedulesEntity) {
-        this.schedulesEntity = schedulesEntity;
-    }
 
     public ReservationsEntity getReservationsEntity() {
         if(reservationsEntity ==null){
@@ -429,18 +339,6 @@ public class BeautyappDataStore {
 
     public void setReservationsEntity(ReservationsEntity reservationsEntity) {
         this.reservationsEntity = reservationsEntity;
-    }
-
-    public SkillsEntity getSkillsEntity() {
-        if(skillsEntity == null){
-            skillsEntity =new SkillsEntity();
-            skillsEntity.setConnection(connection);
-        }
-        return skillsEntity;
-    }
-
-    public void setSkillsEntity(SkillsEntity skillsEntity) {
-        this.skillsEntity = skillsEntity;
     }
 
 }

@@ -10,10 +10,25 @@ import java.util.List;
 public class OwnersEntity extends BaseEntity{
 
 
-    public OwnersEntity() {super();   }
-
     public OwnersEntity(Connection connection) {
         super(connection,"owner");
+    }
+
+    public OwnersEntity() { super();   }
+
+    List<Owner>findAll(){
+        return findByCriteria("");
+    }
+
+    public Owner findById(String id){
+        String criteria =  " id = '" + id + "'";
+        return findByCriteria(criteria).get(0);
+    }
+
+
+    public Owner findByFisrtName(String firstName){
+        String criteria = " first_name = '" + firstName + "'";
+        return findByCriteria(criteria).get(0);
     }
 
 
@@ -26,6 +41,7 @@ public class OwnersEntity extends BaseEntity{
         String criteria = " id = '"+ id+"'";
         return findByCriteria(criteria);
     }
+
 
     public boolean findByEmailPass(String email,String password) {
         boolean s =false;
@@ -59,20 +75,6 @@ public class OwnersEntity extends BaseEntity{
             e.printStackTrace();
         }
         return null;
-    }
-
-    List<Owner>findAll(){
-        return findByCriteria("");
-    }
-
-    public Owner findById(String id){
-        String criteria =  " id = '" + id + "'";
-        return findByCriteria(criteria).get(0);
-    }
-
-    public Owner findByFisrtName(String firstName){
-        String criteria = " first_name = '" + firstName + "'";
-        return findByCriteria(criteria).get(0);
     }
 
     public Owner findByLastName(String lastName){

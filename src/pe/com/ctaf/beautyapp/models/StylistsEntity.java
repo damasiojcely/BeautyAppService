@@ -8,8 +8,6 @@ import java.util.List;
 
 public class StylistsEntity extends BaseEntity {
 
-
-
     public StylistsEntity(Connection connection){super(connection,"stylist"); }
 
     public StylistsEntity(){
@@ -26,7 +24,7 @@ public class StylistsEntity extends BaseEntity {
     }
 
     public List<Stylist> findAllId(String id,OwnersEntity ownersEntity) {
-        String criteria = " ownerid = '" + id + "'";
+        String criteria = " owner_id = '" + id + "'";
         return this.findByCriteria(criteria, ownersEntity);
     }
 
@@ -36,24 +34,19 @@ public class StylistsEntity extends BaseEntity {
         ArrayList stylists = new ArrayList();
 
         try {
-            ResultSet rs = this.getConnection().createStatement().executeQuery(sql);
-            if (rs == null) {
-                return null;
-            } else {
-                while(rs.next()) {
-                    stylists.add(Stylist.build(rs, ownersEntity));
-                }
-
-                return stylists;
-            }
-        } catch (SQLException var6) {
-            var6.printStackTrace();
+            ResultSet rs = getConnection().createStatement().executeQuery(sql);
+            if(rs == null) return null;
+            while(rs.next()) stylists.add(Stylist.build(rs, ownersEntity));
             return stylists;
+        } catch(SQLException e) {
+            e.printStackTrace();
         }
+        return stylists;
     }
 
+
     public List<Stylist> findByOwner(Owner owner, OwnersEntity ownersEntity) {
-        String criteria = "ownerid = " + owner.getIdAsValue();
+        String criteria = "owner_id = " + owner.getIdAsValue();
         return this.findByCriteria(criteria, ownersEntity);
     }
 
@@ -67,14 +60,12 @@ public class StylistsEntity extends BaseEntity {
 
 
     public boolean add(Stylist stylist) {
-        String sql = "INSERT stylist (id,dni,first_name, last_name, email,password,phone) VALUES(" + stylist.getIdAsValue()+ ", "+ stylist.getDniAsValue()  + ", " + stylist.getFirstNameAsValue() + ", " + stylist.getLastNameAsValue() + ", " + stylist.getEmailAsValue() + ", " +stylist.getPasswordAsValue() + ", " +stylist.getPhoneAsValue() + ", "+ stylist.getOwner().getIdAsValue() + ")";
+        String sql = "INSERT stylist (id,dni,first_name, last_name, email,phone, owner_id) VALUES(" + stylist.getIdAsValue()+ ", "+ stylist.getDniAsValue()  + ", " + stylist.getFirstNameAsValue() + ", " + stylist.getLastNameAsValue() + ", " + stylist.getEmailAsValue() + ", " +stylist.getPhoneAsValue() + ", "+ stylist.getOwner().getIdAsValue() + ")";
         return this.change(sql);
     }
 
-
-
     public boolean update(Stylist stylist) {
-        String sql = "UPDATE stylist SET dni = " + stylist.getDniAsValue() + ",first_name = " + stylist.getFirstNameAsValue() + ", last_name = " + stylist.getLastNameAsValue() + ", email = " + stylist.getEmailAsValue() + ", password = " +stylist.getPasswordAsValue() + ", phone = " + stylist.getPhoneAsValue()+", ownerid = " + stylist.getOwner().getIdAsValue() + " WHERE id = " + stylist.getIdAsValue();
+        String sql = "UPDATE stylist SET dni = " + stylist.getDniAsValue() + ",first_name = " + stylist.getFirstNameAsValue() + ", last_name = " + stylist.getLastNameAsValue() + ", email = " + stylist.getEmailAsValue() + ", phone = " + stylist.getPhoneAsValue()+ ", owner_id = " + stylist.getOwner().getIdAsValue() + " WHERE id = " + stylist.getIdAsValue();
         return this.change(sql);
     }
 
@@ -87,10 +78,6 @@ public class StylistsEntity extends BaseEntity {
         String sql = "DELETE FROM stylist WHERE id = '" + id + "'";
         return this.change(sql);
     }
-
-
-
-
 
 }
 

@@ -3,121 +3,109 @@ package pe.com.ctaf.beautyapp.models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class Reservation {
-    private String id;
-    private String reservedat;
-    private String requestedfor;
+    private int id;
+    private Date reserdate;
+    private Date resertime;
     private float price;
-    private String startat;
-    private String endat;
     private Client client;
-    private Schedule schedule;
-
-    public Reservation(String id, String reservedat, String requestedfor,
-                       float price, String startat, String endat, Client client, Schedule schedule) {
-        this.id = id;
-        this.reservedat = reservedat;
-        this.requestedfor = requestedfor;
-        this.price = price;
-        this.startat = startat;
-        this.endat = endat;
-        this.client = client;
-        this.schedule = schedule;
-    }
+    private Salon salon;
 
     public Reservation() {
     }
 
+    public Reservation(int id, Date reserdate, Date resertime, float price, Client client, Salon salon) {
+        this.id = id;
+        this.reserdate = reserdate;
+        this.resertime = resertime;
+        this.price = price;
+        this.client = client;
+        this.salon = salon;
+    }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public Reservation setId(String id) {
+    public String getIdAsString() {
+        return String.valueOf(getId());
+    }
+
+    public Reservation setId(int id) {
         this.id = id;
         return this;
     }
 
-    public String getReservedat() {
-        return reservedat;
+    public Date getReserdate() {
+        return reserdate;
     }
 
-    public Reservation setReservedat(String reservedat) {
-        this.reservedat = reservedat;
+    public String getReserdateAsValue() { return "'" + getReserdate() + "'";}
+
+    public Reservation setReserdate(Date reserdate) {
+        this.reserdate = reserdate;
         return this;
     }
 
-    public String getRequestedfor() {
-        return requestedfor;
+    public Date getResertime() {
+        return resertime;
     }
 
-    public Reservation setRequestedfor(String requestedfor) {
-        this.requestedfor = requestedfor;
+    public String getResertimeAsValue() { return "'" + getResertime()+ "'";}
+
+    public Reservation setResertime(Date resertime) {
+        this.resertime = resertime;
         return this;
     }
 
-    public float getPrice() {
-        return price;
-    }
+    public float getPrice() {return price;}
+
+    public String getPriceAsString(){return String.valueOf(getPrice());}
 
     public Reservation setPrice(float price) {
         this.price = price;
         return this;
     }
 
-    public String getStartat() {
-        return startat;
-    }
-
-    public Reservation setStartat(String startat) {
-        this.startat = startat;
-        return this;
-    }
-
-    public String getEndat() {
-        return endat;
-    }
-
-    public Reservation setEndat(String endat) {
-        this.endat = endat;
-        return this;
-    }
-
     public Client getClient() {
         return client;
     }
+    public String getClientAsValue() {return "'" + getClient()+"'";}
 
     public Reservation setClient(Client client) {
         this.client = client;
         return this;
     }
 
-    public Schedule getSchedule() {
-        return schedule;
+    public Salon getSalon() {
+        return salon;
     }
+    public String getSalonAsValue() {return "'" + getSalon()+"'";}
 
-    public Reservation setSchedule(Schedule schedule) {
-        this.schedule = schedule;
+    public Reservation setSalon(Salon salon) {
+        this.salon = salon;
         return this;
     }
 
-    public static Reservation from(ResultSet rs, ClientsEntity clientsEntity, SchedulesEntity schedulesEntity,
-                                   UsersEntity usersEntity  , StylistsEntity stylistsEntity , ServicesEntity servicesEntity , SalonsEntity salonsEntity, OwnersEntity  ownersEntity, LocationsEntity locationsEntity) {
-        Reservation reservation = new Reservation();
-        try {
-            return reservation.setId(rs.getString("id"))
-                    .setReservedat(rs.getString("reservedat"))
-                    .setRequestedfor(rs.getString("requestedfor"))
-                    .setPrice(rs.getFloat("price"))
-                    .setStartat(rs.getString("start_at"))
-                    .setEndat(rs.getString("end_at"))
-                    .setClient(clientsEntity.findById(rs.getString("clientid"),usersEntity))
-                    .setSchedule(schedulesEntity.findById(rs.getString("scheduleid"),stylistsEntity,servicesEntity, salonsEntity, usersEntity, ownersEntity, locationsEntity));
-
+    public static Reservation build(ResultSet resultSet,
+                                    ClientsEntity clientsEntity,
+                                    SalonsEntity salonsEntity,
+                                    OwnersEntity ownersEntity,
+                                    LocationsEntity locationsEntity){
+        try{
+            return (new Reservation())
+                    .setId(resultSet.getInt("id"))
+                    .setReserdate(resultSet.getDate("reser_date"))
+                    .setResertime(resultSet.getDate("reser_time"))
+                    .setPrice(resultSet.getFloat("price"))
+                    .setClient(clientsEntity.findById(resultSet.getString("client_id")))
+                    .setSalon(salonsEntity.findById(resultSet.getString("salon_id"),ownersEntity,locationsEntity));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
 }
