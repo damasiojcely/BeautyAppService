@@ -1,95 +1,106 @@
 package pe.com.ctaf.beautyapp.models;
+
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OwnersEntity extends BaseEntity {
-    public OwnersEntity() {
-        super();
-        setTableName("owner");
+public class OwnersEntity extends BaseEntity{
+
+
+    public OwnersEntity() {super();   }
+
+    public OwnersEntity(Connection connection) {
+        super(connection,"owner");
     }
 
-    public OwnersEntity(Connection connection, String tableName) {
-        super(connection, tableName);
-    }
-    public Owner findById(String id, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE id= '%d'", id), usersEntity).get(0);
+
+    public Owner findyIdByEmailPassword(String email,String password){
+        String criteria= " email = '"+email+"' and password = '"+password+"'";
+        return findByCriteria(criteria).get(0);
     }
 
-    public List<Owner> findByCriteria(String criteria, UsersEntity usersEntity) {
+    public List<Owner> findAllById(String id) {
+        String criteria = " id = '"+ id+"'";
+        return findByCriteria(criteria);
+    }
+
+    public boolean findByEmailPass(String email,String password) {
+        boolean s =false;
+        try{
+            PreparedStatement ps =getConnection().prepareStatement(getDefaultQuery() + " where email=? and password=?" );
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs =ps.executeQuery();
+            s = rs.next();
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return s;
+    }
+
+
+    public List<Owner>findByCriteria(String criteria){
+        String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
+        List<Owner> owners = new ArrayList<>();
         try {
-            ResultSet rs = getConnection()
+            ResultSet resultSet = getConnection()
                     .createStatement()
-                    .executeQuery(
-                            getBaseStatement()
-                                    .concat(criteria));
-            List<Owner> owners= new ArrayList<>();
-            while(rs.next())
-                owners.add(Owner.build(rs, usersEntity));
-
+                    .executeQuery(sql);
+            if(resultSet== null) return null;
+            while(resultSet.next()){
+                owners.add(Owner.build(resultSet));
+            }
             return owners;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-
-    }
-    public Owner findByDni(String dni, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE dni= '%s'", dni), usersEntity).get(0);
     }
 
-    public Owner findByName(String name, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE first_name= '%s'", name), usersEntity).get(0);
-    }
-    public Owner findByLast(String last, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE last_name= '%s'", last), usersEntity).get(0);
-    }
-    public Owner findByEmanil(String email, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE email= '%s'", email), usersEntity).get(0);
-    }
-    public Owner findByPhone(String phone, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE phone = '%s'", phone), usersEntity).get(0);
+    List<Owner>findAll(){
+        return findByCriteria("");
     }
 
-    public List<Owner> findAll(UsersEntity usersEntity) {
-        return findByCriteria("", usersEntity);
+    public Owner findById(String id){
+        String criteria =  " id = '" + id + "'";
+        return findByCriteria(criteria).get(0);
     }
 
-    public boolean create(Owner owner) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(id, dni,first_name,last_name, email, phone, userid) VALUES( '%d', '%s', '%a', '%b', '%c','%d','%e')",
-                getTableName(),owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUser().getUsername()));
-    }
-    public boolean create(String id, String dni,String name, String last,String email,String phone, User user) {
-        return create(new Owner(id,dni,name,last,email,phone, user));
+    public Owner findByFisrtName(String firstName){
+        String criteria = " first_name = '" + firstName + "'";
+        return findByCriteria(criteria).get(0);
     }
 
-    public boolean update(String id, String dni,String name, String last,String email,String phone, User user) {
-        return executeUpdate(String.format(
-                "UPDATE %s SET dni= '%s', first_name = '%d', last_name ='%a', email= '%b', phone= '%c', userid= '%d' WHERE id= '%e'",
-                getTableName(),dni,name,last,email,phone, user,id));
+    public Owner findByLastName(String lastName){
+        String criteria = " last_name = '" + lastName + "'";
+        return findByCriteria(criteria).get(0);
     }
 
-    public boolean update(Owner owner) {
-        return update(owner.getId(),owner.getDni(),owner.getName(),owner.getLast(),owner.getEmail(),owner.getPhone(),owner.getUser());
+    public boolean add(Owner owner) {
+        String sql = "INSERT INTO owner (id, dni, first_name, last_name, email, password, phone) " +
+                "VALUES(" +owner.getIdAsValue()+ ", " +owner.getDniAsValue()+ " ," +owner.getFirstNameAsValue()+", " +owner.getLastNameAsValue()+ ", " +owner.getEmailAsValue()+ ", " +
+                owner.getPasswordAsValue()+ ", " +owner.getPhoneAsValue()+ ")";
+        return change(sql);
     }
 
-    public boolean erase(String id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
-                getTableName(), id));
+    public boolean delete(Owner owner){
+
+        return change("DELETE FROM owner WHERE id = " + owner.getIdAsValue());
     }
 
-    public boolean erase(Owner owner) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id = '%s'",
-                getTableName(), owner.getId()));
+    public  boolean update(Owner owner){
+        return change("UPDATE owner SET dni = " + owner.getDniAsValue()+ "first_name = " + owner.getFirstNameAsValue() + ", last_name = " + owner.getLastNameAsValue() +
+                ", email = " + owner.getEmailAsValue()+ ", password = " + owner.getPasswordAsValue() + ", phone = " + owner.getPhoneAsValue()+ " WHERE id = " +owner.getIdAsValue());
+    }
+
+    public boolean updatePass(Owner owner) {
+        String sql = "UPDATE owner SET WHERE password = " + owner.getPasswordAsValue()+
+                " WHERE id = " + owner.getIdAsValue();
+        return change(sql);
     }
 
 }

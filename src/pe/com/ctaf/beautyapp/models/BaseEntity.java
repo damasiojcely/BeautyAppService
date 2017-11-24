@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class BaseEntity {
-
     private Connection connection;
     private static String BASE_QUERY = "SELECT * FROM ";
     private String tableName;
@@ -14,7 +13,7 @@ public class BaseEntity {
         this.connection = connection;
     }
 
-    public BaseEntity(Connection connection, String tableName) {
+    public BaseEntity(Connection connection, String tableName ){
         this.connection = connection;
         this.tableName = tableName;
     }
@@ -40,17 +39,18 @@ public class BaseEntity {
         return this;
     }
 
-    public String getDefaultQuery() {
-        return BASE_QUERY + this.getTableName();
+    public String getDefaultQuery(){
+        return BASE_QUERY + getTableName();
     }
 
-    public boolean change(String sql) {
+    public boolean change(String sql){
         try {
-            int result = this.getConnection().createStatement().executeUpdate(sql);
+            int result = getConnection().createStatement().executeUpdate(sql);
             return result > 0;
-        } catch (SQLException var3) {
-            var3.printStackTrace();
-            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return false;
     }
+
 }

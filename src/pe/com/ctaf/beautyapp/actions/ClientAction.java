@@ -8,7 +8,7 @@ public class ClientAction extends ActionSupport {
     private String lastname;
     private String email;
     private String phone;
-    private User user;
+
 
     public String getId() {
         return id;
@@ -56,14 +56,6 @@ public class ClientAction extends ActionSupport {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String execute(){
