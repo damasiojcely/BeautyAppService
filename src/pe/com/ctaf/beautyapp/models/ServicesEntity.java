@@ -5,88 +5,98 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServicesEntity extends BaseEntity {
+public class ServicesEntity extends BaseEntity{
+
+
+    public ServicesEntity(Connection connection) {
+        super(connection, "service");
+    }
 
     public ServicesEntity() {
         super();
-        setTableName("service");
     }
 
-    public ServicesEntity(Connection connection, String tableName) {
-        super(connection, tableName);
-    }
-    public Service findById(String id) {
-        return findByCriteria(
-                String.format("WHERE id = '%d'", id)).get(0);
+    List<Service> findAll(SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+        return findByCriteria("",salonsEntity,ownersEntity,locationsEntity);
     }
 
-    public List<Service> findByCriteria(String criteria) {
+    public Service findById(String id,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+        String criteria = " id = '" + id + "'";
+        return findByCriteria(criteria,salonsEntity,ownersEntity,locationsEntity).get(0);
+    }
+
+    public Service findByName(String name,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+        String criteria = " name = '" +name + "'";
+        return findByCriteria(criteria,salonsEntity,ownersEntity,locationsEntity).get(0);
+    }
+
+    public List<Service> findAllOrderByName(SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+        String criteria = "true ORDER BY name";
+        return findByCriteria(criteria,salonsEntity,ownersEntity,locationsEntity);
+    }
+
+
+
+    public List<Service> findServiceByOwner(String criteria,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+        String sql = " SELECT s.* from owner o , salon sa , service s where s.salon_id=sa.id and sa.owner_id=o.id and o.id="+"'"+criteria+"'" ;
+        List<Service> services = new ArrayList<>();
         try {
-            ResultSet rs = getConnection()
+            ResultSet resultSet = getConnection()
                     .createStatement()
-                    .executeQuery(
-                            getBaseStatement()
-                                    .concat(criteria));
-            List<Service> services = new ArrayList<>();
-            while(rs.next())
-                services.add(Service.build(rs));
-
+                    .executeQuery(sql);
+            if(resultSet == null) return null;
+            while(resultSet.next()) {
+                services.add(Service.build(resultSet,salonsEntity,ownersEntity,locationsEntity));
+            }
             return services;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-
-    }
-    public Service findByName(String name) {
-        return findByCriteria(
-                String.format("WHERE name= '%s'", name)).get(0);
     }
 
-    public Service findByPrice(float price){
-        return  findByCriteria(String.format("WHERE price = '%s'", price)).get(0);
-    }
-    public Service findByDescription(String description){
-        return  findByCriteria(String.format("WHERE description= '%s'", description)).get(0);
+
+
+
+    public List<Service> findByCriteria(String criteria,SalonsEntity salonsEntity,OwnersEntity ownersEntity,LocationsEntity locationsEntity) {
+        String sql = getDefaultQuery() +
+                (criteria.equalsIgnoreCase("") ? "" : " WHERE " + criteria) ;
+        List<Service> services = new ArrayList<>();
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            if(resultSet == null) return null;
+            while(resultSet.next()) {
+                services.add(Service.build(resultSet,salonsEntity,ownersEntity,locationsEntity));
+            }
+            return services;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public List<Service> findAll() {
-        return findByCriteria("");
+    public boolean add(Service service) {
+        String sql = "INSERT INTO service (id,name,price,salon_id) " +
+                "VALUES(" + service.getIdAsValue() + ", " + service.getNameAsValue()+" ,"+
+                service.getPriceAsString() + ", "+ service.getSalon().getIdAsValue()+ ")";
+        return change(sql);
     }
 
-    public List<Service> findAllWithServices() {
-        return findByCriteria("id IN (SELECT DISTINCT id FROM service)");
+    public boolean delete(Service service) {
+        String sql = "DELETE FROM service WHERE id = " + service.getIdAsValue();
+        return change(sql);
     }
 
-    public boolean create(Service service) {
-        return executeUpdate(String.format(
-                "INSERT INTO %s(id, name,price,description) VALUES( '%d', '%s', %a, '%b')",
-                getTableName(),service.getId(), service.getName(),service.getPrice(), service.getDescription()));
-    }
-    public boolean create(String id, String name,float price, String description) {
-        return create(new Service(id, name, price,description));
-    }
-
-    public boolean update(String id, String name, float price, String description) {
-        return executeUpdate(String.format(
-                "UPDATE %s SET name = '%s', price = '%d', description= '%a' WHERE id= '%s'",
-                  getTableName(), name,price,description,id));
-    }
 
     public boolean update(Service service) {
-        return update(service.getId(),service.getName(),service.getPrice(),service.getDescription());
+        String sql = " UPDATE service SET name = " + service.getNameAsValue() +
+                ", price = " + service.getPriceAsString()+
+                ", salon_id = " + service.getSalon().getIdAsValue()+
+                " WHERE id = " + service.getIdAsValue();
+        return change(sql);
     }
-
-    public boolean erase(String id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
-                getTableName(), id));
-    }
-
-    public boolean erase(Service service) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE id= '%s'",
-                getTableName(), service.getId()));
-    }
-
 
 
 }

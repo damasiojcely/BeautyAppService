@@ -6,23 +6,25 @@ public class Service {
     private String id;
     private String name;
     private float price;
-    private String description;
+    private Salon salon;
 
 
     public Service() {
     }
 
-    public Service (String id, String name, float price, String description) {
+    public Service (String id, String name, float price, Salon salon) {
         this.id= id;
         this.name=name;
         this.price=price;
-        this.description=description;
+        this.salon=salon;
 
     }
 
     public String getId() {
         return id;
     }
+
+    public String getIdAsValue(){return "'" + getId() + "'";}
 
 
 
@@ -55,27 +57,25 @@ public class Service {
         return this;
     }
 
-    public String getDescription() {
-        return description;
+    public Salon getSalon() {
+        return salon;
     }
 
-    public String getDescriptionAsValue() { return "'" + getDescription() + "'";}
+    public String getSalonAsValue() { return "'" + getSalon() + "'";}
 
-    public Service setDescription(String description) {
-        this.description = description;
+    public Service setSalon(Salon salon) {
+        this.salon = salon;
         return this;
     }
 
-    public static Service build (ResultSet rs) {
+    public static Service build (ResultSet rs,SalonsEntity salonsEntity,OwnersEntity ownersEntity, LocationsEntity locationsEntity) {
 
         try {
             return (new Service())
                     .setId(rs.getString("id"))
                     .setName(rs.getString("name"))
                     .setPrice(rs.getFloat("price"))
-                    .setDescription(rs.getString("description"));
-
-
+                    .setSalon(salonsEntity.findById(rs.getString("salon_id"),ownersEntity,locationsEntity));
 
         } catch (SQLException e) {
             e.printStackTrace();
