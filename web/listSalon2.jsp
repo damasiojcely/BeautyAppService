@@ -1,24 +1,24 @@
 <%--
   Created by IntelliJ IDEA.
   User: Sadit
-  Date: 10/11/2017
-  Time: 22:18
+  Date: 24/11/2017
+  Time: 23:27
   To change this template use File | Settings | File Templates.
 --%>
-
-<%@ page import="pe.com.ctaf.beautyapp.models.Salon" %>
+<%@ page import="pe.com.ctaf.beautyapp.models.Client" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>SALON DE BELLEZA</title>
+    <title>DUEÑO</title>
 </head>
 <body>
-<jsp:include page="menuClient.jsp"/>
-
+<jsp:include page="menuOwner.jsp"/>
 <div class="row">
     <jsp:useBean id="service" class="pe.com.ctaf.beautyapp.models.BeautyappService"/>
-    <c:forEach var="court" items="${service.salon}">
+    <%String ide=(String)request.getSession().getAttribute("uowner");%>
+    <c:forEach var="salon" items="<%=service.getSalonByOwner(ide)%>">
         <div class="col-md-4">
             <div class="thumbnail">
                     <%--<a href="" target="_blank">--%>
@@ -39,18 +39,17 @@
                                 <h4 class="modal-title">${salon.name}</h4>
                             </div>
                             <div class="modal-body">
-                                <img src="image/salon/${salon.id}.jpg" width="450" height="200"><p></p>
+                                <img src="image/court/${court.id}.jpg" width="450" height="200"><p></p>
                                 NAME : ${salon.name}<p></p>
-                               PHONE : ${salon.phone}<p></p>
+                                PHONE : ${salon.phone}<p></p>
                                 EMAIL : ${salon.email}<p></p>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success"><a href="reservations?action=add&idc=<c:out value="${salon.id}"/>">Reserva</a></button>
+                                <button type="button" class="btn btn-warning"><a href="salons?action=edit&id=<c:out value="${salon.id}"/>"> EDITAR </a></button>
 
                             </div>
                         </div>
-
 
                     </div>
                 </div>
@@ -70,4 +69,3 @@
 
 </body>
 </html>
-
