@@ -22,102 +22,77 @@ public class StylistsController extends  HttpServlet{
 
     public static String STYLISTS_EDIT_URI = "/editStylist.jsp";
     public static String STYLISTS_ADD_URI = "/newStylist.jsp";
-    public static String STYLISTS_INDEX_URI = "/listStylists.jsp";
+    public static String STYLISTS_INDEX_URI = "/listStylist.jsp";
 
-    public StylistsController() {
-    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        byte var5 = -1;
-        switch(action.hashCode()) {
-            case -1352294148:
-                if (action.equals("create")) {
-                    var5 = 1;
-                }
-                break;
-            case -1335458389:
-                if (action.equals("delete")) {
-                    var5 = 2;
-                }
-                break;
-            case -838846263:
-                if (action.equals("update")) {
-                    var5 = 0;
-                }
-        }
-
-        Stylist stylist;
-        String message;
-        Owner owner;
-        switch(var5) {
-            case 0:
-                stylist = this.service.getStylistById(request.getParameter("id"));
+        switch(action) {
+            case "update": {
+                Stylist stylist = service.getStylistById(request.getParameter("id"));
+                stylist.setDni(request.getParameter("dni"));
                 stylist.setFirstName(request.getParameter("firstName"));
                 stylist.setLastName(request.getParameter("lastName"));
                 stylist.setEmail(request.getParameter("email"));
-                stylist.setPhone(request.getParameter("phone"));
-               // stylist.setOwner(owner);
-                message = this.service.updateStylist(stylist) ? "Update success" : "Error while updating";
-                this.log(message);
+                Owner owner = service.getOwnerById(request.getParameter("oid"));
+                stylist.setOwner(owner);
+                String message = service.updateStylist(stylist) ?
+                        "Update success" :
+                        "Error while updating";
+                log(message);
                 break;
-            case 1:
-                stylist = new Stylist();
-                owner =new Owner();
+            }
 
+            case "create": {
+                Stylist stylist=new Stylist();
+                Owner owner=new Owner();
                 stylist.setId(request.getParameter("id"));
+                stylist.setDni(request.getParameter("dni"));
                 stylist.setFirstName(request.getParameter("firstName"));
                 stylist.setLastName(request.getParameter("lastName"));
                 stylist.setEmail(request.getParameter("email"));
-                stylist.setPhone(request.getParameter("phone"));
-                stylist.setOwner(owner.setId(request.getParameter("id")));
-                message = this.service.addStylist(stylist) ? "Update success" : "Error while updating";
-                this.log(message);
+                stylist.setOwner(owner.setId(request.getParameter("oid")));
+                String message = service.addStylist(stylist) ?
+                        "Update success" :
+                        "Error while updating";
+                log(message);
                 break;
-            case 2:
-                stylist = this.service.getStylistById(request.getParameter("id"));
-                message = this.service.deleteStylist(stylist) ? "Delete success" : "Error while delete";
-                this.log(message);
+            }
+            case "delete":{
+                Stylist stylist=service.getStylistById(request.getParameter("id"));
+                String message = service.deleteStylist(stylist)?
+                        "Delete success" :
+                        "Error while delete";
+                log(message);
+                break;
+            }
         }
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher(STYLISTS_INDEX_URI);
+        RequestDispatcher dispatcher =
+                request.getRequestDispatcher(STYLISTS_INDEX_URI);
         dispatcher.forward(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        byte var6 = -1;
-        switch(action.hashCode()) {
-            case 96417:
-                if (action.equals("add")) {
-                    var6 = 0;
-                }
-                break;
-            case 3108362:
-                if (action.equals("edit")) {
-                    var6 = 1;
-                }
-        }
-
         String actionUri;
-        switch(var6) {
-            case 0:
+        switch(action) {
+            case "add": {
                 actionUri = STYLISTS_ADD_URI;
                 request.setAttribute("action", "add");
                 break;
-            case 1:
-                Stylist stylist = this.service.getStylistById(request.getParameter("id"));
+            }
+            case "edit": {
+                Stylist stylist = service.getStylistById(request.getParameter("id"));
                 request.setAttribute("stylist", stylist);
                 request.setAttribute("action", "edit");
                 actionUri = STYLISTS_EDIT_URI;
                 break;
+            }
             default:
                 actionUri = STYLISTS_INDEX_URI;
         }
-
         RequestDispatcher dispatcher = request.getRequestDispatcher(actionUri);
         dispatcher.forward(request, response);
     }
-
-
 
 }
