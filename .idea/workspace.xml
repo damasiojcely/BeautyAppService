@@ -37,18 +37,70 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="beautyapp@localhost" type="e3449647:DbNodeDescriptor" />
         <item name="beautyapp" type="e3449647:DbNodeDescriptor" />
-        <item name="reservation" type="e3449647:DbNodeDescriptor" />
+        <item name="salon" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Form_Reservation.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/Form_Reservation.jsp">
+      <file leaf-file-name="Form_Salon.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/Form_Salon.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeautyappService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listSalon.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/listSalon.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="65" lean-forward="true" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listSalon2.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/listSalon2.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SalonsController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/SalonsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-752">
+              <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editSalon.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/editSalon.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,11 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Client.java" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Owner.java" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/LocationsEntity.java" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Service.java" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ServicesEntity.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Stylist.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/StylistsEntity.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/OwnersEntity.java" />
@@ -101,7 +148,6 @@
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Reservation.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ReservationsEntity.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/ClientsEntity.java" />
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappDataStore.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/OwnerAction.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/SalonsController.java" />
@@ -139,6 +185,12 @@
         <option value="$PROJECT_DIR$/web/Form_Reservation.jsp" />
         <option value="$PROJECT_DIR$/web/listReservation2.jsp" />
         <option value="$PROJECT_DIR$/web/listReservation.jsp" />
+        <option value="$PROJECT_DIR$/web/_courtForm.jsp" />
+        <option value="$PROJECT_DIR$/src/struts.xml" />
+        <option value="$PROJECT_DIR$/web/Form_Salon.jsp" />
+        <option value="$PROJECT_DIR$/web/listSalon2.jsp" />
+        <option value="$PROJECT_DIR$/web/listSalon.jsp" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java" />
       </list>
     </option>
   </component>
@@ -522,12 +574,12 @@
       <workItem from="1511477485466" duration="8628000" />
       <workItem from="1511502687874" duration="5114000" />
       <workItem from="1511566431666" duration="9420000" />
-      <workItem from="1511597442725" duration="9045000" />
+      <workItem from="1511597442725" duration="9987000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84771000" />
+    <option name="totallyTimeSpent" value="85713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -616,81 +668,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/StylistsEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/StylistAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ReservationAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/OwnerAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="61" column="3" lean-forward="false" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/ClientAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1121#1122#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="66" column="20" lean-forward="false" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1511597422342" expanded="true" signature="3076:3081" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/ed1e92a6/7a737ac7-7153-4ba4-bc04-03b186684497/beautyapp.salon">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/menuOwner.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="80" column="41" lean-forward="true" selection-start-line="80" selection-start-column="41" selection-end-line="80" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/listSalon.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -799,29 +780,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Salon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="103" column="24" lean-forward="true" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/ServicesController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="31" column="64" lean-forward="true" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/SalonsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="15" column="62" lean-forward="true" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -879,14 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/editSalon.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1032,11 +987,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/listCourts2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/createSalon.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/newSalon.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/editSalon.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/listSalon.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="65" lean-forward="true" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/Salon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/Form_Reservation.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Form_Salon.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/listSalon2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/SalonsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-752">
+          <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
