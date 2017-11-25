@@ -53,7 +53,7 @@ public class BeautyappService {
     public List<Stylist> getStylistByOwner(String id){return getDataStore().findAllStylistsById(id);}
 
 
-    public List<Salon> getSalonsByOwner(String id){return getDataStore().findAllSalonsByOwner(id);}
+    public List<Salon> getSalonByOwner(String id){return getDataStore().findAllSalonsByOwner(id);}
 
 
     public List<Reservation> getReservationByOrganizer(String id){return getDataStore().findAllReservationsById(id);}
