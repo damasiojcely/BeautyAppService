@@ -8,165 +8,157 @@ import java.util.List;
 
 public class BeautyappService {
     private Connection connection;
-    private BeautyappDataStore dataStore;
+    private BeautyappService datastore;
 
-    public BeautyappService()
-
-    {
+    public BeautyappService(InitialContext ctx) {
         try {
-            InitialContext context= new InitialContext();
-            dataStore = new BeautyappDataStore();
-            connection = ((DataSource)context
-                           .lookup("jdbc/MySQLDataSource"))
-                           .getConnection();
-            dataStore.setConnection(connection);
-        }catch (NamingException e){
+            connection = ((DataSource) ctx.lookup("jdbc/MySQLDataSource"))
+                    .getConnection();
+        } catch (SQLException e) {
             e.printStackTrace();
-        }catch (SQLException e){
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+    }
+    public BeautyappService(){
+        try{
+            InitialContext ctx = new InitialContext();
+            connection = ((DataSource) ctx.lookup("jdbc/MySQLDataSource")).getConnection();
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public Connection getConnection(){
+    private Connection getConnection() {
         return connection;
     }
-    public void setConnection(Connection connection){
-        this.connection=connection;
-    }
-    public BeautyappDataStore getDataStore(){
-        return  dataStore;
-    }
-    public void  setDataStore(BeautyappDataStore dataStore){
-        this.dataStore=dataStore;
+
+    private BeautyappService getDataStore() {
+        if(datastore == null) {
+            datastore = new BeautyappService(getConnection());
+        }
+        return datastore;
     }
 
-    public List<Client> findAllClients(){
-        return  dataStore.findAllClients();
+    public List<Owner> getOwners(){
+        return getDataStore().findAllOwners();
     }
-    public List<Location> findAllLocations(){
-      return  dataStore.findAllLocations();
-    }
-    public List<Owner> findAllOwners(){
-        return  dataStore.findAllOwners();
-    }
-    public List<Reservation> findAllReservations(){return dataStore.findAllReservations();}
-    public List<Salon> findAllSalons(){return  dataStore.findAllSalons();}
-    public List<Schedule> findAllSchedules(){return dataStore.findAllSchedules();}
-    public List<Service> findAllServices(){return dataStore.findAllServices();}
-    public List<Stylist> findAllStylists(){return dataStore.findAllStylists();}
-    public List<User> findAllUsers(){return dataStore.findAllUsers();}
-    public List<Skill> findAllSkills(){return dataStore.findAllSkills();}
 
-    public Client findClientById(String id){
-      return dataStore.findClientById(id);
+    public List<Owner> getOwnersById(String id){return getDataStore().finAllByIdOwners(id);}
+
+
+    public List<Stylist> getStylistByOwner(String id){return getDataStore().findAllStylistsById(id);}
+
+
+    public List<Salon> getSalonsByOwner(String id){return getDataStore().findAllSalonsByOwner(id);}
+
+
+    public List<Reservation> getReservationByOrganizer(String id){return getDataStore().findAllReservationsById(id);}
+
+ /*   public List<Organizer> getOrganizerByOwner(String id){return getDataStore().findAllOrganizerByOwner(id);}*/
+
+
+
+    public List<Service> getServiceByOwner(String id){return getDataStore().findAllByServiceOwner(id);}
+
+    public List<Reservation> getReservationByOwner(String id){return getDataStore().findAllByReservationOwner(id);}
+
+    public List<Client> getClientByOwner(String id){return getDataStore().findAllClientByOwner(id);}
+
+    public Owner getOwnerIdByEmail(String email,String password){return getDataStore().findOwnerIdByEmail(email,password);}
+
+
+
+    public List<Salon> getSalons(){
+        return getDataStore().findAllSalons();
     }
-    public Location findLocationById(String id){
-        return dataStore.findSLocationById(id);
+
+    public List<Client> getClients(){
+        return getDataStore().findAllClients();
     }
-    public Owner findOwnerById(String id){
-        return dataStore.findOwnerById(id);
+
+    public List<Stylist> getStylists(){
+        return getDataStore().findAllStylists();
     }
-    public Reservation findReservationById(String id){
-        return dataStore.findReservationById(id);
+
+    public List<Reservation> getReservations() {return getDataStore().findAllReservations();}
+
+    public List<Service> getServices(){
+        return getDataStore().findAllServices();
     }
-    public Salon findSalonById(String id){
-        return dataStore.findSalonById(id);
+
+    public List<Location> getLocations() {
+        return getDataStore().findAllLocations();
     }
-    public Schedule findScheduleById(String id){
-        return dataStore.findScheduleById(id);
+    public Client getClientById(String id){
+        return getDataStore().findClientById(id);
     }
-    public Service findServiceById(String id){
-        return dataStore.findServiceById(id);
+
+    public boolean updateClient(Client client){
+        return getDataStore().updateClient(client);
     }
-    public Stylist findStylistById(String id){
-        return dataStore.findStylistById(id);
+
+    public Reservation getReservationById(String id){
+        return getDataStore().findReservationById(id);
     }
-    public User findUserById(String id){
-        return dataStore.findUserById(id);
+
+    public boolean updateReservation(Reservation reservation){
+        return getDataStore().updateReservation(reservation);
     }
-    public Skill findSkillById(String id1, String id2){
-        return dataStore.findSkillById(id1,id2);
+
+    public Salon getSalonById(String id){return getDataStore().findSalonById(id);}
+
+    public boolean updateSalon(Salon salon){return getDataStore().updateSalon(salon);}
+
+    public Owner getOwnerById(String id){return getDataStore().findOwnerById(id);}
+
+    public boolean updateOwner(Owner owner){return getDataStore().updateOwner(owner);}
+
+    public Stylist getStylistById(String id){return getDataStore().findStylistById(id);}
+
+    public boolean updateStylist(Stylist stylist){return getDataStore().updateStylist(stylist);}
+
+
+    public Service getServiceById(String id){return getDataStore().findServiceById(id);}
+    public boolean updateService(Service service){return getDataStore().updateService(service);}
+
+    public boolean addSalon(Salon salon){return getDataStore().addSalon(Salon); }
+
+    public boolean addOwner(Owner owner){return getDataStore().addOwner(owner);}
+
+    public boolean addClient(Client client){return getDataStore().addClient(client); }
+
+    public boolean addStylist(Stylist stylist){return getDataStore().addStylist(stylist);}
+
+    public boolean addReservation(Reservation reservation){return getDataStore().addReservation(reservation); }
+
+    public boolean addService(Service service){return getDataStore().addService(service);}
+
+    public boolean getOwnerByEmail(String email,String password){
+        return getDataStore().findOwnerByEmail(email,password);
     }
-    public boolean updateClient(String id, String name, String dni, String last, String email, String phone, User user) {
-        return dataStore.updateClient(id,dni,name,last,email,phone,user);
+
+    public boolean getClientByEmail(String email,String password){
+        return getDataStore().findClientByEmail(email,password);
     }
-    public boolean updateLocation(String id,String departament, String province, String dist, String address ){
-        return dataStore.updateLocation(id,departament,province,dist,address);
-    }
-    public boolean updateOwner(String id, String dni,String name, String last, String email, String phone, User user){
-        return dataStore.updateOwner(id,dni,name,last,email,phone,user);
-    }
-    public boolean updateReservation(String id, String reda,String refor, float price, String sta, String end, Client client, Schedule schedule){
-        return dataStore.updateReservation(id,reda,refor,price,sta,end,client,schedule);
-    }
-    public boolean updateSalon(String id, String name, String phone, String email, Owner owner, Location location){
-        return dataStore.updateSalon(id,name,phone,email,owner,location);
-    }
-    public boolean updateSchedule(String id, String sta, String end, float dis, Stylist stylist, Service service, Salon salon){
-        return dataStore.updateSchedule(id,sta,end,dis,stylist,service,salon);
-    }
-    public boolean updateService(String id, String name,float price, String descri){
-        return dataStore.updateService(id, name,price,descri);
-    }
-    public boolean updateStylist(String id, String dni, String name, String last, String email, String phone,User user){
-        return dataStore.updateStylist(id,dni,name,last,email,phone,user);
-    }
-    public boolean updateUser(String id, String user, String pass){
-        return dataStore.createUser(id,user,pass);
-    }
-    public boolean createClient(String id, String name, String dni, String last, String email, String phone, User user) {
-        return dataStore.createClient(id,dni,name,last,email,phone,user);
-    }
-    public boolean createLocation(String id,String departament, String province, String dist, String address ){
-        return dataStore.createLocation(id,departament,province,dist,address);
-    }
-    public boolean createOwner(String id, String dni,String name, String last, String email, String phone, User user){
-        return dataStore.createOwner(id,dni,name,last,email,phone,user);
-    }
-    public boolean createReservation(String id, String reda,String refor, float price, String sta, String end, Client client, Schedule schedule){
-        return dataStore.createReservation(id,reda,refor,price,sta,end,client,schedule);
-    }
-    public boolean createSalon(String id, String name, String phone, String email, Owner owner, Location location){
-        return dataStore.createSalon(id,name,phone,email,owner,location);
-    }
-    public boolean createSchedule(String id, String sta, String end, float dis, Stylist stylist, Service service, Salon salon){
-        return dataStore.createSchedule(id,sta,end,dis,stylist,service,salon);
-    }
-    public boolean createService(String id, String name,float price, String descri){
-        return dataStore.createService(id, name,price,descri);
-    }
-    public boolean createStylist(String id, String dni, String name, String last, String email, String phone,User user){
-        return dataStore.createStylist(id,dni,name,last,email,phone,user);
-    }
-    public boolean createUser(String id, String user, String pass){
-        return dataStore.createUser(id,user,pass);
-    }
-    public boolean eraseClient(String id){
-        return dataStore.eraseClient(id);
-    }
-    public boolean eraseLocation(String id){
-        return dataStore.eraseLocation(id);
-    }
-    public boolean eraseOwner(String id){
-        return dataStore.eraseOwner(id);
-    }
-    public boolean eraseReservation(String id){
-        return dataStore.eraseReservation(id);
-    }
-    public boolean eraseSalom(String id){
-        return dataStore.eraseSalon(id);
-    }
-    public boolean eraseSchedule(String id){
-        return dataStore.eraserSchedule(id);
-    }
-    public boolean eraseService(String id){
-        return dataStore.eraseService(id);
-    }
-    public boolean eraseStylist(String id){
-        return dataStore.eraseStylist(id);
-    }
-    public boolean eraseUser(String id){
-        return dataStore.eraseUser(id);
-    }
+
+    public List<Client> getClientsById(String id){return getDataStore().findAllByIdClients(id);}
+
+    public Client getClientIdByEmail(String email,String password){return getDataStore().findClientIdByEmail(email,password);}
+
+
+    public boolean deleteSalon(Salon salon){return getDataStore().deleteSalon(salon);}
+
+    public boolean deleteOwner(Owner owner){return getDataStore().deleteOwner(owner);}
+
+    public boolean deleteClient(Client client){return getDataStore().deleteClient(client);}
+
+    public boolean deleteStylist(Stylist stylist){ return getDataStore().deleteStylist(stylist);}
+
+    public boolean deleteReservation(Reservation reservation){return getDataStore().deleteReservation(reservation);}
+
+    public boolean deleteService(Service service){return getDataStore().deleteService(service);}
 
 }
