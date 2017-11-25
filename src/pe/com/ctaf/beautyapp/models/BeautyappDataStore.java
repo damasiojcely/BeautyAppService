@@ -164,9 +164,9 @@ public class BeautyappDataStore {
     }
 
 
-    public List<Stylist> findAllStylistById(String id){return getStylistsEntity().findAllId(id,getOwnersEntity());}
+    public List<Stylist> findAllStylistsById(String id){return getStylistsEntity().findAllId(id,getOwnersEntity());}
 
-    public List<Salon> findAllCourtsByOwner(String id){return getSalonsEntity().findAllId(id,getOwnersEntity(),getLocationsEntity());}
+    public List<Salon> findAllSalonsByOwner(String id){return getSalonsEntity().findAllId(id,getOwnersEntity(),getLocationsEntity());}
 
     public List<Reservation> findAllReservationsById(String id){return getReservationsEntity().findAllById(id,getClientsEntity(),
             getSalonsEntity(),getOwnersEntity(),getLocationsEntity());}
