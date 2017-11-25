@@ -69,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientsController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/ClientsController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-953">
@@ -77,6 +77,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StylistsController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/StylistsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-225">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/SkillAction.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/UserAction.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/actions/OwnerAction-validation.xml" />
         <option value="$PROJECT_DIR$/web/editOwner.jsp" />
@@ -166,6 +175,7 @@
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappService.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/models/BeautyappDataStore.java" />
         <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/ClientsController.java" />
+        <option value="$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/StylistsController.java" />
       </list>
     </option>
   </component>
@@ -266,17 +276,18 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LISETTE\Documents\GitHub\BeautyAppService\web\image" />
+      <recent name="C:\Users\LISETTE\Documents\GitHub\BeautyAppService\web" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pe.com.ctaf.beautyapp.controllers" />
+      <recent name="pe.com.ctaf.beautyapp.models" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\LISETTE\Documents\GitHub\BeautyAppService\web" />
       <recent name="C:\Users\LISETTE\Documents\GitHub\BeautyAppService\src\pe\com\ctaf\beautyapp\models" />
       <recent name="C:\Users\LISETTE\Downloads\BeautyAppService\BeautyAppService\src\pe\com\ctaf\beautyapp\models" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="pe.com.ctaf.beautyapp.models" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\LISETTE\Documents\GitHub\BeautyAppService\web\image" />
-      <recent name="C:\Users\LISETTE\Documents\GitHub\BeautyAppService\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -547,12 +558,12 @@
       <workItem from="1511413516810" duration="744000" />
       <workItem from="1511477485466" duration="8628000" />
       <workItem from="1511502687874" duration="5114000" />
-      <workItem from="1511566431666" duration="9297000" />
+      <workItem from="1511566431666" duration="9420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75603000" />
+    <option name="totallyTimeSpent" value="75726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -648,13 +659,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/createStylist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/createSalon.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1015,6 +1019,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pe/com/ctaf/beautyapp/controllers/StylistsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
