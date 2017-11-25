@@ -67,7 +67,7 @@
                     CLIENTES
                 </a>
 
-                <a href="listReservations2.jsp">
+                <a href="listReservation2.jsp">
                     <i class="glyphicon glyphicon-duplicate"></i>
                     RESERVAS
                 </a>

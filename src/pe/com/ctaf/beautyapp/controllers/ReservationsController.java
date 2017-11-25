@@ -19,7 +19,7 @@ public class ReservationsController extends HttpServlet {
     BeautyappService service = new BeautyappService();
 
     public static String RESERVATIONS_EDIT_URI = "/editReservation.jsp";
-    public static String RESERVATIONS_ADD_URI = "/createReservation.jsp";
+    public static String RESERVATIONS_ADD_URI = "/newReservation.jsp";
     public static String RESERVATIONS_INDEX_URI = "/listReservation.jsp";
     public static String RESERVATIONS_INDEX2_URI = "/listReservation2.jsp";
 

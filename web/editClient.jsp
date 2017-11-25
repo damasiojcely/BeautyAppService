@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Sadit
-  Date: 10/11/2017
-  Time: 22:17
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page import="pe.com.ctaf.beautyapp.models.Client" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
