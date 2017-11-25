@@ -1,5 +1,6 @@
 package pe.com.ctaf.beautyapp.models;
 import javax.naming.InitialContext;
+import javax.swing.plaf.synth.Region;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class BeautyappService {
     private Connection connection;
-    private BeautyappService datastore;
+    private BeautyappDataStore dataStore;
 
     public BeautyappService(InitialContext ctx) {
         try {
@@ -35,11 +36,11 @@ public class BeautyappService {
         return connection;
     }
 
-    private BeautyappService getDataStore() {
-        if(datastore == null) {
-            datastore = new BeautyappService(getConnection());
+    private BeautyappDataStore getDataStore() {
+        if(dataStore == null) {
+            dataStore = new BeautyappDataStore(getConnection());
         }
-        return datastore;
+        return dataStore;
     }
 
     public List<Owner> getOwners(){
@@ -124,7 +125,7 @@ public class BeautyappService {
     public Service getServiceById(String id){return getDataStore().findServiceById(id);}
     public boolean updateService(Service service){return getDataStore().updateService(service);}
 
-    public boolean addSalon(Salon salon){return getDataStore().addSalon(Salon); }
+    public boolean addSalon(Salon salon){return getDataStore().addSalon(salon); }
 
     public boolean addOwner(Owner owner){return getDataStore().addOwner(owner);}
 

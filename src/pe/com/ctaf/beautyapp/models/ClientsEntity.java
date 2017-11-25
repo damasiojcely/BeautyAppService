@@ -77,6 +77,25 @@ public class ClientsEntity extends BaseEntity {
         return findByCriteria(criteria).get(0);
 
     }
+
+    public List<Client> findClientByOwner(String criteria) {
+        String sql = " SELECT c.* from owner o , salon s , reservation r , client c where c.id=r.client_id and r.salon_id=s.id and s.owner_id=o.id and o.id="+"'"+criteria+"'" ;
+        List<Client> clients = new ArrayList<>();
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            if(resultSet == null) return null;
+            while(resultSet.next()) {
+                clients.add(Client.build(resultSet));
+            }
+            return clients;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public boolean add(Client client) {
         String sql = "INSERT INTO client (id,dni,first_name, last_name, email, password,phone) VALUES(" + client.getIdAsValue() + ", "+ client.getDniAsValue() + ", " + client.getFirstNameAsValue() + " ," + client.getLastNameAsValue() + ", " + client.getEmailAsValue() + ", " + client.getPasswordAsValue() +  ", " + client.getPhoneAsValue() + ")";
         return change(sql);
