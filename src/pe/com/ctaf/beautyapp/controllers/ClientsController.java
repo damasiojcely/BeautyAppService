@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import pe.com.ctaf.beautyapp.models.BeautyappService;
+import pe.com.ctaf.beautyapp.models.Client;
 
 @WebServlet(
         name ="ClientsController",
@@ -21,6 +22,8 @@ public class ClientsController extends  HttpServlet{
     public static String CLIENTS_EDIT_URI = "/editClient.jsp";
     public static String CLIENTS_ADD_URI = "/newClient.jsp";
     public static String CLIENTS_INDEX_URI = "/listClient.jsp";
+
+
 
     public ClientsController(){
 
@@ -40,7 +43,6 @@ public class ClientsController extends  HttpServlet{
                     var5 = 1;
                 }
         }
-
         Client client;
         String message;
         RequestDispatcher dispatcher;
@@ -66,7 +68,8 @@ public class ClientsController extends  HttpServlet{
                 client.setEmail(request.getParameter("email"));
                 client.setPassword(request.getParameter("password"));
                 client.setPhone(request.getParameter("phone"));
-                message = this.service.addOwner(owner) ? "Add success" : "Error while updating";
+
+                message = this.service.addClient(client) ? "Add success" : "Error while updating";
                 this.log(message);
                 dispatcher = request.getRequestDispatcher("login.jsp");
                 dispatcher.forward(request, response);
@@ -92,17 +95,19 @@ public class ClientsController extends  HttpServlet{
         String actionUri;
         switch(var6) {
             case 0:
-                actionUri = OWNERS_ADD_URI;
+                actionUri = CLIENTS_ADD_URI;
                 request.setAttribute("action", "add");
                 break;
             case 1:
-                Owner owner = this.service.getOwnerById(request.getParameter("id"));
-                request.setAttribute("owner", owner);
+
+                Client client = this.service.getClientById(request.getParameter("id"));
+
+                request.setAttribute("client",client );
                 request.setAttribute("action", "edit");
-                actionUri = OWNERS_EDIT_URI;
+                actionUri = CLIENTS_EDIT_URI;
                 break;
             default:
-                actionUri = OWNERS_INDEX_URI;
+                actionUri = CLIENTS_INDEX_URI;
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(actionUri);
