@@ -11,7 +11,7 @@
         </action>
         <action name="client" class="pe.com.ctaf.beautyapp.actions.ClientAction">
             <result name="success">listClient.jsp</result>
-            <result name="input">createClient.jsp</result>
+            <result name="input">Form_Client.jsp</result>
         </action>
         <action name="listlocation" class="pe.com.ctaf.beautyapp.actions.LocationAction">
               <result name="success">listLocation.jsp</result>
@@ -28,7 +28,7 @@
             <result name="success">listOwner.jsp</result>
         </action>
         <action name="createowner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
-            <result name="input">createOwner.jsp</result>
+            <result name="input">newOwner.jsp</result>
             <result name="success">listOwner.jsp</result>
         </action>
         <action name="editowner" class="pe.com.ctaf.beautyapp.actions.OwnerAction">
@@ -48,7 +48,7 @@
         </action>
         <action name="salon" class="pe.com.ctaf.beautyapp.actions.SalonAction">
             <result name="success">listSalon.jsp</result>
-            <result name="input">createClient.jsp</result>
+            <result name="input">Form_Client.jsp</result>
         </action>
         <action name="listschedule" class="pe.com.ctaf.beautyapp.actions.ScheduleAction">
             <result name="success">listSchedule.jsp</result>

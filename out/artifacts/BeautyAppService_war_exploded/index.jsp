@@ -94,11 +94,14 @@
     <div class="col-sm-1">
     </div>
     <div class="col-sm-5 img-responsive">
-      <span><img src="image/eslogan.png" class="img-responsive img-rounded" WIDTH="400" HEIGHT="400"></span>
+      <span><center><img src="image/eslogan.png" class="img-responsive img-rounded" WIDTH="300" HEIGHT="300"></center></span>
     </div>
   </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
 <!--->
 
 <!--/footer-->

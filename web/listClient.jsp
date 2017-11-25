@@ -17,7 +17,7 @@
 
 
 <jsp:include page="menuClient.jsp"/>
-<jsp:useBean id="service" class="pe.com.ctaf.beautyapp.models.services.BeautyappService"/>
+<jsp:useBean id="service" class="pe.com.ctaf.beautyapp.models.BeautyappService"/>
 <%String ide=(String)request.getSession().getAttribute("uorganizer");%>
 
 <c:forEach var="organizer" items="<%=service.getClientById(ide)%>">

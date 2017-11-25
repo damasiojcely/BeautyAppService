@@ -38,8 +38,8 @@
             <li><a href="#"class="glyphicon glyphicon-user" data-toggle="dropdown"> REGISTRARSE </a>
 
                 <ul class="dropdown-menu" role="menu">
-                    <li><a role="menuitem" tabindex="-1" href="createOwner.jsp">Due&ntilde;o</a></li>
-                    <li><a role="menuitem" tabindex="-1" href="createClient.jsp">Cliente</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="newOwner.jsp">Due&ntilde;o</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="Form_Client.jsp">Cliente</a></li>
                 </ul>
             </li>
             <li><a href="login.jsp" class="glyphicon glyphicon-log-in" >INGRESAR</a></li>
@@ -79,7 +79,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <label class="control-label">Si aun no tienes cuenta, Registrate <a href="createUser.jsp">AQUI</a></label>
+                <label class="control-label">Si aun no tienes cuenta, Registrate en nuestra plataforma</label>
             </div>
         </div>
     </form>

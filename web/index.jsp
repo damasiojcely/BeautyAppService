@@ -94,11 +94,14 @@
     <div class="col-sm-1">
     </div>
     <div class="col-sm-5 img-responsive">
-      <span><img src="image/eslogan.png" class="img-responsive img-rounded" WIDTH="400" HEIGHT="400"></span>
+      <span><center><img src="image/eslogan.png" class="img-responsive img-rounded" WIDTH="300" HEIGHT="300"></center></span>
     </div>
   </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
 <!--->
 
 <!--/footer-->
@@ -110,7 +113,6 @@
         <h2 class="logo"><a href="#"> CTAF | BeautyApp </a></h2>
       </div>
       <div class="col-sm-2">
-        <h5> Funciones </h5>
         <ul>
           <li><a href="index.jsp">Home</a></li>
           <li><a href="login.jsp">Sign in</a></li>
@@ -120,8 +122,8 @@
         <h5>Que hacemos?</h5>
         <ul>
           <li><a href="">Especialidades</a></li>
-          <li><a href="createClient.jsp">Registro Cliente</a></li>
-          <li><a href="createOwner.jsp">Registro Dueño</a></li>
+          <li><a href="Form_Client.jsp">Registro Cliente</a></li>
+          <li><a href="newOwner.jsp">Registro Dueño</a></li>
         </ul>
       </div>
       <div class="col-sm-2">

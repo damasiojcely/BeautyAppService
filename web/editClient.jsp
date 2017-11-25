@@ -17,7 +17,7 @@
 <jsp:include page="menuClient.jsp"/>
 
     <h2> Editar perfil</h2>
-    <jsp:useBean id="service" class="pe.com.ctaf.beautyapp.services.BeautyappService"/>
+    <jsp:useBean id="service" class="pe.com.ctaf.beautyapp.models.BeautyappService"/>
 <form action="clients" method="post" class="form-horizontal">
     <div class="form-group">
         <label class="control-label col-sm-4" > ID : </label>

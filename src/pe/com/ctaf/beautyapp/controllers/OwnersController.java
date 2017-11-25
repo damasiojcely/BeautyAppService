@@ -18,7 +18,7 @@ public class OwnersController extends HttpServlet{
 
     public static String OWNERS_EDIT_URI = "/editOwner.jsp";
     public static String OWNERS_ADD_URI = "/newOwner.jsp";
-    public static String OWNERS_INDEX_URI = "/listOwners.jsp";
+    public static String OWNERS_INDEX_URI = "/listOwner.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         String action = request.getParameter("action");
