@@ -21,9 +21,10 @@ public class SalonsController extends HttpServlet {
     public static String SALONS_EDIT_URI = "/editSalon.jsp";
     public static String SALONS_ADD_URI = "/newSalon.jsp";
     public static String SALONS_INDEX_URI = "/listSalon.jsp";
+    public static String SALONS_INDEX2_URI = "/listSalon2.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idowner=(String)request.getSession().getAttribute("owner");
+        String idowner=(String)request.getSession().getAttribute("uowner");
         String action=request.getParameter("action");
         switch (action){
             case "update": {
@@ -47,8 +48,8 @@ public class SalonsController extends HttpServlet {
                 salon.setName(request.getParameter("name"));
                 salon.setPhone(request.getParameter("phone"));
                 salon.setEmail(request.getParameter("email"));
-                salon.setOwner(owner.setId(request.getParameter("ownerid")));
-                salon.setLocation(location.setId(request.getParameter("locationid")));
+                salon.setOwner(owner.setId(request.getParameter("owner_id")));
+                salon.setLocation(location.setId(request.getParameter("location_id")));
                 String message = service.addSalon(salon) ?
                         "Update success" :
                         "Error while updating";
@@ -66,14 +67,14 @@ public class SalonsController extends HttpServlet {
 
         }
         if(idowner!=null){
+            RequestDispatcher dispatcher = request.getRequestDispatcher(SALONS_INDEX2_URI);
+            dispatcher.forward(request,response);
+        }
+
+        else {
             RequestDispatcher dispatcher = request.getRequestDispatcher(SALONS_INDEX_URI);
             dispatcher.forward(request,response);
         }
-        //NO HAY OTRO LIST
-        //else {
-          //  RequestDispatcher dispatcher = request.getRequestDispatcher(COURTS_INDEX_URI);
-            //dispatcher.forward(request,response);
-        //}
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -9,7 +9,7 @@ public class OwnerAction extends ActionSupport{
  private String lastname;
  private String email;
  private String phone;
- private String userid;
+
 
     public String getId() {
         return id;
@@ -59,13 +59,7 @@ public class OwnerAction extends ActionSupport{
         this.phone = phone;
     }
 
-    public String getUserid() {
-        return userid;
-    }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
 
     public String execute() {
         return SUCCESS;

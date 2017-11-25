@@ -21,15 +21,16 @@ public class ReservationsController extends HttpServlet {
     public static String RESERVATIONS_EDIT_URI = "/editReservation.jsp";
     public static String RESERVATIONS_ADD_URI = "/createReservation.jsp";
     public static String RESERVATIONS_INDEX_URI = "/listReservation.jsp";
+    public static String RESERVATIONS_INDEX2_URI = "/listReservation2.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ides=(String)request.getSession().getAttribute("client");
+        String ides=(String)request.getSession().getAttribute("uowner");
         String action = request.getParameter("action");
         switch (action){
             case "update": {
                 Reservation reservation = service.getReservationById(request.getParameter("id"));
-                reservation.setReserdate(Date.valueOf(request.getParameter("reserdate")));
-                reservation.setResertime(Date.valueOf(request.getParameter("resertime")));
+                reservation.setReserdate(Date.valueOf(request.getParameter("reser_date")));
+                reservation.setResertime(Date.valueOf(request.getParameter("reser_time")));
                 reservation.setPrice(Float.parseFloat(request.getParameter("price")));
                 String message = service.updateReservation(reservation)?
                         "Update sucess" :
@@ -42,11 +43,11 @@ public class ReservationsController extends HttpServlet {
                 Client client = new Client();
                 Salon salon = new Salon();
                 reservation.setId(Integer.parseInt(request.getParameter("id")));
-                reservation.setReserdate(Date.valueOf(request.getParameter("reserdate")));
-                reservation.setResertime(Date.valueOf(request.getParameter("resertime")));
+                reservation.setReserdate(Date.valueOf(request.getParameter("reser_date")));
+                reservation.setResertime(Date.valueOf(request.getParameter("reser_time")));
                 reservation.setPrice(Float.parseFloat(request.getParameter("price")));
-                reservation.setClient(client.setId(request.getParameter("clientid")));
-                reservation.setSalon(salon.setId(request.getParameter("salonid")));
+                reservation.setClient(client.setId(request.getParameter("client_id")));
+                reservation.setSalon(salon.setId(request.getParameter("salon_id")));
                 String message = service.addReservation(reservation)?
                         "Update sucess" :
                         "Error while updating";
@@ -63,20 +64,24 @@ public class ReservationsController extends HttpServlet {
             }
         }
         if(ides!=null){
+            RequestDispatcher dispatcher=request.getRequestDispatcher(RESERVATIONS_INDEX2_URI);
+            dispatcher.forward(request,response);
+        }
+        else {
             RequestDispatcher dispatcher=request.getRequestDispatcher(RESERVATIONS_INDEX_URI);
             dispatcher.forward(request,response);
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idor=(String)request.getSession().getAttribute("owner");
+        String idcli=(String)request.getSession().getAttribute("uclient");
         String action = request.getParameter("action");
         String actionUri;
         switch (action){
 
             case "add": {
-                Salon salon = service.getSalonById(request.getParameter("salonid"));
-                Client client = service.getClientById(idor);
+                Salon salon = service.getSalonById(request.getParameter("ids"));
+                Client client = service.getClientById(idcli);
                 request.setAttribute("client",client);
                 request.setAttribute("salon",salon);
                 request.setAttribute("action","add");

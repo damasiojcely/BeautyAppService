@@ -13,7 +13,7 @@ import pe.com.ctaf.beautyapp.models.Client;
 
 @WebServlet(
         name ="ClientsController",
-        urlPatterns={"/client"}
+        urlPatterns={"/clients"}
 
 )
 public class ClientsController extends  HttpServlet{

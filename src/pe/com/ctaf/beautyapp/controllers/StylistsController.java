@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @WebServlet(
         name = "StylistsController",
-        urlPatterns = {"/stylist"}
+        urlPatterns = {"/stylists"}
 )
 
 public class StylistsController extends  HttpServlet{
