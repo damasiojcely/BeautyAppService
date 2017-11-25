@@ -20,7 +20,7 @@ public class ServicesController extends HttpServlet{
 
     public static String SERVICES_EDIT_URI = "/editService.jsp";
     public static String SERVICES_ADD_URI = "/newService.jsp";
-    public static String SERVICES_INDEX_URI = "/listServices.jsp";
+    public static String SERVICES_INDEX_URI = "/listService.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
