@@ -38,8 +38,8 @@
             <li><a href="#"class="glyphicon glyphicon-user" data-toggle="dropdown"> REGISTRARSE </a>
 
                 <ul class="dropdown-menu" role="menu">
-                    <li><a role="menuitem" tabindex="-1" href="createOwner.jsp">Due&ntilde;o</a></li>
-                    <li><a role="menuitem" tabindex="-1" href="createClient.jsp">Cliente</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="newOwner.jsp">Due&ntilde;o</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="Form_Client.jsp">Cliente</a></li>
                 </ul>
             </li>
             <li><a href="login.jsp" class="glyphicon glyphicon-log-in" >INGRESAR</a></li>
@@ -53,16 +53,11 @@
 <center><div class="container" style="width:450px; height: 434px ">
     <h2>Log in</h2><br>
     <form class="form-horizontal" action="login" method="post">
+
         <div class="form-group">
-            <label class="control-label col-sm-2" for="id">Id:</label>
+            <label class="control-label col-sm-2" for="email">Email:</label>
             <div class="col-sm-10">
-                <input type="id" class="form-control" id="id" placeholder="Enter id" name="id">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="username">Email:</label>
-            <div class="col-sm-10">
-                <input type="username" class="form-control" id="username" placeholder="Enter username" name="email">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
             </div>
         </div>
         <div class="form-group">
@@ -79,7 +74,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <label class="control-label">Si aun no tienes cuenta, Registrate <a href="createUser.jsp">AQUI</a></label>
+                <label class="control-label">Si aun no tienes cuenta, Registrate en nuestra plataforma</label>
             </div>
         </div>
     </form>

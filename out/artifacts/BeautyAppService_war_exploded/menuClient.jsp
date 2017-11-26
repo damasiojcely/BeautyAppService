@@ -64,7 +64,7 @@
                     <i class="glyphicon glyphicon-briefcase"></i>
                     BUSCAR SALONES DE BELLEZA
                 </a>
-                <a href="listReservations.jsp">
+                <a href="listReservation.jsp">
                     <i class="glyphicon glyphicon-duplicate"></i>
                     MIS RESERVACIONES
                 </a>

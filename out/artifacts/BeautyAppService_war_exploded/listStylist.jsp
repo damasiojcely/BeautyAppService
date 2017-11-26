@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>OWNER</title>
+    <title>DUEÑO</title>
 </head>
 <body>
 
@@ -19,9 +19,9 @@
 
 <div class="row">
 
-    <jsp:useBean id="service" class="pe.com.ctaf.beautyapp.services.BeautyappService"/>
+    <jsp:useBean id="service" class="pe.com.ctaf.beautyapp.models.BeautyappService"/>
         <%String ide=(String)request.getSession().getAttribute("uorganizer");%>
-    <c:forEach var="stylist" items="<%=service.getStylistByClient(ide)%>">
+    <c:forEach var="stylist" items="<%=service.getStylistByOwner(ide)%>">
     <div class="col-md-6">
 
         <div class="media">
@@ -33,29 +33,9 @@
                 <p>LAST NAME : ${stylist.lastName} </p>
                 <p> EMAIL : ${stylist.email} </p>
                 <p> PHONE  :  ${stylist.phone} </p>
+                <p> DNI  :  ${stylist.dni} </p>
                 <P><button type="button" class="btn btn-default"><a href="stylists?action=edit&id=<c:out value="$stylist.id}"/>">Edit</a></button>
-                        <%--<p><button type="button" class="btn btn-default" formaction="participants" formmethod="post" value="delete" name="action">
-                        <input type="hidden" name="id" value="${participant.id}">
-                    </button>
-                     &lt;%&ndash;   <form method="post" action="participants">
-                            <input type="hidden" name="id" value="${participant.id}">
-                            <input type="submit"  value="delete" name="action"/>
-                        </form>&ndash;%&gt;
-                        </P>--%>
 
-
-                        <%--  <tr><td><c:out value="${participant.id}"/></td>
-                              <td><c:out value="${participant.firstName}"/></td>
-                              <td><c:out value="${participant.lastName}"/></td>
-                              <td><c:out value="${participant.email}"/></td>
-                              <td><c:out value="${participant.position}"/></td>
-
-                              <td><a href="participants?action=edit&id=<c:out value="${participant.id}"/>">Edit</a></td>
-                              <td><form method="post" action="participants">
-                                  <input type="hidden" name="id" value="${participant.id}">
-                                  <input type="submit" value="delete" name="action"/>
-                              </form></td>
-                          </tr>--%>
 
             </div>
         </div>

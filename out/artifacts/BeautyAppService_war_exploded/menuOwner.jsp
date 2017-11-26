@@ -67,7 +67,7 @@
                     CLIENTES
                 </a>
 
-                <a href="listReservations2.jsp">
+                <a href="listReservation2.jsp">
                     <i class="glyphicon glyphicon-duplicate"></i>
                     RESERVAS
                 </a>
@@ -88,7 +88,7 @@
                     SERVICIOS
                 </a>
                 <ul class="collapse list-unstyled" id="pageservice">
-                    <li><a href="listServices.jsp">LISTAR </a></li>
+                    <li><a href="listService.jsp">LISTAR </a></li>
                     <li><a href="newService.jsp">AGREGAR</a></li>
                 </ul>
             </li>

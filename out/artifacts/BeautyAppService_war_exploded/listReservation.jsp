@@ -1,29 +1,43 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Cristian
-  Date: 11/11/2017
-  Time: 8:28
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="pe.com.ctaf.beautyapp.models.Client" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-    <title>Title</title>
+
+
+    <title> CLIENTE </title>
+
 </head>
 <body>
 
-<table class="table table-bordered table-hover">
-    <thead>
+<jsp:include page="menuClient.jsp"/>
+
+<table class="table table-hover">
     <tr>
-        <th>Reservaciones</th>
+        <th> ID </th>
+        <th> FECHA </th>
+        <th> RESERVATION TIME </th>
+        <th> TOTAL </th>
+        <%--   <th>Delete</th>--%>
     </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td></td>
-    </tr>
-    </tbody>
+
+    <jsp:useBean id="servi" class="pe.com.ctaf.beautyapp.models.BeautyappService"/>
+    <%String ie=(String)request.getSession().getAttribute("uowner");%>
+    <c:forEach var="reservation" items="<%=servi.getReservationByOwner(ie)%>">
+        <tr><td><c:out value="${reservation.id}"/></td>
+            <td><c:out value="${reservation.reserdate}"/></td>
+            <td><c:out value="${reservation.resertime}"/></td>
+            <td> <c:out value="${reservation.price}"/></td>
+        </tr>
+    </c:forEach>
 </table>
+
+    </div>
+</div>
+
+
 
 </body>
 </html>

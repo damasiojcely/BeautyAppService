@@ -5,7 +5,7 @@
   Time: 23:27
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="pe.com.ctaf.beautyapp.models.Client" %>
+<%@ page import="pe.com.ctaf.beautyapp.models.Owner" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

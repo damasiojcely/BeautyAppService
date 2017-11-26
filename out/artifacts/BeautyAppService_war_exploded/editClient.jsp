@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Sadit
-  Date: 10/11/2017
-  Time: 22:17
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page import="pe.com.ctaf.beautyapp.models.Client" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -17,7 +11,7 @@
 <jsp:include page="menuClient.jsp"/>
 
     <h2> Editar perfil</h2>
-    <jsp:useBean id="service" class="pe.com.ctaf.beautyapp.services.BeautyappService"/>
+    <jsp:useBean id="service" class="pe.com.ctaf.beautyapp.models.BeautyappService"/>
 <form action="clients" method="post" class="form-horizontal">
     <div class="form-group">
         <label class="control-label col-sm-4" > ID : </label>

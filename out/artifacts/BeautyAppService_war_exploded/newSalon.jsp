@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Edit Court</title>
+    <title>Add Court</title>
 </head>
 <body>
-<jsp:include page="Form_Salon.jsp"/>
+  <jsp:include page="Form_Salon.jsp"/>
 </body>
 </html>
